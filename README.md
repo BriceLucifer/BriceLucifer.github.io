@@ -1,2 +1,2 @@
 # BriceLucifer.github.io
-https://bricelucifer.gitlife/
+http://bricelucifer.github.io/
