@@ -1,38 +1,35 @@
 ---
-title: Hello World
+title: Introduction✨
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+<img src="../images/c-original.svg" width="50" height="50">
+<img src="../images/c-plusplus.svg" width="50" height="50">
+<img src="../images/python.svg" width="50" height="50">
+<img src="../images/go.svg" width="50" height="50">
+<img src="../images/rust.svg" width="50" height="50">
+<img src="../images/flutter.svg" width="50" height="50">
+<img src="../images/js.svg" width="50" height="50">
+<img src="../images/typescript-icon.svg" width="50" height="50">
 
-### Create a new post
+**Welcome to my Blogger,It is a place where I post lots of stuff for computer science and electronic engineer. Enjoy the fun of learning all kinds of stuff.**
 
-``` bash
-$ hexo new "My New Post"
-```
+## Personal Status
+- 😁Interested in full stack. Recent focus on system porgramming
+- 🧑‍💻Currently learning Rust, Go, C/C++, Python, Assembly, Compiler Theory, Computor Architecture...
+- 📚Love reading book. Intersted in History and Science.
+- ⌨️Enjoy Open Source collaboration
+- 🔗Write personal blog on this website.
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+## Social media
+- <img src="../images/github-desktop.svg" width="20" height="20"> *Github: https://github.com/BriceLucifer*
+- <img src="../images/x-icon.svg" width="20" height="20"> *X: https://x.com/Bricelucifer*
 
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+## Tools
+<img src="../images/vim-original.svg" width="50" height="50"/>
+<img src="../images/apps-neovim.svg" width="50" height="50"/> 
+<img src="../images/file-type-vscode.svg" width="50" height="50"> 
+<img src="../images/visual-studio.svg" width="50" height="50"> 
+<img src="../images/jetbrains.svg" width="50" height="50"> 
+<img src="../images/linux.svg" width="50" height="50"> 
+<img src="../images/gnu.svg"  width="50" height="50"> 
+<img src="../images/llvm.svg" width="50" height="50">
