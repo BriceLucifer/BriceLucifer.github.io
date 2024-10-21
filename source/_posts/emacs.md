@@ -8,6 +8,8 @@ title: Emacs 修炼手册✨(Master Emacs)
 
 C -> `ctrl`
 M -> `meta/alt` 少部分是`esc`
+
+### 编辑快捷键
 > - C-n   **nextline**
 > - C-p   **previous line**
 > - C-f   **forword**
@@ -19,12 +21,29 @@ M -> `meta/alt` 少部分是`esc`
 > - M->   **去往编辑结束的位置**
 > - C-v   **向下翻一屏**
 > - M-v   **向上翻一屏**
+> - C-SPC **设置标记 逐字符标记**
+> - M-SPC **设计标记 逐单词标记**
+> - C-w   **kill 选中内容**
+> - M-w   **复制选中内容**
+> - C-y    **粘贴最近一次杀死的内容**
+> - C-d    **删除一个字符**
+> - M-d    **删除一个单词**
+
+### 文件快捷键
+> - C-x C-f **打开文件**
+> - C-x C-s **保存文件**
+> - C-x C-w **另存为**
+
 
 ### 必备helper
 
-C-h 		  **help tutorial**
-C-h k 	       **help Keybind**
-C-h f 		**help function**
+> - C-h 		  **help tutorial**
+> - C-h k 	       **help Keybind**
+> - C-h f 		**help function**
+
+### elisp快捷键
+
+> - C-x C-e            **求值快捷键在buffer中**
 
 ### 给外观做点改变
 
