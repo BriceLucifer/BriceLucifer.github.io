@@ -2,34 +2,23 @@
 title: Emacs 修炼手册✨(Master Emacs)
 ---
 
-[toc]
+
 
 ## 快捷键
 
 C -> `ctrl`
 M -> `meta/alt` 少部分是`esc`
-C - n
-    **nextline**
-C-p
-    **previous line**
-C-f
-    **forword**
-C-b
-    **backforword**
-C-k
-    **kill (从光标位置到末尾全部删除)**
-C-a
-    **a (a是字母表的开始) start of line**
-C-e
-    **end of line**
-M-< 
-    **去往编辑最开始的位置**
-M-> 
-    **去往编辑结束的位置**
-C-v
-    **向下翻一屏**
-M-v
-    **向上翻一屏**
+> - C-n   **nextline**
+> - C-p   **previous line**
+> - C-f   **forword**
+> - C-b   **backforword**
+> - C-k   **kill (从光标位置到末尾全部删除)**
+> - C-a   **a (a是字母表的开始) start of line**
+> - C-e   **end of line**
+> - M-<   **去往编辑最开始的位置**
+> - M->   **去往编辑结束的位置**
+> - C-v   **向下翻一屏**
+> - M-v   **向上翻一屏**
 
 ### 必备helper
 
