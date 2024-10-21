@@ -1,23 +1,33 @@
 ---
-title: Emacs 修炼手册✨
+title: Emacs 修炼手册✨(Master Emacs)
 ---
-
 
 ## 快捷键
 
-C -> ctrl
-M -> meta/alt 少部分是esc
-C-n **nextline**
-C-p **previous line**
-C-f **forword**
-C-b **backforword**
-C-k **kill (从光标位置到末尾全部删除)**
-C-a **a (a是字母表的开始) start of line**
-C-e **end of line**
-M-< **去往编辑最开始的位置**
-M-> **去往编辑结束的位置**
-C-v **向下翻一屏**
-M-v **向上翻一屏**
+C -> `ctrl`
+M -> `meta/alt` 少部分是`esc`
+C-n
+    **nextline**
+C-p
+    **previous line**
+C-f
+    **forword**
+C-b
+    **backforword**
+C-k
+    **kill (从光标位置到末尾全部删除)**
+C-a
+    **a (a是字母表的开始) start of line**
+C-e
+    **end of line**
+M-<  
+    **去往编辑最开始的位置**
+M->  
+    **去往编辑结束的位置**
+C-v
+    **向下翻一屏**
+M-v
+    **向上翻一屏**
 
 ### 必备helper
 
@@ -89,7 +99,7 @@ C-h f **help function**
 (unless package-archive-contents
     (package-refresh-contents))
 
-;; 第一个扩展插件：use-package，用来批量统一管理软件包
+;; 第一个扩展插件:`use-package`,用来批量统一管理软件包
 (unless (package-installed-p 'use-package)
     (package-refresh-contents)
     (package-install 'use-package))
@@ -109,7 +119,7 @@ C-h f **help function**
 ```elisp
 (use-package SOME-PACKAGE-NAME
              :ensure t ; 是否一定要确保已安装
-             :defer t ; 是否要延迟加载，很多时候可以加速Emacs的启动速度
+             :defer t ; 是否要延迟加载,很多时候可以加速Emacs的启动速度
              :init (setq ...) ; 初始化配置
              :config (...) ; 初始化后的基本配置参数
              :bind (...) ; 快捷按键绑定
@@ -138,6 +148,8 @@ C-h f **help function**
 
 好看的*gruvbox-theme*
 顺便配置一个好看的*Mode-line*
+
+> 需要提前下载好 所以需要M-x package-install gruvbox
 
 ```elisp
 (use-package smart-mode-line
