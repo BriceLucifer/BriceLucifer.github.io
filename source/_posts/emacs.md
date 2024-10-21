@@ -159,3 +159,48 @@ C-h f **help function**
   (sml/setup))
 
 ```
+
+```elisp
+;; my config ~/.emacs
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+;; close startup menu 
+(setq inhibit-startup-screen t)
+;; set up mirror for plugins
+(setq package-archives
+     '( 
+        ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+        ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+        ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/") 
+     )
+)
+
+;; refresh mirrors
+;;个别时候会出现签名检验失败
+(setq package-check-signature nil) 
+
+;; 初始化软件包管理器
+(require 'package)
+(unless (bound-and-true-p package--initialized)
+    (package-initialize))
+
+;; 刷新软件源索引
+(unless package-archive-contents
+    (package-refresh-contents))
+
+;; 第一个扩展插件:use-package,用来批量统一管理软件包
+(unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+(setq use-package-always-ensure t
+      use-package-always-defer t
+      use-package-enable-imenu-support t
+      use-package-expand-minimally t)
+
+(use-package restart-emacs)
+(use-package gruvbox-theme
+   :init (load-theme 'gruvbox-dark-soft t))
+
+```
