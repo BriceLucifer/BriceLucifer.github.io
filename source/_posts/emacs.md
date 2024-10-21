@@ -2,11 +2,13 @@
 title: Emacs 修炼手册✨(Master Emacs)
 ---
 
+[toc]
+
 ## 快捷键
 
 C -> `ctrl`
 M -> `meta/alt` 少部分是`esc`
-C-n
+C - n
     **nextline**
 C-p
     **previous line**
@@ -20,9 +22,9 @@ C-a
     **a (a是字母表的开始) start of line**
 C-e
     **end of line**
-M-<  
+M-< 
     **去往编辑最开始的位置**
-M->  
+M-> 
     **去往编辑结束的位置**
 C-v
     **向下翻一屏**
@@ -31,9 +33,9 @@ M-v
 
 ### 必备helper
 
-C-h **help tutorial**
-C-h k **help Keybind**
-C-h f **help function**
+C-h 		  **help tutorial**
+C-h k 	       **help Keybind**
+C-h f 		**help function**
 
 ### 给外观做点改变
 
@@ -44,7 +46,7 @@ C-h f **help function**
 
 - 文件配置 ~/.emacs
 
-```elisp
+```lisp
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -66,7 +68,7 @@ C-h f **help function**
 
 ### 第一行配置代码
 
-```elisp
+```lisp
 (setq inhibit-startup-screen t)
 ```
 
@@ -74,19 +76,18 @@ C-h f **help function**
 
 - 网路问题需要配置
 
-```elisp
+```lisp
 (setq package-archives
       '( ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
         ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
         ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/") 
         )
 )
-
 ```
 
 ### 安装第一个扩展
 
-```elisp
+```lisp
 ;;个别时候会出现签名检验失败
 (setq package-check-signature nil) 
 
@@ -110,13 +111,13 @@ C-h f **help function**
 
 - 最简洁的形式
 
-```elisp
+```lisp
 (use-package restart-emacs)
 ```
 
 - 常用配置
 
-```elisp
+```lisp
 (use-package SOME-PACKAGE-NAME
              :ensure t ; 是否一定要确保已安装
              :defer t ; 是否要延迟加载,很多时候可以加速Emacs的启动速度
@@ -129,7 +130,7 @@ C-h f **help function**
 
 - 建议添加的配置
 
-```elisp
+```lisp
 ;; `use-package-always-ensure' 避免每个软件包都需要加 ":ensure t" 
 ;; `use-package-always-defer' 避免每个软件包都需要加 ":defer t" 
 (setq use-package-always-ensure t
@@ -141,7 +142,7 @@ C-h f **help function**
 
 #### 配置主题
 
-```elisp
+```lisp
 (use-package gruvbox-theme
              :init (load-theme 'gruvbox-dark-soft t))
 ```
@@ -151,16 +152,17 @@ C-h f **help function**
 
 > 需要提前下载好 所以需要M-x package-install gruvbox
 
-```elisp
+```lisp
 (use-package smart-mode-line
   :init
   (setq sml/no-confirm-load-theme t
         sml/theme 'respectful)
   (sml/setup))
-
 ```
 
-```elisp
+## 总结我的基础配置101
+
+```lisp
 ;; my config ~/.emacs
 
 (menu-bar-mode -1)
@@ -202,5 +204,4 @@ C-h f **help function**
 (use-package restart-emacs)
 (use-package gruvbox-theme
    :init (load-theme 'gruvbox-dark-soft t))
-
 ```
