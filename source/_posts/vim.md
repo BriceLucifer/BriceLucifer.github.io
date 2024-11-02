@@ -1,6 +1,7 @@
 ---
 title: Vim Notes✨ 关于一个小白vimer的积累~
 catagories: Vim
+toc: true
 tags:
 - Tool
 ---

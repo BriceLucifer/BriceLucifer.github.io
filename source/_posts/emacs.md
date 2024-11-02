@@ -1,6 +1,7 @@
 ---
 title: Emacs 修炼手册✨(Master Emacs)
 catagories: Emacs
+toc: true
 tags:
 - Tool
 ---
