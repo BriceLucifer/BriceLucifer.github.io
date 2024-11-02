@@ -1,8 +1,11 @@
 ---
 title: Emacs 修炼手册✨(Master Emacs)
+catagories: Emacs
+tags:
+- Tool
 ---
 
-
+<img src="../images/emacs_icon.svg"  width="50" height="50"> 
 
 ## 快捷键
 
