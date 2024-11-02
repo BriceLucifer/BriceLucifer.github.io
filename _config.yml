@@ -62,3 +62,7 @@ Plugins: https://hexo.io/plugins/
 theme: icarus
 deploy:
   type: git
+feed:
+  type: atom
+  path: atom.xml
+  limit: false 

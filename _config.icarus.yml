@@ -100,7 +100,7 @@ head:
         # E.g., name=theme-color;content=#123456 => <meta name="theme-color" content="#123456">
         - ''
     # URL or path to the website's RSS atom.xml
-    rss: 
+    rss: /atom.xml
 # Page top navigation bar configurations
 navbar:
     # Navigation menu items
@@ -257,9 +257,9 @@ widgets:
             # Dribbble:
             #     icon: fab fa-dribbble
             #     url: https://dribbble.com
-            # RSS:
-            #     icon: fas fa-rss
-            #     url: /
+            RSS:
+                icon: fas fa-rss
+                url: http://bricelucifer.github.io/atom.xml
     # Table of contents widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
