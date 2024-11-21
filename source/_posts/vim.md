@@ -1,9 +1,10 @@
 ---
 title: Vim Notes✨ 关于一个小白vimer的积累~
-catagories: Vim
+categories: 
+- Editor
 toc: true
 tags:
-- Tool
+- Vim/Neovim
 ---
 <img src="../images/vim-original.svg" width="50" height="50"/>
 <img src="../images/apps-neovim.svg" width="50" height="50"/> 

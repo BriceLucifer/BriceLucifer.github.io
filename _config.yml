@@ -60,6 +60,11 @@ exclude: null
 ignore: null
 Plugins: https://hexo.io/plugins/
 theme: icarus
+widgets:
+  - type: profile
+    position: left
+  - type: recent_posts
+    position: right
 deploy:
   type: git
 feed:

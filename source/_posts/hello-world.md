@@ -1,5 +1,9 @@
 ---
 title: Introduction✨
+categories: 
+- Introduction
+tag: 
+- Intro
 ---
 
 <img src="../images/c-original.svg" width="50" height="50">
