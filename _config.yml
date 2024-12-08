@@ -4,7 +4,7 @@ description: 'A Personal Website'
 keywords: null
 author: Brice
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 url: http://BriceLucifer.github.io
 permalink: ':year/:month/:day/:title/'
 permalink_defaults: null

@@ -1,10 +1,9 @@
 ---
-title: Introduction✨
-categories: 
-- Introduction
-tag: 
-- Intro
+title: about
+date: 2024-12-08 21:04:00
+type: "about"
 ---
+
 
 <img src="../images/c-original.svg" width="50" height="50">
 <img src="../images/c-plusplus.svg" width="50" height="50">
