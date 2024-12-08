@@ -1,5 +1,6 @@
 ---
 title: Emacs 修炼手册✨(Master Emacs)
+date: 2024-11-10 21:00:00
 categories: 
 - Editor 
 toc: true

@@ -1,5 +1,6 @@
 ---
 title: Vim Notes✨ 关于一个小白vimer的积累~
+date: 2024-11-9 21:00:00
 categories: 
 - Editor
 toc: true
