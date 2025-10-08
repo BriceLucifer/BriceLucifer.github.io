@@ -1,0 +1,59 @@
+name: Build & Deploy Hugo (PaperMod) to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true      # 主题是子模块需要这个
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      # （可选）缓存 Hugo resources，加速二次构建
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: resources
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/*') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
+      - name: Build
+        run: hugo --gc --minify
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

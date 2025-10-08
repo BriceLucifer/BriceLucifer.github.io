@@ -1,0 +1,162 @@
+baseURL = "https://bricelucifer.github.io/"
+title = "Brice's Blog"
+theme = "PaperMod"
+
+# 多语言：默认英文；各语言放子路径
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+
+# 现代分页语法（取代旧 paginate）
+[pagination]
+  pagerSize = 10
+
+# ---- SEO / 站点描述 ----
+[params]
+  author = "Brice"
+  description = "Brice's notes on AI, Rust, and Quant research."
+  keywords = ["AI", "Rust", "Quant", "Machine Learning", "Blog"]
+  defaultTheme = "auto"
+  showReadingTime = true
+  showCodeCopyButtons = true
+  showWordCount = true
+  DateFormat = "Jan 2, 2006"
+  showToc = true          # 文章右侧目录
+  TocOpen = false         # 是否默认展开
+  disableImageZoom = false
+  mainSections = ["posts"]
+
+  # 首页介绍块（可删）
+  [params.homeInfoParams]
+    Title = "👋 Hi, I'm Brice"
+    Content = "AI + Rust + Quant — sharing research, code, and notes."
+  # === 首页个人卡片 ===
+  [params.profileMode]
+    enabled = true
+    imageUrl = "images/avatar.jpg"   # 把头像放到 static/images/avatar.jpg
+    imageWidth = 160
+    imageHeight = 160
+    title = "Brice's Blog"
+    subtitle = "AI · Math · Quant · C/C++ · Rust"
+    showPosts = true                 # 若不想在卡片下显示文章列表，改为 false
+    buttons = [
+      { name = "About", url = "/about/" },
+      { name = "Tags",  url = "/tags/"  }
+    ]
+  
+  [[params.socialIcons]]
+  name = "github"
+  url  = "https://github.com/BriceLucifer"
+
+  [[params.socialIcons]]
+    name = "X"               # 或写 "twitter"
+    url  = "https://x.com/Bricelucifer"
+
+  [[params.socialIcons]]
+    name = "email"
+    url  = "mailto:2376671337@qq.com"
+
+  # 站点图标（把文件放到 static/ 下再填）
+  [params.assets]
+    favicon = "favicon.ico"
+    favicon16x16 = "favicon-16x16.png"
+    favicon32x32 = "favicon-32x32.png"
+    apple_touch_icon = "apple-touch-icon.png"
+
+  # 社交链接（按需填写）
+  [params.social]
+    github = "https://github.com/BriceLucifer"
+    twitter = "https://x.com/Bricelucifer"
+    # linkedin = "https://www.linkedin.com/in/yourname"
+    email = "mailto:2376671337@qq.com"
+    rss = "/index.xml"
+
+  # 数学公式（KaTeX）
+  [params.math]
+    enable = true
+    use = "katex"
+
+  # 可选：统计（任选其一，填你的 ID/脚本地址）
+  # [params.analytics.google]
+  #   SiteVerificationTag = "G-XXXXXXXXXX"
+  # [params.analytics.umami]
+  #   ID = "your-umami-id"
+  #   Src = "https://analytics.yourdomain.com/script.js"
+
+# Markdown 渲染/高亮
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      typographer = true
+      table = true
+      linkify = true
+      taskList = true
+      strikethrough = true
+
+  [markup.highlight]
+    noClasses = false
+    guessSyntax = true
+    lineNos = true
+    style = "monokai"   # 可改：dracula/github/solarized-*
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# 站内搜索需要 home 输出 JSON（/index.json）
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# 顶部菜单（英/中文分别配置）
+[languages]
+  [languages.en]
+    weight = 1
+    languageName = "English"
+    languageCode = "en"
+    title = "Brice's Blog"
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = "Home"
+        url = "/"
+        weight = 1
+      [[languages.en.menu.main]]
+        name = "Tags"
+        url = "/tags/"
+        weight = 2
+      [[languages.en.menu.main]]
+        name = "About"
+        url = "/about/"
+        weight = 3
+      [[languages.en.menu.main]]
+        name = "RSS"
+        url = "/index.xml"
+        weight = 10
+
+  [languages.zh]
+    weight = 2
+    languageName = "中文"
+    languageCode = "zh-cn"
+    title = "Brice 的博客"
+    [languages.zh.params]
+      DateFormat = "2006-01-02"
+    [languages.zh.menu]
+      [[languages.zh.menu.main]]
+        name = "首页"
+        url = "/zh/"
+        weight = 1
+      [[languages.zh.menu.main]]
+        name = "标签"
+        url = "/zh/tags/"
+        weight = 2
+      [[languages.zh.menu.main]]
+        name = "关于"
+        url = "/zh/about/"
+        weight = 3
+      [[languages.zh.menu.main]]
+        name = "RSS"
+        url = "/zh/index.xml"
+        weight = 10
+
