@@ -9,6 +9,8 @@ categories: ["notes"]
 
 This note records a small experiment I wrote recently to explore **shader-like procedural graphics**, implemented **entirely on the CPU** using Rust.
 
+Code Link: https://github.com/BriceLucifer/shader    
+
 The goal was **not performance**, but to understand:
 
 * how fragment-shader style math maps to plain code
