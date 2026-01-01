@@ -24,6 +24,9 @@ enableRobotsTXT = true
   showReadingTime = true
   showWordCount = true
   showCodeCopyButtons = true
+  ShowBreadCrumbs = true
+  ShowToc = true
+
 
   DateFormat = "Jan 2, 2006"
 
@@ -31,6 +34,7 @@ enableRobotsTXT = true
   TocOpen = false
 
   mainSections = ["posts", "notes"]
+
 
 # --------------------
 # 首页：Profile 模式（只做个人介绍）
