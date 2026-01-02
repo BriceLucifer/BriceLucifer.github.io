@@ -1,6 +1,6 @@
 ---
 title: "Notes: A Simple CPU-based Whirl Shader Experiment"
-date: 2025-01-08
+date: 2026-01-01
 tags: ["shader", "graphics", "rust", "raymarching", "experiment"]
 categories: ["notes"]
 ---------------------
