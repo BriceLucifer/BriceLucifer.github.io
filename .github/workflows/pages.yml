@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: true      # 主题是子模块需要这个
           fetch-depth: 0
 
       - name: Setup Hugo
@@ -30,67 +30,14 @@ jobs:
           hugo-version: "latest"
           extended: true
 
+      # （可选）缓存 Hugo resources，加速二次构建
       - name: Cache Hugo resources
         uses: actions/cache@v4
         with:
           path: resources
-          key: ${{ runner.os }}-hugo-${{ hashFiles('hugo.toml', 'hugo.yaml', 'hugo.json', 'config/**', 'content/**', 'layouts/**', 'themes/**') }}
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/*') }}
           restore-keys: |
             ${{ runner.os }}-hugo-
-
-      # ✅ 一劳永逸：构建前自动注入 KaTeX（如果仓库里没有 layouts 覆盖文件）
-      - name: Ensure KaTeX partials (project-level override)
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p layouts/partials
-
-          # 1) math.html：KaTeX + auto-render，支持 $...$ 和 $$...$$
-          if [ ! -f layouts/partials/math.html ]; then
-            cat > layouts/partials/math.html <<'EOF'
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-            onload="renderMathInElement(document.body, {
-              delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false}
-              ],
-              ignoredTags: ['script','noscript','style','textarea','pre','code']
-            });"></script>
-          EOF
-          fi
-
-          # 2) extend_head.html：兼容 .Site.Params.math 为 bool 或 table（带 enable）
-          if [ ! -f layouts/partials/extend_head.html ]; then
-            cat > layouts/partials/extend_head.html <<'EOF'
-          {{- /* Robust math enable detection: supports page param, site param bool, and site param table {enable=true} */ -}}
-          {{- $mathEnabled := false -}}
-
-          {{- if .Params.math -}}
-            {{- $mathEnabled = true -}}
-          {{- end -}}
-
-          {{- if not $mathEnabled -}}
-            {{- $siteMath := .Site.Params.math -}}
-            {{- if ne $siteMath nil -}}
-              {{- $t := printf "%T" $siteMath -}}
-              {{- if eq $t "bool" -}}
-                {{- if $siteMath -}}{{- $mathEnabled = true -}}{{- end -}}
-              {{- else -}}
-                {{- /* map-like: [params.math] enable=true */ -}}
-                {{- if isset $siteMath "enable" -}}
-                  {{- if $siteMath.enable -}}{{- $mathEnabled = true -}}{{- end -}}
-                {{- end -}}
-              {{- end -}}
-            {{- end -}}
-          {{- end -}}
-
-          {{- if $mathEnabled -}}
-            {{- partial "math.html" . -}}
-          {{- end -}}
-          EOF
-          fi
 
       - name: Build
         run: hugo --gc --minify
