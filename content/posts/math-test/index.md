@@ -6,6 +6,7 @@ math: true
 tags: ["test", "math"]
 categories: ["Test"]
 description: "Testing KaTeX math rendering in PaperMod"
+summary: "Testing KaTeX rendering for inline and block math."
 ---
 
 This is a test of math formula rendering using KaTeX.
