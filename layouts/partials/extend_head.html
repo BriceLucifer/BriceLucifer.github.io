@@ -1,7 +1,9 @@
 {{- /* Head custom content area start */ -}}
 {{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
 {{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
-{{- if or .Params.math site.Params.math }}
+{{- /* PaperMod doesn't natively support [params.math] - we use extend_head instead */ -}}
+{{- /* Per-page: math: true in frontmatter enables math rendering */ -}}
+{{- if .Params.math | default false }}
 {{ partial "math.html" . }}
 {{- end }}
 {{- /* Head custom content area end */ -}}

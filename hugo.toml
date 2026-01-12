@@ -66,7 +66,7 @@ enableRobotsTXT = true
   url  = "mailto:2376671337@qq.com"
 
 # --------------------
-# 站点图标（可后补）
+# 站点图标
 # --------------------
 [params.assets]
   favicon = "favicon.ico"
@@ -75,18 +75,17 @@ enableRobotsTXT = true
   apple_touch_icon = "apple-touch-icon.png"
 
 # --------------------
-# 数学公式（KaTeX）
-# --------------------
-[params.math]
-  enable = true
-  use = "katex"
-
-# --------------------
 # Markdown & 高亮
 # --------------------
 [markup]
   [markup.goldmark.renderer]
     unsafe = true
+
+  [markup.goldmark.parser]
+    autoHeadingID = true
+
+  [markup.goldmark.extensions]
+    typographer = false
 
   [markup.highlight]
     noClasses = false
@@ -108,7 +107,7 @@ enableRobotsTXT = true
   home = ["HTML", "RSS", "JSON"]
 
 # --------------------
-# 菜单（英文）
+# 菜单
 # --------------------
 [languages]
   [languages.en]

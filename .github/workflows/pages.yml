@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true      # 主题是子模块需要这个
+          submodules: true
           fetch-depth: 0
 
       - name: Setup Hugo
@@ -30,27 +30,29 @@ jobs:
           hugo-version: "latest"
           extended: true
 
-      # （可选）缓存 Hugo resources，加速二次构建
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Cache Hugo resources
         uses: actions/cache@v4
         with:
           path: resources
-          key: ${{ runner.os }}-hugo-${{ hashFiles('**/*') }}
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/*.md', '**/*.toml') }}
           restore-keys: |
             ${{ runner.os }}-hugo-
 
       - name: Build
-        run: hugo --gc --minify
+        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}"
 
       - name: Verify KaTeX in output
         run: |
           echo "Checking for KaTeX in generated pages..."
-          if grep -r "katex" public/posts/*/index.html > /dev/null 2>&1; then
-            echo "✓ KaTeX resources found in generated pages"
+          if grep -r "katex" public | grep html > /dev/null 2>&1; then
+            echo "✓ KaTeX resources found"
           else
-            echo "⚠ No KaTeX found - check math: true frontmatter in content"
+            echo "⚠ No KaTeX found - check math.html partial"
           fi
-          echo "Build completed successfully!"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
