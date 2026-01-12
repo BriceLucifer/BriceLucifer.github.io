@@ -3,7 +3,8 @@ title: "A Simple CPU-based Whirl Shader Experiment"
 date: 2026-01-01
 tags: ["shader", "graphics", "rust", "raymarching", "experiment"]
 categories: ["posts"]
-summary: "you can do shaer without glsl"
+description: "Using Rust to render"
+summary: "You can do shader without glsl, but in any progromming language"
 ---------------------
 
 ## Context
