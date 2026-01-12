@@ -23,17 +23,17 @@ enableRobotsTXT = true
 
   showReadingTime = true
   showWordCount = true
-  showCodeCopyButtons = true
+  showCodeCopyButtons = false
   showBreadCrumbs = true
   showToc = true
   tocOpen = false
 
   mainSections = ["posts"]
 
-# --------------------
-# 首页：Profile 模式（只做个人介绍）
-# --------------------
-[params.profileMode]
+  # --------------------
+  # 首页：Profile 模式
+  # --------------------
+  [params.profileMode]
   enabled = true
   title = "Brice"
   subtitle = "AI · Systems · Quant · C/C++ · Rust"
@@ -42,11 +42,13 @@ enableRobotsTXT = true
   imageHeight = 160
   showPosts = false
 
-  buttons = [
-    { name = "Blog",  url = "/posts/" },
-    { name = "Notes", url = "/notes/" },
-    { name = "About", url = "/about/" }
-  ]
+  [[params.profileMode.buttons]]
+    name = "Blog"
+    url = "/posts/"
+
+  [[params.profileMode.buttons]]
+    name = "About"
+    url = "/about/"
 
 # --------------------
 # 社交链接
