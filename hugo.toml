@@ -24,17 +24,11 @@ enableRobotsTXT = true
   showReadingTime = true
   showWordCount = true
   showCodeCopyButtons = true
-  ShowBreadCrumbs = true
-  ShowToc = true
-
-
-  DateFormat = "Jan 2, 2006"
-
+  showBreadCrumbs = true
   showToc = true
-  TocOpen = false
+  tocOpen = false
 
-  mainSections = ["posts", "notes"]
-
+  mainSections = ["posts"]
 
 # --------------------
 # 首页：Profile 模式（只做个人介绍）
@@ -46,7 +40,7 @@ enableRobotsTXT = true
   imageUrl = "images/avatar.jpg"
   imageWidth = 160
   imageHeight = 160
-  showPosts = false   # 关键：首页不显示文章
+  showPosts = false
 
   buttons = [
     { name = "Blog",  url = "/posts/" },
