@@ -42,6 +42,16 @@ jobs:
       - name: Build
         run: hugo --gc --minify
 
+      - name: Verify KaTeX in output
+        run: |
+          echo "Checking for KaTeX in generated pages..."
+          if grep -r "katex" public/posts/*/index.html > /dev/null 2>&1; then
+            echo "✓ KaTeX resources found in generated pages"
+          else
+            echo "⚠ No KaTeX found - check math: true frontmatter in content"
+          fi
+          echo "Build completed successfully!"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
