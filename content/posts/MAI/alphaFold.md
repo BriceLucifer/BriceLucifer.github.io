@@ -5,6 +5,7 @@ tags: ["MachineLearning", "DeepNeuralNetWork"]
 categories: ["posts"]
 description: "Using Pytorch to learning ALPHA-FOLD"
 summary: "Build ALPHA-FOLD from scratch"
+draft: True
 ---------------------
 > For great start, we should use some good tool for manuage the python and virtual environment
 We will be using *UV*. On your MacBook, we use a simple command line.
@@ -20,7 +21,7 @@ We init our directory and add a few packages to make our own modal.
 ```bash
 # in the same directory
 uv init .
-uv add numpy matplotlib torch torchvison
+uv add numpy matplotlib torch torchvison jupterlab
 ```
 From now on, we can actually focus on the building process without worry python virtual environment
 
@@ -37,6 +38,11 @@ a: Tensor = torch.Tensor([1, 2])
 ```
 Tensor has different dimensions, with can be used as a features of the data, since the protein structure is a 3d structure.
 
+```python
+a.dim
+```
+The dimension of the Tensor, from outer to inner is : 0...N, from inner to outer is : -1..-N-1
+
 Tensor operation obey the rule of matrix operation and vector operation
 1. Indexing and Slicing
 2. Operation
@@ -47,3 +53,24 @@ Tensor operation obey the rule of matrix operation and vector operation
 Machine Learning is about learning the pattern
 
 1. Similarity Estimation
+2. Classification
+
+Loss Function: Loss(w) (where w is weight)
+
+chain rule
+
+AffineLine
+
+Elegent *torch.einsum()*
+
+## Attention is all you need
+Sequence of data
+
+Attention:
+Neural Network
+
+Handle the Sequence
+divide sequence of the words
+
+RNN and Attention Machecism (watch build a large language model from scratch)
+NLP computer Vision
