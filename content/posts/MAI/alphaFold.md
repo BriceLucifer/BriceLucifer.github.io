@@ -55,10 +55,8 @@ Machine Learning is about learning the pattern
 1. Similarity Estimation
 2. Classification
 
-Loss Function: Loss(w) (where w is weight)
-
-chain rule
-
+Loss Function: $ Loss(w) $ 
+Chain rule
 AffineLine
 
 Elegent *torch.einsum()*

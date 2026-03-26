@@ -1,18 +1,54 @@
+{{- /* KaTeX 0.16.11 — auto-render + copy-tex + mhchem */ -}}
 <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+  crossorigin="anonymous">
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.css"
+  crossorigin="anonymous">
 
 <script defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+  crossorigin="anonymous"></script>
 
 <script defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"
+  crossorigin="anonymous"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js"
+  crossorigin="anonymous"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  crossorigin="anonymous"
   onload="renderMathInElement(document.body, {
     delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false},
-      {left: '\\(', right: '\\)', display: false},
-      {left: '\\[', right: '\\]', display: true}
+      { left: '$$',  right: '$$',  display: true  },
+      { left: '\\[', right: '\\]', display: true  },
+      { left: '$',   right: '$',   display: false },
+      { left: '\\(', right: '\\)', display: false }
     ],
-    throwOnError: false
+    throwOnError: false,
+    trust: true,
+    macros: {
+      '\\R':      '\\mathbb{R}',
+      '\\N':      '\\mathbb{N}',
+      '\\Z':      '\\mathbb{Z}',
+      '\\C':      '\\mathbb{C}',
+      '\\E':      '\\mathbb{E}',
+      '\\Var':    '\\operatorname{Var}',
+      '\\Cov':    '\\operatorname{Cov}',
+      '\\KL':     'D_{\\mathrm{KL}}',
+      '\\norm':   '\\left\\lVert #1 \\right\\rVert',
+      '\\abs':    '\\left\\lvert #1 \\right\\rvert',
+      '\\inner':  '\\langle #1,\\, #2 \\rangle',
+      '\\Loss':   '\\mathcal{L}',
+      '\\Data':   '\\mathcal{D}',
+      '\\argmin': '\\operatorname*{arg\\,min}',
+      '\\argmax': '\\operatorname*{arg\\,max}',
+      '\\grad':   '\\nabla',
+      '\\T':      '^{\\top}'
+    }
   });">
 </script>

@@ -18,15 +18,17 @@ enableRobotsTXT = true
 [params]
   author = "Brice"
   description = "Notes on AI, systems, Rust, C/C++, and quantitative research."
-  keywords = ["AI", "Systems", "Rust", "C++", "Quant", "Algorithms"]
+  keywords = ["AI", "Systems", "Rust", "C++", "Quant", "Algorithms", "Mathematics"]
   defaultTheme = "auto"
 
   showReadingTime = true
   showWordCount = true
-  showCodeCopyButtons = false
+  showCodeCopyButtons = true   # useful for code alongside math
   showBreadCrumbs = true
   showToc = true
-  tocOpen = false
+  tocOpen = true               # open by default — math posts are long
+
+  math = true                  # enable KaTeX globally for all pages
 
   mainSections = ["posts"]
 
@@ -65,6 +67,10 @@ enableRobotsTXT = true
   name = "email"
   url  = "mailto:2376671337@qq.com"
 
+[[params.socialIcons]]
+  name = "rss"
+  url  = "/index.xml"
+
 # --------------------
 # 站点图标
 # --------------------
@@ -85,13 +91,20 @@ enableRobotsTXT = true
     autoHeadingID = true
 
   [markup.goldmark.extensions]
-    typographer = false
+    typographer = false        # keep off — typographer mangles LaTeX quotes
+
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block  = [["$$", "$$"], ["\\[", "\\]"]]
+      inline = [["$", "$"],   ["\\(", "\\)"]]
 
   [markup.highlight]
     noClasses = false
     guessSyntax = true
     lineNos = true
-    style = "monokai"
+    lineNumbersInTable = true
+    style = "dracula"          # higher contrast, easier to read alongside white math
 
 # --------------------
 # 分类系统
