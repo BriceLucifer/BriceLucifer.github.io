@@ -43,7 +43,7 @@ jobs:
             ${{ runner.os }}-hugo-
 
       - name: Build
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}"
+        run: hugo --gc --baseURL "${{ steps.pages.outputs.base_url }}"
 
       - name: Verify KaTeX in output
         run: |

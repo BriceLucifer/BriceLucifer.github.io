@@ -16,16 +16,16 @@ draft: false
 <div class="mermaid">
 mindmap
   root((Deep Learning))
-    Probability & Stats
+    Probability and Stats
       Gaussian Distribution
-      Expectation & Variance
+      Expectation and Variance
       Entropy
       KL Divergence
       Bayes Theorem
     Fundamentals
       Linear Regression
       Loss Functions
-        SE / MSE
+        SE MSE
         Cross-Entropy
       Derivatives
         Gradient
@@ -46,8 +46,8 @@ mindmap
         Forward Pass
         Backpropagation
       Activations
-        ReLU / Sigmoid / Tanh
-        Softmax / GELU
+        ReLU Sigmoid Tanh
+        Softmax GELU
       Normalisation
         Batch Norm
         Layer Norm
@@ -79,7 +79,7 @@ mindmap
         GPT vs BERT
       ViT
     Transfer Learning
-      Pre-train → Fine-tune
+      Pre-train to Fine-tune
       LoRA
     Generative AI
       VAE
