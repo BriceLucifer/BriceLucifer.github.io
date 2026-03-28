@@ -1,6 +1,6 @@
 ---
 title: "Build a GPT-2 from scratch"
-date: 2026-03-29
+date: 2026-03-28
 tags: ["MachineLearning", "DeepNeuralNetwork", "Mathematics", "LLM"]
 categories: ["posts"]
 description: "How to build a gpt2"
