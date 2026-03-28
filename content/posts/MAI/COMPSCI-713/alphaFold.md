@@ -5,7 +5,11 @@ tags: ["MachineLearning", "DeepNeuralNetWork"]
 categories: ["posts"]
 description: "Using Pytorch to learning ALPHA-FOLD"
 summary: "Build ALPHA-FOLD from scratch"
-draft: True
+draft: False
+math: true
+mermaid: true
+ShowToc: true
+TocOpen: true
 ---------------------
 > For great start, we should use some good tool for manuage the python and virtual environment
 We will be using *UV*. On your MacBook, we use a simple command line.
