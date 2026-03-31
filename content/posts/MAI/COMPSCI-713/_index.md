@@ -1,11 +1,12 @@
 ---
 title: "COMPSCI 713"
-description: "The section about COMPSCI 713 in Master of AI where in University of Auckland"
+description: "AI Fundamentals — biological inspiration, probabilistic models, and classical AI methods."
 ---
-This section contains **polished articles and personal thoughts** on COMPSCI 713 *(AI Fundamental)*.
+**COMPSCI 713 · AI Fundamentals**
 
-Posts here are written to:
-- explain key insights clearly
-- summarize stable understanding
-- serve as reusable references
-- use as a tool box
+This course covers the theoretical and biological foundations of AI — including evolutionary computation, fuzzy logic, probabilistic reasoning, and biologically-inspired architectures such as protein structure prediction.
+
+Notes here focus on:
+- the **mathematical intuition** behind classical AI methods
+- connections between **biological systems and computational models**
+- understanding *why* algorithms work, not just how to apply them

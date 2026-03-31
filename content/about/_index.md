@@ -118,7 +118,7 @@ This experience reinforced my interest in **large-scale AI systems**, where
 
 ## 🌲 Skill Tree
 
-```mermaid
+<div class="mermaid">
 mindmap
   root((Brice))
     AI & Generative
@@ -160,7 +160,7 @@ mindmap
       Data Structures
       Compiler Theory
       Complexity Analysis
-```
+</div>
 
 ---
 

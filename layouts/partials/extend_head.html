@@ -12,9 +12,36 @@
 {{- end }}
 
 {{- /* ── Mermaid diagrams ────────────────────────────────────── */ -}}
-{{- if .Params.mermaid }}
+{{- if or .Params.mermaid .Site.Params.mermaid }}
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+
+  const getTheme = () =>
+    document.documentElement.classList.contains('dark') ? 'neutral' : 'default';
+
+  const render = async () => {
+    document.querySelectorAll('.mermaid').forEach(el => {
+      // 首次：保存原始 source；重渲：从 data-src 还原
+      if (!el.dataset.src) {
+        el.dataset.src = el.innerHTML.trim();
+      } else {
+        el.innerHTML = el.dataset.src;
+      }
+    });
+    mermaid.initialize({ startOnLoad: false, theme: getTheme() });
+    await mermaid.run({ querySelector: '.mermaid' });
+  };
+
+  // 首次渲染：DOMContentLoaded 比 load 更早
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', render);
+  } else {
+    render();
+  }
+
+  // 监听 PaperMod 切换主题（<html class="dark"> 变化）
+  new MutationObserver(render).observe(
+    document.documentElement, { attributeFilter: ['class'] }
+  );
 </script>
 {{- end }}

@@ -1,11 +1,12 @@
 ---
-title: "Researches in MAI"
-description: "The section about my understanding in Master of AI where in University of Auckland"
+title: "Master of AI"
+description: "Notes and articles from the Master of Artificial Intelligence program at the University of Auckland."
 ---
-This section contains **polished articles and personal thoughts** on algorithms, machine learning, deep learning and AI models.
+Course notes, derivations, and personal analysis from the **MAI program at University of Auckland**.
 
-Posts here are written to:
-- explain key insights clearly
-- summarize stable understanding
-- serve as reusable references
-- use as a tool box
+Writing here aims to go beyond lecture summaries — each post tries to extract the **core insight**, expose the underlying math, and connect ideas across courses.
+
+| Course | Focus |
+|--------|-------|
+| [COMPSCI 713](713/) | AI Fundamentals — probabilistic models, soft computing, bio-inspired AI |
+| [COMPSCI 714](714/) | AI Architecture — transformers, LLMs, deep learning systems |
