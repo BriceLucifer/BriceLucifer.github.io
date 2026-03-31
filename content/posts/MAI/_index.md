@@ -8,5 +8,5 @@ Writing here aims to go beyond lecture summaries — each post tries to extract 
 
 | Course | Focus |
 |--------|-------|
-| [COMPSCI 713](713/) | AI Fundamentals — probabilistic models, soft computing, bio-inspired AI |
-| [COMPSCI 714](714/) | AI Architecture — transformers, LLMs, deep learning systems |
+| [COMPSCI 713](/posts/mai/compsci-713/) | AI Fundamentals — probabilistic models, soft computing, bio-inspired AI |
+| [COMPSCI 714](/posts/mai/compsci-714/) | AI Architecture — transformers, LLMs, deep learning systems |
