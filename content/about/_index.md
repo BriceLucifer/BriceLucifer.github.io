@@ -10,6 +10,7 @@ keywords = ["AI", "Rust", "Quant", "Systems", "University of Auckland", "Tencent
 # 👇 PaperMod 专用
 showToc = false
 hideMeta = true
+mermaid = true
 +++
 
 <img src="/images/avatar.jpg" alt="Brice" width="140" style="border-radius:50%; margin-bottom:1rem;" />
@@ -20,7 +21,12 @@ Hi, I’m **Brice** — an engineer and aspiring researcher working at the inter
 My core interest lies in **generative and multimodal AI systems**, with a particular focus on how  
 **representation learning, optimization dynamics, and system constraints** interact in large-scale models.
 
-Rather than surface-level application development, I am drawn to **foundational and system-aware questions**, such as:
+Currently, I am especially focused on:
+
+- **Video generation** — temporal coherence, motion modeling, and scalable generative architectures for video synthesis
+- **Probability theory & stochastic processes** — building rigorous mathematical foundations for understanding generative models, diffusion processes, and uncertainty in AI systems
+
+More broadly, I am drawn to **foundational and system-aware questions**, such as:
 
 - How architectural choices influence representation and generalization
 - How optimization dynamics affect stability and efficiency
@@ -44,7 +50,7 @@ My undergraduate training emphasized a **dual foundation in systems and mathemat
 - High-performance and parallel computing
 - Compiler theory and low-level program optimization
 
-**GPA:** 83 / 100
+**GPA:** Top 1% of cohort
 
 ---
 
@@ -90,17 +96,71 @@ This experience reinforced my interest in **large-scale AI systems**, where
 
 ## 🧠 Research & Technical Interests
 
+- **Video Generation**  
+  Temporal modeling, motion-aware architectures, diffusion-based video synthesis, scalable generation pipelines
+
 - **Generative & Multimodal AI**  
   Representation learning, cross-modal alignment, generative modeling, inference efficiency
 
+- **Probability Theory & Stochastic Processes**  
+  Measure-theoretic probability, Markov chains, SDEs, probabilistic graphical models — as rigorous foundations for generative AI
+
 - **Mathematics for AI**  
-  Optimization, probability, stochastic processes, numerical methods
+  Optimization, numerical methods, information theory
 
 - **Systems & Rust Engineering**  
   Async runtimes, compilers, concurrency models, performance-aware design
 
 - **Algorithms & Data Structures**  
   Graphs, optimization algorithms, compiler IRs, complexity-aware implementations
+
+---
+
+## 🌲 Skill Tree
+
+```mermaid
+mindmap
+  root((Brice))
+    AI & Generative
+      Video Generation
+        Diffusion Models
+        Temporal Modeling
+        Motion-Aware Arch
+      Multimodal
+        Cross-Modal Alignment
+        Representation Learning
+      LLM & Transformers
+        Attention Mechanisms
+        Inference Efficiency
+    Mathematics
+      Probability Theory
+        Measure Theory
+        Stochastic Processes
+        SDEs & Diffusion
+      Optimization
+        Gradient Methods
+        Convex Analysis
+        Numerical Methods
+      Linear Algebra
+        Matrix Decompositions
+        Spectral Methods
+    Systems
+      Rust
+        Async Runtimes
+        Memory Safety
+        Concurrency
+      C / C++
+        Low-level Perf
+        Embedded
+      Cloud & Infra
+        Distributed Systems
+        Pipeline Automation
+    Algorithms
+      Graph Theory
+      Data Structures
+      Compiler Theory
+      Complexity Analysis
+```
 
 ---
 
@@ -120,6 +180,8 @@ This experience reinforced my interest in **large-scale AI systems**, where
 | Project | Description | Keywords |
 |------|------------|----------|
 | **LeRobot Reproduction & Extension** | Reimplemented and analyzed an open-source robotic control framework during undergraduate research, focusing on system understanding and control abstractions. | Robotics · Control · Learning |
+| **Video Generation (Active)** | Studying diffusion-based and autoregressive architectures for video synthesis — temporal coherence, motion modeling, and scalable generation pipelines. | Video Generation · Diffusion · Temporal Modeling |
+| **Probability Theory Study (Active)** | Systematic study of measure-theoretic probability and stochastic processes as mathematical foundations for generative models and diffusion-based AI. | Probability · Stochastic Processes · Math |
 | **Generative Multimodal Modeling (Planned)** | Exploring generative architectures for cross-modal representation and alignment, with attention to training dynamics and inference efficiency. | Generative AI · Multimodal |
 | **AI Systems Optimization (Planned)** | Studying system-level trade-offs in training and inference pipelines for large generative models. | AI Systems · Performance |
 

@@ -1,57 +1,44 @@
 # BriceLucifer.github.io
 
-Personal website and technical notebook of **Brice**.
+Personal website and technical notebook of **Brice** — engineer and AI researcher in training.
 
-This site is used to document my work and thinking across:
-
-* Artificial Intelligence & Machine Learning
-* Algorithms and mathematical reasoning
-* Systems programming (Rust / C / C++)
-* Quantitative modeling and optimization
-* Experimental projects and research notes
-
-The content emphasizes **understanding from first principles**, combining theory, implementation, and system-level considerations.
+Live at: **[https://brice6.pages.dev/](https://brice6.pages.dev/)**
 
 ---
 
-## Website
+## Focus Areas
 
-🔗 **Live site**: [https://bricelucifer.github.io/](https://bricelucifer.github.io/)
+- Generative & Multimodal AI (video generation, diffusion models, cross-modal alignment)
+- Probability theory and stochastic processes — mathematical foundations for AI
+- Systems programming: Rust / C / C++
+- Optimization, numerical methods, and algorithm design
+- AI systems: training efficiency, inference pipelines, system-model co-design
 
 ---
 
-## Structure
+## Site Structure
 
-The site is organized into several sections:
-
-* **Notes**
-  Informal research notes, derivations, experiments, and learning logs.
-  These pages prioritize clarity of thought over presentation.
-
-* **Blog**
-  More polished articles distilled from notes, focusing on reusable ideas,
-  key insights, and structured explanations.
-
-* **Projects**
-  Selected engineering and research-oriented projects, including
-  foundational AI systems and experimental implementations.
+| Section | Purpose |
+|---------|---------|
+| **Notes** | Informal derivations, experiments, and learning logs. Clarity of thought over presentation. |
+| **Blog** | Polished articles distilling key insights from notes and research. |
+| **Projects** | Engineering and research projects — foundational AI systems and experimental implementations. |
+| **About** | Background, interests, and current research trajectory. |
 
 ---
 
 ## Tech Stack
 
-* **Static site generator**: Hugo
-* **Theme**: PaperMod
-* **Content**: Markdown / KaTeX / custom shortcodes
-* **Hosting**: GitHub Pages
+- **Static site generator**: Hugo
+- **Theme**: PaperMod
+- **Content**: Markdown + KaTeX + custom shortcodes
+- **Hosting**: Cloudflare Pages
 
 ---
 
 ## Philosophy
 
-This website is not intended to be a traditional blog.
-Instead, it serves as a long-term **thinking archive and technical notebook**,
-tracking how ideas evolve over time through study, experimentation, and implementation.
+This is not a traditional blog. It is a long-term **thinking archive** — tracking how ideas evolve through study, experimentation, and implementation, with emphasis on understanding from first principles.
 
 ---
 
