@@ -1,3 +1,9 @@
+{{- $needsJsdelivr := or .Params.math .Site.Params.math .Params.mermaid .Site.Params.mermaid -}}
+{{- if $needsJsdelivr }}
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+{{- end }}
+
 {{- /* ── Math (KaTeX) ──────────────────────────────────────────── */ -}}
 {{- if or .Params.math .Site.Params.math }}
 {{ partial "math.html" . }}

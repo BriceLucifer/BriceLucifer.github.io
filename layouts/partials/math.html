@@ -22,33 +22,36 @@
 <script defer
   src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
   crossorigin="anonymous"
-  onload="renderMathInElement(document.body, {
-    delimiters: [
-      { left: '$$',  right: '$$',  display: true  },
-      { left: '\\[', right: '\\]', display: true  },
-      { left: '$',   right: '$',   display: false },
-      { left: '\\(', right: '\\)', display: false }
-    ],
-    throwOnError: false,
-    trust: true,
-    macros: {
-      '\\R':      '\\mathbb{R}',
-      '\\N':      '\\mathbb{N}',
-      '\\Z':      '\\mathbb{Z}',
-      '\\C':      '\\mathbb{C}',
-      '\\E':      '\\mathbb{E}',
-      '\\Var':    '\\operatorname{Var}',
-      '\\Cov':    '\\operatorname{Cov}',
-      '\\KL':     'D_{\\mathrm{KL}}',
-      '\\norm':   '\\left\\lVert #1 \\right\\rVert',
-      '\\abs':    '\\left\\lvert #1 \\right\\rvert',
-      '\\inner':  '\\langle #1,\\, #2 \\rangle',
-      '\\Loss':   '\\mathcal{L}',
-      '\\Data':   '\\mathcal{D}',
-      '\\argmin': '\\operatorname*{arg\\,min}',
-      '\\argmax': '\\operatorname*{arg\\,max}',
-      '\\grad':   '\\nabla',
-      '\\T':      '^{\\top}'
-    }
-  });">
+  onload="(() => {
+    const mathRoot = document.querySelector('.post-content') || document.body;
+    renderMathInElement(mathRoot, {
+      delimiters: [
+        { left: '$$',  right: '$$',  display: true  },
+        { left: '\\[', right: '\\]', display: true  },
+        { left: '$',   right: '$',   display: false },
+        { left: '\\(', right: '\\)', display: false }
+      ],
+      throwOnError: false,
+      trust: true,
+      macros: {
+        '\\R':      '\\mathbb{R}',
+        '\\N':      '\\mathbb{N}',
+        '\\Z':      '\\mathbb{Z}',
+        '\\C':      '\\mathbb{C}',
+        '\\E':      '\\mathbb{E}',
+        '\\Var':    '\\operatorname{Var}',
+        '\\Cov':    '\\operatorname{Cov}',
+        '\\KL':     'D_{\\mathrm{KL}}',
+        '\\norm':   '\\left\\lVert #1 \\right\\rVert',
+        '\\abs':    '\\left\\lvert #1 \\right\\rvert',
+        '\\inner':  '\\langle #1,\\, #2 \\rangle',
+        '\\Loss':   '\\mathcal{L}',
+        '\\Data':   '\\mathcal{D}',
+        '\\argmin': '\\operatorname*{arg\\,min}',
+        '\\argmax': '\\operatorname*{arg\\,max}',
+        '\\grad':   '\\nabla',
+        '\\T':      '^{\\top}'
+      }
+    });
+  })();">
 </script>

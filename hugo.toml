@@ -28,8 +28,6 @@ enableRobotsTXT = true
   showToc = true
   tocOpen = true               # open by default — math posts are long
 
-  math = true                  # enable KaTeX globally for all pages
-
   mainSections = ["posts"]
 
   # --------------------
@@ -39,7 +37,7 @@ enableRobotsTXT = true
   enabled = true
   title = "Brice"
   subtitle = "AI · Systems · Quant · C/C++ · Rust"
-  imageUrl = "images/avatar.jpg"
+  imageUrl = "images/avatar-320.webp"
   imageWidth = 160
   imageHeight = 160
   showPosts = false

@@ -13,7 +13,7 @@ hideMeta = true
 mermaid = true
 +++
 
-<img src="/images/avatar.jpg" alt="Brice" width="140" style="border-radius:50%; margin-bottom:1rem;" />
+<img src="/images/avatar-320.webp" alt="Brice" width="140" decoding="async" style="border-radius:50%; margin-bottom:1rem;" />
 
 Hi, I’m **Brice** — an engineer and aspiring researcher working at the intersection of  
 **Artificial Intelligence**, **Mathematics**, and **systems-level engineering**.
