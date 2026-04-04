@@ -1,10 +1,10 @@
 ---
-title: "ALPHA FOLD explain"
+title: "AlphaFold Explained: Learning the Basics with PyTorch"
 date: 2026-03-05
 tags: ["MachineLearning", "DeepNeuralNetWork"]
 categories: ["posts"]
-description: "Using Pytorch to learning ALPHA-FOLD"
-summary: "Build ALPHA-FOLD from scratch"
+description: "A beginner-friendly AlphaFold introduction that uses PyTorch, tensors, and attention to build intuition from first principles."
+summary: "Learn the core ideas behind AlphaFold with a PyTorch-oriented walkthrough of tensors, attention, and protein structure modeling."
 draft: False
 math: true
 mermaid: true
@@ -29,7 +29,7 @@ uv add numpy matplotlib torch torchvison jupterlab
 ```
 From now on, we can actually focus on the building process without worry python virtual environment
 
-# Introduction
+## Introduction
 In this Introduction, I will give you some fundimental concept and keywords just to get used to machine learning framework and how we combine with mathmatical theory.
 
 ## Tensor

@@ -1,17 +1,17 @@
 ---
-title: "Deep Learning in a Mathematical Way"
+title: "Deep Learning Explained with Mathematics: From Linear Regression to LLMs"
 date: 2026-03-08
 tags: ["MachineLearning", "DeepNeuralNetwork", "Mathematics", "LLM"]
 categories: ["posts"]
-description: "A rigorous mathematical journey from Linear Regression to Multimodal AI"
-summary: "Building intuition for deep learning through formal mathematics — from scalars to transformers"
+description: "A mathematical deep learning roadmap covering probability, optimization, neural networks, transformers, generative models, and multimodal AI."
+summary: "Build deep learning intuition from first principles, progressing from linear models and backpropagation to transformers, diffusion, and LLMs."
 math: true
 mermaid: true
 ShowToc: true
 TocOpen: true
 draft: false
 ---
-# Deep Learning in a Mathematical Way
+## Roadmap
 
 <div class="mermaid">
 mindmap

@@ -1,14 +1,23 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
+{{- $isLiveSite := or hugo.IsProduction (eq site.Params.env "production") -}}
+{{- $isThinArchive := in (slice "taxonomy" "term") .Kind -}}
+{{- $pageNoIndex := eq (.Param "robotsNoIndex") true -}}
+{{- if and $isLiveSite (not $pageNoIndex) (not $isThinArchive) }}
 <meta name="robots" content="index, follow">
+{{- else if or $isThinArchive $pageNoIndex }}
+<meta name="robots" content="noindex, follow">
 {{- else }}
 <meta name="robots" content="noindex, nofollow">
 {{- end }}
 
 {{- /* Title */}}
-<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
+{{- $pageTitle := site.Params.homeTitle | default site.Title -}}
+{{- if and (not .IsHome) .Title -}}
+  {{- $pageTitle = printf "%s | %s" .Title site.Title -}}
+{{- end -}}
+<title>{{ $pageTitle }}</title>
 
 {{- /* Meta */}}
 {{- if .IsHome }}

@@ -16,10 +16,14 @@ enableRobotsTXT = true
 # 全局参数
 # --------------------
 [params]
+  env = "production"
   author = "Brice"
+  homeTitle = "Brice | AI Systems, Rust, and Quant Blog"
   description = "Notes on AI, systems, Rust, C/C++, and quantitative research."
   keywords = ["AI", "Systems", "Rust", "C++", "Quant", "Algorithms", "Mathematics"]
+  images = ["images/avatar-320.webp"]
   defaultTheme = "auto"
+  ShowPostNavLinks = true
 
   showReadingTime = true
   showWordCount = true
@@ -49,6 +53,17 @@ enableRobotsTXT = true
   [[params.profileMode.buttons]]
     name = "About"
     url = "/about/"
+
+  [params.social]
+  twitter = "Bricelucifer"
+
+  [params.schema]
+  personName = "Brice"
+  personImage = "images/avatar-320.webp"
+  sameAs = [
+    "https://github.com/BriceLucifer",
+    "https://x.com/Bricelucifer",
+  ]
 
 # --------------------
 # 社交链接

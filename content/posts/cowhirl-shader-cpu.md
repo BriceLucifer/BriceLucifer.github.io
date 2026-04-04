@@ -3,8 +3,8 @@ title: "A Simple CPU-based Whirl Shader Experiment"
 date: 2026-01-01
 tags: ["shader", "graphics", "rust", "raymarching", "experiment"]
 categories: ["posts"]
-description: "Using Rust to render"
-summary: "You can do shader without glsl, but in any progromming language"
+description: "A Rust experiment that recreates shader-style procedural graphics on the CPU with raymarching-inspired math and video output."
+summary: "A CPU-based shader experiment in Rust that explores procedural graphics without relying on GLSL or GPU APIs."
 ---------------------
 
 ## Context

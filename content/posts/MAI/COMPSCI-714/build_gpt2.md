@@ -1,17 +1,16 @@
 ---
-title: "Build a GPT-2 from scratch"
+title: "Build GPT-2 from Scratch: Architecture, Tokenization, and Training"
 date: 2026-03-28
 tags: ["MachineLearning", "DeepNeuralNetwork", "Mathematics", "LLM"]
 categories: ["posts"]
-description: "How to build a gpt2"
-summary: "by build a gpt2 to show all the detail of how to train a llm"
+description: "A step-by-step GPT-2 walkthrough covering BPE tokenization, transformer blocks, masked self-attention, and training."
+summary: "A first-principles guide to building GPT-2, from tokenization and embeddings to transformer training."
 math: true
 mermaid: true
 ShowToc: true
 TocOpen: true
 draft: false
 ---
-# Build a GPT-2 from scratch
 ## Architecture
 The overall structure of GPT-2 is a stack of Transformer decoder blocks:
 
@@ -24,7 +23,7 @@ The core of each Transformer block is the **self-attention mechanism**, driven b
 $$\text{Attention}(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
 where $d_k$ is the dimension of the key vectors, used to scale the dot product and prevent vanishing gradients.
-## dealing with raw data
+## Tokenization and Raw Data
 When processing text data, we need to convert it into numbers, because neural networks operate on vectors, not strings. Text is fundamentally a sequence of characters, each with a numeric encoding (e.g., ASCII or Unicode). However, mapping each character directly to a vector is too low-level and inefficient.
 
 Instead, we map text into a high-dimensional vector space — this is called *Embedding*. The model is essentially a composition of functions that operate on these vectors. GPT-2 (small) uses an embedding dimension of 768.
@@ -38,7 +37,7 @@ pip install tiktoken
 # or
 uv add tiktoken
 ```
-## masked attention mechanism
+## Masked Self-Attention
 The attention mechanism is based on matrix dotproduct.
 ## Build GPT from the Beginning
 ## Training on an Unlabeled Dataset
