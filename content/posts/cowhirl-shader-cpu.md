@@ -5,7 +5,7 @@ tags: ["shader", "graphics", "rust", "raymarching", "experiment"]
 categories: ["posts"]
 description: "A Rust experiment that recreates shader-style procedural graphics on the CPU with raymarching-inspired math and video output."
 summary: "A CPU-based shader experiment in Rust that explores procedural graphics without relying on GLSL or GPU APIs."
----------------------
+---
 
 ## Context
 
