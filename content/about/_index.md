@@ -5,7 +5,7 @@ draft = false
 slug = "about-brice"
 url = "/about/"
 description = "About Brice — AI, Math, Quant, and Systems."
-keywords = ["AI", "Rust", "Quant", "Systems", "University of Auckland", "Tencent Cloud", "Brice"]
+keywords = ["AI", "Rust", "C/C++","Quant", "Systems", "University of Auckland", "Tencent Cloud", "Brice"]
 
 # 👇 PaperMod 专用
 showToc = false
@@ -166,7 +166,7 @@ mindmap
 
 ## 🧩 Programming Languages
 
-`C` · `C++` · `Rust` · `Go` · `Python` · `Java` · `JavaScript` · `Swift`
+`C` · `C++` · `Rust` · `Zig` · `Go` · `Python` · `Java` · `JavaScript` · `Swift`
 
 > Languages are treated as **tools**, with emphasis placed on  
 > **abstraction, correctness, and performance trade-offs**.
@@ -192,6 +192,7 @@ mindmap
 - **GitHub** → https://github.com/BriceLucifer  
 - **X (Twitter)** → https://x.com/Bricelucifer  
 - **Email** → 2376671337@qq.com
+- **KnowledgeBase** -> https://atlas-32q.pages.dev/
 
 ---
 

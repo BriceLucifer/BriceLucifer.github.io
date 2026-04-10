@@ -18,9 +18,9 @@ enableRobotsTXT = true
 [params]
   env = "production"
   author = "Brice"
-  homeTitle = "Brice | AI Systems, Rust, and Quant Blog"
-  description = "Notes on AI, systems, Rust, C/C++, and quantitative research."
-  keywords = ["AI", "Systems", "Rust", "C++", "Quant", "Algorithms", "Mathematics"]
+  homeTitle = "Brice | AI Systems, Mathematics, Computer Science and Quant Blog"
+  description = "Notes on AI, systems, Rust, C/C++, Zig, Python and quantitative research."
+  keywords = ["AI", "Systems", "Rust", "C++", "Python", "Zig", "Quant", "Algorithms", "Mathematics"]
   images = ["images/avatar-320.webp"]
   defaultTheme = "auto"
   ShowPostNavLinks = true
@@ -40,7 +40,7 @@ enableRobotsTXT = true
   [params.profileMode]
   enabled = true
   title = "Brice"
-  subtitle = "AI · Systems · Quant · C/C++ · Rust"
+  subtitle = "AI · Systems · Quant · C/C++ · Rust · Python · Zig"
   imageUrl = "images/avatar-320.webp"
   imageWidth = 160
   imageHeight = 160
