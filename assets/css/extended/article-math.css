@@ -1,0 +1,300 @@
+/*
+  Article polish for math, algorithms, and technical notes.
+  This file is loaded by PaperMod after the theme CSS.
+*/
+
+:root {
+  --article-max-width: 860px;
+  --article-measure: 72ch;
+  --math-accent: #2563eb;
+  --math-accent-soft: rgba(37, 99, 235, 0.1);
+  --math-warm: #b45309;
+  --math-rule: rgba(125, 125, 125, 0.22);
+}
+
+[data-theme="dark"] {
+  --math-accent: #7dd3fc;
+  --math-accent-soft: rgba(125, 211, 252, 0.12);
+  --math-warm: #fbbf24;
+  --math-rule: rgba(229, 231, 235, 0.18);
+}
+
+.post-single {
+  max-width: var(--article-max-width);
+}
+
+.post-content {
+  font-size: 1.03rem;
+  line-height: 1.78;
+  letter-spacing: 0;
+}
+
+.post-content > * {
+  max-width: var(--article-measure);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-content > pre,
+.post-content > table,
+.post-content > .highlight,
+.post-content > .katex-display,
+.post-content > .mermaid,
+.post-content > figure {
+  max-width: 100%;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  scroll-margin-top: 88px;
+}
+
+.post-content h2 {
+  margin-top: 2.6rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--math-rule);
+}
+
+.post-content h3 {
+  margin-top: 2rem;
+}
+
+.post-content p {
+  margin-bottom: 1.05rem;
+}
+
+.post-content a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.post-content blockquote {
+  border-inline-start: 4px solid var(--math-accent);
+  background: var(--math-accent-soft);
+  border-radius: 0 8px 8px 0;
+  color: var(--content);
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding: 0.9rem 1rem;
+}
+
+.post-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.post-content code {
+  border: 1px solid var(--math-rule);
+  border-radius: 5px;
+  padding: 0.12rem 0.34rem;
+}
+
+.post-content pre code {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.post-content .highlight,
+.post-content pre {
+  max-width: 100%;
+  border: 1px solid var(--math-rule);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.post-content .highlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-content pre {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+[data-theme="dark"] .post-content .highlight,
+[data-theme="dark"] .post-content pre {
+  box-shadow: none;
+}
+
+.post-content .highlight pre {
+  width: max-content;
+  min-width: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 0;
+  box-shadow: none;
+}
+
+.post-content .highlight table {
+  width: auto;
+  min-width: 100%;
+  margin: 0;
+}
+
+.post-content .highlight pre code,
+.post-content pre code {
+  box-sizing: border-box;
+  width: max-content;
+  min-width: auto;
+  padding-right: 4.75rem;
+  overflow-x: visible;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.post-content .highlight .line {
+  width: auto;
+  min-width: 0;
+}
+
+.post-content .highlight .lntable {
+  display: block;
+  width: 100%;
+  min-width: 100%;
+  table-layout: auto;
+}
+
+.post-content .highlight .lntable tbody,
+.post-content .highlight .lntable tr {
+  display: block;
+  width: 100%;
+}
+
+.post-content .highlight .lntable tr {
+  display: flex;
+}
+
+.post-content .highlight .lntd:first-child {
+  flex: 0 0 2.35rem;
+  width: 2.35rem;
+}
+
+.post-content .highlight .lntd:first-child pre {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.post-content .highlight .lntd:first-child code {
+  width: 100%;
+  min-width: 0;
+  padding-right: 0;
+}
+
+.post-content .highlight .lntd:last-child {
+  flex: 1 1 auto;
+  width: calc(100% - 2.35rem);
+  min-width: 0;
+}
+
+.post-content .highlight .lntd:last-child pre {
+  width: 100%;
+  min-width: 0;
+}
+
+.post-content .highlight .lntd:last-child code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+}
+
+.post-content .highlight .copy-code,
+.post-content pre .copy-code {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  z-index: 2;
+}
+
+.post-content .highlight td:first-child pre,
+.post-content .highlight .lnt {
+  user-select: none;
+}
+
+.post-content table {
+  display: table;
+  width: 100%;
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+.post-content th {
+  background: var(--code-bg);
+  font-weight: 700;
+}
+
+.post-content th,
+.post-content td {
+  border-color: var(--math-rule);
+  padding: 0.65rem 0.8rem;
+  vertical-align: top;
+}
+
+.katex {
+  font-size: 1.06em;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1.35rem auto;
+  padding: 0.45rem 0.25rem;
+}
+
+.katex-display > .katex {
+  line-height: 1.35;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.katex-display + .katex-display {
+  margin-top: -0.55rem;
+}
+
+.katex-error {
+  color: var(--math-warm);
+}
+
+.mermaid {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  margin: 1.5rem auto;
+  padding: 0.75rem 0;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.toc {
+  border: 1px solid var(--math-rule);
+  border-radius: 8px;
+}
+
+.toc details summary {
+  cursor: pointer;
+}
+
+.toc a {
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .post-content {
+    font-size: 1rem;
+  }
+
+  .post-content > * {
+    max-width: 100%;
+  }
+
+  .post-content table {
+    display: block;
+  }
+}

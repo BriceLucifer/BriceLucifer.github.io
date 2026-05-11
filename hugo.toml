@@ -119,6 +119,11 @@ enableRobotsTXT = true
     lineNumbersInTable = true
     style = "dracula"          # higher contrast, easier to read alongside white math
 
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+
 # --------------------
 # 分类系统
 # --------------------
@@ -133,11 +138,20 @@ enableRobotsTXT = true
   home = ["HTML", "RSS", "JSON"]
 
 # --------------------
+# 文章默认能力
+# --------------------
+[[cascade]]
+  math = true
+  mermaid = true
+  [cascade.target]
+    path = "/posts/**"
+
+# --------------------
 # 菜单
 # --------------------
 [languages]
   [languages.en]
-    languageName = "English"
+    label = "English"
     weight = 1
 
     [[languages.en.menu.main]]

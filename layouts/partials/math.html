@@ -1,26 +1,27 @@
-{{- /* KaTeX 0.16.11 — auto-render + copy-tex + mhchem */ -}}
+{{- /* KaTeX — auto-render + copy-tex + mhchem */ -}}
+{{- $katexVersion := "0.16.11" -}}
 <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+  href="https://cdn.jsdelivr.net/npm/katex@{{ $katexVersion }}/dist/katex.min.css"
   crossorigin="anonymous">
 
 <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.css"
+  href="https://cdn.jsdelivr.net/npm/katex@{{ $katexVersion }}/dist/contrib/copy-tex.min.css"
   crossorigin="anonymous">
 
 <script defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+  src="https://cdn.jsdelivr.net/npm/katex@{{ $katexVersion }}/dist/katex.min.js"
   crossorigin="anonymous"></script>
 
 <script defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/mhchem.min.js"
+  src="https://cdn.jsdelivr.net/npm/katex@{{ $katexVersion }}/dist/contrib/mhchem.min.js"
   crossorigin="anonymous"></script>
 
 <script defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js"
+  src="https://cdn.jsdelivr.net/npm/katex@{{ $katexVersion }}/dist/contrib/copy-tex.min.js"
   crossorigin="anonymous"></script>
 
 <script defer
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  src="https://cdn.jsdelivr.net/npm/katex@{{ $katexVersion }}/dist/contrib/auto-render.min.js"
   crossorigin="anonymous"
   onload="(() => {
     const mathRoot = document.querySelector('.post-content') || document.body;
@@ -32,25 +33,44 @@
         { left: '\\(', right: '\\)', display: false }
       ],
       throwOnError: false,
+      strict: 'warn',
       trust: true,
+      globalGroup: true,
+      ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
       macros: {
         '\\R':      '\\mathbb{R}',
         '\\N':      '\\mathbb{N}',
         '\\Z':      '\\mathbb{Z}',
+        '\\Q':      '\\mathbb{Q}',
         '\\C':      '\\mathbb{C}',
+        '\\F':      '\\mathbb{F}',
+        '\\1':      '\\mathbf{1}',
         '\\E':      '\\mathbb{E}',
+        '\\P':      '\\mathbb{P}',
         '\\Var':    '\\operatorname{Var}',
         '\\Cov':    '\\operatorname{Cov}',
+        '\\Corr':   '\\operatorname{Corr}',
+        '\\rank':   '\\operatorname{rank}',
+        '\\tr':     '\\operatorname{tr}',
+        '\\diag':   '\\operatorname{diag}',
+        '\\softmax':'\\operatorname{softmax}',
+        '\\ReLU':   '\\operatorname{ReLU}',
         '\\KL':     'D_{\\mathrm{KL}}',
         '\\norm':   '\\left\\lVert #1 \\right\\rVert',
         '\\abs':    '\\left\\lvert #1 \\right\\rvert',
+        '\\ceil':   '\\left\\lceil #1 \\right\\rceil',
+        '\\floor':  '\\left\\lfloor #1 \\right\\rfloor',
+        '\\set':    '\\left\\{ #1 \\right\\}',
         '\\inner':  '\\langle #1,\\, #2 \\rangle',
         '\\Loss':   '\\mathcal{L}',
         '\\Data':   '\\mathcal{D}',
         '\\argmin': '\\operatorname*{arg\\,min}',
         '\\argmax': '\\operatorname*{arg\\,max}',
         '\\grad':   '\\nabla',
-        '\\T':      '^{\\top}'
+        '\\dd':     '\\,\\mathrm{d}',
+        '\\given':  '\\,\\middle|\\,',
+        '\\T':      '^{\\top}',
+        '\\eps':    '\\varepsilon'
       }
     });
   })();">

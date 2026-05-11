@@ -7,14 +7,6 @@
 {{- /* ── Math (KaTeX) ──────────────────────────────────────────── */ -}}
 {{- if or .Params.math .Site.Params.math }}
 {{ partial "math.html" . }}
-<style>
-  /* display-mode equations scroll horizontally on narrow screens */
-  .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25em 0; }
-  /* tighten spacing between consecutive display blocks */
-  .katex-display + .katex-display { margin-top: -0.5em; }
-  /* slightly larger inline math for readability */
-  .katex { font-size: 1.05em; }
-</style>
 {{- end }}
 
 {{- /* ── Mermaid diagrams ────────────────────────────────────── */ -}}
@@ -23,7 +15,7 @@
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
 
   const getTheme = () =>
-    document.documentElement.classList.contains('dark') ? 'neutral' : 'default';
+    document.documentElement.dataset.theme === 'dark' ? 'dark' : 'default';
 
   const render = async () => {
     document.querySelectorAll('.mermaid').forEach(el => {
@@ -34,7 +26,13 @@
         el.innerHTML = el.dataset.src;
       }
     });
-    mermaid.initialize({ startOnLoad: false, theme: getTheme() });
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: getTheme(),
+      securityLevel: 'loose',
+      flowchart: { curve: 'basis', htmlLabels: true },
+      sequence: { mirrorActors: false }
+    });
     await mermaid.run({ querySelector: '.mermaid' });
   };
 
@@ -45,9 +43,9 @@
     render();
   }
 
-  // 监听 PaperMod 切换主题（<html class="dark"> 变化）
+  // 监听 PaperMod 切换主题（<html data-theme="..."> 变化）
   new MutationObserver(render).observe(
-    document.documentElement, { attributeFilter: ['class'] }
+    document.documentElement, { attributeFilter: ['data-theme'] }
   );
 </script>
 {{- end }}
