@@ -64,6 +64,15 @@
   margin-bottom: 1.05rem;
 }
 
+.post-content .about-avatar {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin: 0.75rem auto 1.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .post-content a {
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;

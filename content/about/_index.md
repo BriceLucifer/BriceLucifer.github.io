@@ -4,8 +4,8 @@ date = 2025-10-08T15:13:34+08:00
 draft = false
 slug = "about-brice"
 url = "/about/"
-description = "About Brice — AI, Math, Quant, and Systems."
-keywords = ["AI", "Rust", "C/C++","Quant", "Systems", "University of Auckland", "Tencent Cloud", "Brice"]
+description = "About Brice — AI research, video generation, world models, math, and systems."
+keywords = ["AI", "Research", "Video Generation", "World Model", "Rust", "C/C++","Quant", "Systems", "University of Auckland", "Tencent Cloud", "Brice"]
 
 # 👇 PaperMod 专用
 showToc = false
@@ -13,28 +13,27 @@ hideMeta = true
 mermaid = true
 +++
 
-<img src="/images/avatar-320.webp" alt="Brice" width="140" decoding="async" style="border-radius:50%; margin-bottom:1rem;" />
+<img class="about-avatar" src="/images/avatar-320.webp" alt="Brice" width="140" decoding="async" />
 
-Hi, I’m **Brice** — an engineer and aspiring researcher working at the intersection of  
-**Artificial Intelligence**, **Mathematics**, and **systems-level engineering**.
+Hi, I’m **Brice** — an engineer and research assistant working on **AI**, **video generation**, **interactive world models**, and the mathematical foundations behind them.
 
-My core interest lies in **generative and multimodal AI systems**, with a particular focus on how  
-**representation learning, optimization dynamics, and system constraints** interact in large-scale models.
+My current research interest is centered on **generative video world models**: models that go beyond producing short visually plausible clips and begin to simulate persistent, controllable, and interactive visual worlds.
 
 Currently, I am especially focused on:
 
-- **Video generation** — temporal coherence, motion modeling, and scalable generative architectures for video synthesis
-- **Probability theory & stochastic processes** — building rigorous mathematical foundations for understanding generative models, diffusion processes, and uncertainty in AI systems
+- **Long-horizon video generation** — temporal coherence, motion modeling, and controllable visual synthesis
+- **Interactive world models** — memory consistency, out-of-view dynamics, action control, and interaction
+- **Mathematical foundations for generative AI** — probability, stochastic processes, optimization, and uncertainty
 
-More broadly, I am drawn to **foundational and system-aware questions**, such as:
+I am drawn to questions such as:
 
-- How architectural choices influence representation and generalization
-- How optimization dynamics affect stability and efficiency
-- How system constraints (memory, parallelism, latency) shape model design and inference
+- How can a generative model preserve objects, scenes, and events over time?
+- How should memory be represented when important state moves out of view?
+- How can action and interaction turn video generation into world simulation?
 
-Starting **February 2026**, I will pursue a **Master of Artificial Intelligence** at the  
-**University of Auckland (New Zealand)**, with the long-term goal of advancing toward a  
-**research-oriented path (Research Assistantship / PhD)** in **generative and multimodal AI systems**.
+Since **21 March 2026**, I have been working as a **Research Assistant** under [**Xinyu Zhang**](https://zhangxinyu-xyz.github.io/) at the **University of Auckland**, focusing on **video generation** and **generative video world models**, including directions related to **LiveWorld**.
+
+I am currently pursuing a **Master of Artificial Intelligence** at the **University of Auckland (New Zealand)**, with the long-term goal of continuing toward doctoral-level research in **generative AI and interactive world models**.
 
 ---
 
@@ -57,18 +56,41 @@ My undergraduate training emphasized a **dual foundation in systems and mathemat
 **Master of Artificial Intelligence (180 points)**  
 *University of Auckland · Feb 2026 – Dec 2027 (expected)*
 
-Planned research focus:
+Research focus:
 
-> **Generative AI × Multimodal Modeling × System Optimization**
+> **Video Generation × Interactive World Models × Mathematical Foundations**
 
 I am particularly interested in:
 
 - Transformer-based, diffusion-style, and hybrid generative architectures
-- Multimodal representation learning and cross-modal alignment
-- Training and inference efficiency under system constraints
+- Long-horizon video generation and scene-level temporal consistency
+- Memory, action control, and interaction in generative video world models
 - Mathematical perspectives on optimization, stability, and generalization
 
-with the intention of continuing toward **research assistantship and doctoral-level study**.
+I intend to continue toward **doctoral-level research** in this direction.
+
+---
+
+## 🔬 Research Experience
+
+**Research Assistant — University of Auckland**  
+*Supervisor: [Xinyu Zhang](https://zhangxinyu-xyz.github.io/) · Mar 21, 2026 – Present*
+
+My current research direction is centered on **video generation** and **generative video world models**. The broader goal is to understand how video models can move from short-form generation toward long-horizon simulation with memory, controllability, and interaction.
+
+Current focus areas include:
+
+- **Long-horizon video generation** — extending temporal consistency beyond short clips
+- **Static memory consistency** — preserving scene layout, object identity, and spatial structure
+- **Dynamic memory consistency** — modeling out-of-view events, state changes, and hidden dynamics
+- **Action control** — conditioning generation on actions, motion, or controllable latent behavior
+- **Interactive ability** — enabling users or agents to affect generated environments through instruction or action
+
+Related to this direction, I follow problem-oriented research maps such as [**Awesome Interactive World Model**](https://github.com/EasonTuT/Awesome-Interactive-World-Model), which organize interactive world model papers by the questions they address instead of only by model name or release date.
+
+This reflects how I prefer to read the field: starting from core research problems such as **static memory consistency**, **dynamic memory consistency**, **action control**, **interactive ability**, post-training, physics, and evaluation, then asking what each line of work actually solves.
+
+Contributions and pull requests are welcome.
 
 ---
 
@@ -77,8 +99,7 @@ with the intention of continuing toward **research assistantship and doctoral-le
 **System Technology Intern — Tencent Cloud**  
 *CSIG Division · Xingxinghai Lab · Jul 2024 – Sep 2024*
 
-Worked on production-grade cloud infrastructure with an emphasis on  
-**automation, reliability, and performance-aware system design**.
+Worked on production-grade cloud infrastructure with an emphasis on **automation, reliability, and performance-aware system design**.
 
 Key contributions included:
 
@@ -89,18 +110,23 @@ Key contributions included:
 - Participating in discussions around **distributed system reliability** and  
   **kernel-adjacent performance tuning**
 
-This experience reinforced my interest in **large-scale AI systems**, where  
-**model design and system constraints must be considered jointly**.
+This experience shaped my engineering habits around **automation, reproducibility, and careful debugging**, which now carry into my research workflow.
 
 ---
 
 ## 🧠 Research & Technical Interests
 
 - **Video Generation**  
-  Temporal modeling, motion-aware architectures, diffusion-based video synthesis, scalable generation pipelines
+  Temporal modeling, motion-aware architectures, diffusion-based video synthesis, long-horizon generation
 
-- **Generative & Multimodal AI**  
-  Representation learning, cross-modal alignment, generative modeling, inference efficiency
+- **Interactive World Models**  
+  Static memory consistency, dynamic memory consistency, action control, interaction, evaluation
+
+- **Deep Learning Systems from First Principles**  
+  From-scratch implementation of reverse-mode autograd, neural network layers, optimizers, data loading, and training visualization in NumPy
+
+- **Self-directed Technical Reproduction**  
+  Ability to quickly study, reproduce, debug, and document unfamiliar technical systems, including a prior SO-100 / LeRobot robotics workflow reproduction
 
 - **Probability Theory & Stochastic Processes**  
   Measure-theoretic probability, Markov chains, SDEs, probabilistic graphical models — as rigorous foundations for generative AI
@@ -125,13 +151,20 @@ mindmap
       Video Generation
         Diffusion Models
         Temporal Modeling
-        Motion-Aware Arch
-      Multimodal
-        Cross-Modal Alignment
-        Representation Learning
+        Long-Horizon Generation
+      World Models
+        Static Memory Consistency
+        Dynamic Memory Consistency
+        Action Control
+        Interactive Ability
       LLM & Transformers
         Attention Mechanisms
-        Inference Efficiency
+        Generative Architectures
+      Deep Learning Systems
+        Autograd
+        Backpropagation
+        Optimizers
+        Training Visualization
     Mathematics
       Probability Theory
         Measure Theory
@@ -168,22 +201,22 @@ mindmap
 
 `C` · `C++` · `Rust` · `Zig` · `Go` · `Python` · `Java` · `JavaScript` · `Swift`
 
-> Languages are treated as **tools**, with emphasis placed on  
-> **abstraction, correctness, and performance trade-offs**.
+> Languages are treated as **tools**, with emphasis placed on **abstraction, correctness, and performance trade-offs**.
 
 ---
 
 ## 🔬 Research & Technical Projects
 
-*(Ongoing and planned research-oriented work)*
+*(Selected research and engineering work)*
 
 | Project | Description | Keywords |
 |------|------------|----------|
-| **LeRobot Reproduction & Extension** | Reimplemented and analyzed an open-source robotic control framework during undergraduate research, focusing on system understanding and control abstractions. | Robotics · Control · Learning |
-| **Video Generation (Active)** | Studying diffusion-based and autoregressive architectures for video synthesis — temporal coherence, motion modeling, and scalable generation pipelines. | Video Generation · Diffusion · Temporal Modeling |
+| **Research Assistantship: Video World Models (Active)** | Research under [Xinyu Zhang](https://zhangxinyu-xyz.github.io/) at the University of Auckland on video generation and interactive world models, with attention to memory consistency, action control, and long-horizon simulation. | Video Generation · World Models · Research |
+| **Problem-Oriented World Model Reading** | I follow and organize my reading around research problems such as static memory consistency, dynamic memory consistency, action control, interaction, physics, and evaluation, using resources like [Awesome Interactive World Model](https://github.com/EasonTuT/Awesome-Interactive-World-Model) as references. | World Model · Research Taste · Reading |
+| [**MiniTorch**](https://github.com/BriceLucifer/MiniTorch/tree/main/MiniTorch) | Built a lightweight PyTorch-inspired deep learning framework from scratch with NumPy, including reverse-mode automatic differentiation, differentiable tensor operations, neural network modules, SGD/Adam optimizers, MNIST training, computation graph visualization, and unit tests. | Autograd · Deep Learning Systems · NumPy |
+| [**SO-100 / LeRobot Reproduction**](https://bricelucifer.github.io/Robot-Docs/so100.html) | Independently reproduced and documented an unfamiliar robotics workflow as practice in rapid self-learning, system setup, debugging, and technical documentation. | Self-learning · Reproduction · Documentation |
+| **Video Generation Study (Active)** | Studying diffusion-based and autoregressive architectures for video synthesis, with emphasis on temporal coherence, motion modeling, and long-horizon generation. | Video Generation · Diffusion · Temporal Modeling |
 | **Probability Theory Study (Active)** | Systematic study of measure-theoretic probability and stochastic processes as mathematical foundations for generative models and diffusion-based AI. | Probability · Stochastic Processes · Math |
-| **Generative Multimodal Modeling (Planned)** | Exploring generative architectures for cross-modal representation and alignment, with attention to training dynamics and inference efficiency. | Generative AI · Multimodal |
-| **AI Systems Optimization (Planned)** | Studying system-level trade-offs in training and inference pipelines for large generative models. | AI Systems · Performance |
 
 ---
 
@@ -197,6 +230,5 @@ mindmap
 ---
 
 <sub>
-This site is built with **Hugo + PaperMod** and documents an evolving research trajectory  
-in **generative and multimodal AI systems**.
+This site is built with **Hugo + PaperMod** and documents an evolving research trajectory in **video generation and interactive world models**.
 </sub>
