@@ -6,31 +6,9 @@ description: "An introduction to soft computing, covering fuzzy logic, Bayesian 
 summary: "Understand soft computing through fuzzy logic, Bayesian methods, neural networks, and evolutionary search."
 draft: false
 math: true
-mermaid: true
 ShowToc: true
 TocOpen: true
 ---
-
-<div class="mermaid">
-mindmap
-  root((Soft Computing))
-    Fuzzy Logic
-      Membership Functions
-      Rule Base
-      Defuzzification
-    Probabilistic Methods
-      Bayes Rule
-      Uncertainty
-      Inference
-    Neural Networks
-      Representation Learning
-      Approximation
-      Gradient Descent
-    Evolutionary Algorithms
-      Population Search
-      Mutation
-      Selection
-</div>
 
 ## Overview
 
@@ -123,7 +101,7 @@ where $\mu_A(x)$ measures how strongly input $x$ belongs to fuzzy set $A$.
 Let $A$ be the fuzzy set "warm temperature". Then:
 
 $$
-\mu_A(18^\circ C)=0.2, \quad \mu_A(24^\circ C)=0.8
+\mu_A(18^\circ\text{C})=0.2, \quad \mu_A(24^\circ\text{C})=0.8
 $$
 
 The important point is that fuzzy logic models **vagueness**, not randomness. It is about partial truth, not probability.

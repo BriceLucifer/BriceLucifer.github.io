@@ -139,7 +139,7 @@ The intuition is:
 - positions that mutate together often reflect structural dependence
 - co-evolution gives clues about spatial constraints
 
-You do not need to implement a full MSA pipeline to understand the idea. Conceptually, the MSA gives the model a matrix like:
+You do not need to implement a full MSA pipeline to understand the idea. Conceptually, the MSA gives the model a tensor like:
 
 $$
 M \in \mathbb{R}^{S \times N \times d_m}
@@ -179,7 +179,7 @@ A minimal PyTorch example:
 import math
 import torch
 
-def attention(x):
+def attention(x, Wq, Wk, Wv):
     q = x @ Wq
     k = x @ Wk
     v = x @ Wv
@@ -279,7 +279,7 @@ for backbone atoms or residue-level positions, depending on the level of simplif
 During training, predicted structures are compared with target structures using geometry-aware losses. In a toy setting, you might start with a distance loss such as:
 
 $$
-\mathcal{L}_{dist} = \frac{1}{N^2}\sum_{i,j}\left(\hat{D}_{ij} - D_{ij}\right)^2
+\mathcal{L}_{\text{dist}} = \frac{1}{N^2}\sum_{i,j}\left(\hat{D}_{ij} - D_{ij}\right)^2
 $$
 
 where $\hat{D}_{ij}$ is the predicted distance and $D_{ij}$ is the ground truth.

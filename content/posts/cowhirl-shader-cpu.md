@@ -10,7 +10,7 @@ summary: "A CPU-based shader experiment in Rust that explores procedural graphic
 
 This note records a small experiment I wrote recently to explore **shader-like procedural graphics**, implemented **entirely on the CPU** using Rust.
 
-Code Link: https://github.com/BriceLucifer/shader    
+**Code:** [github.com/BriceLucifer/shader](https://github.com/BriceLucifer/shader)
 
 The goal was **not performance**, but to understand:
 
@@ -20,13 +20,13 @@ The goal was **not performance**, but to understand:
 
 The final result is a short rendered video:
 
-👉 Output video:
 <video controls autoplay loop muted playsinline width="100%">
   <source
     src="https://raw.githubusercontent.com/BriceLucifer/shader/main/out.mp4"
     type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
 ---
 
 ## High-level Idea
@@ -92,6 +92,7 @@ while i < 180.0 {
     z += d;
 
     o = o + color(p.z) / (d + 1e-3);
+    i += 1.0;
 }
 ```
 
@@ -124,7 +125,7 @@ A simple gamma correction is then applied before converting to `u8`.
 Each frame is rendered using **Rayon**:
 
 * pixels are independent
-* parallelism is embarrassingly parallel
+* the work is embarrassingly parallel
 * easy speedup without changing logic
 
 ```rust

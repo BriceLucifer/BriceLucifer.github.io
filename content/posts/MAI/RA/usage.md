@@ -78,10 +78,10 @@ To run training on a GPU, submit a shell script to the SLURM scheduler — don't
 # ======== Job Execution ========
 
 # Navigate to your project directory
-cd /data/<your_username>/<project_path>
+cd /data/<UPI>/<project_path>
 
-# Activate the virtual environment
-source venv/bin/activate
+# Activate the virtual environment (created by `uv venv` / `uv sync`)
+source .venv/bin/activate
 
 # Run the training script
 python3 train.py
@@ -91,7 +91,7 @@ python3 train.py
 
 | Action          | Command                |
 | --------------- | ---------------------- |
-| Submit a job    | `sbatch xxx.sh`        |
+| Submit a job    | `sbatch job.sh`        |
 | Check your jobs | `squeue -u $USER`      |
 | Cancel a job    | `scancel <job_id>`     |
 
@@ -106,7 +106,7 @@ watch squeue -u $USER
 **Tail a log file to follow output or errors live:**
 
 ```bash
-tail -f logs/xxx.txt
+tail -f <output_file>.log
 ```
 
 This is the fastest way to debug a running job without waiting for it to finish.
@@ -116,7 +116,7 @@ This is the fastest way to debug a running job without waiting for it to finish.
 For terminal users who want to pull results back to a local machine:
 
 ```bash
-scp <UPI>0@foscsmlprd03.its.auckland.ac.nz:/data/<UPI>/LongLive/videos/interactive/rank0-0-0_lora.mp4 ~/Nexus/ai_build/new.mp4
+scp <UPI>0@foscsmlprd03.its.auckland.ac.nz:/data/<UPI>/<project_path>/outputs/sample.mp4 ./
 ```
 
-The pattern is `scp <user>@<host>:<remote_path> <local_path>`.
+The pattern is `scp <user>@<host>:<remote_path> <local_path>`; add `-r` to copy a whole directory.

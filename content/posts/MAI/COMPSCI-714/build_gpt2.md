@@ -30,10 +30,10 @@ Each Transformer block contains:
 3. residual connections
 4. layer normalization
 
-If the hidden size is $d_{model}$ and the sequence length is $T$, then the hidden state has shape:
+If the hidden size is $d_{\text{model}}$ and the sequence length is $T$, then the hidden state has shape:
 
 $$
-X \in \mathbb{R}^{T \times d_{model}}
+X \in \mathbb{R}^{T \times d_{\text{model}}}
 $$
 
 For GPT-2 small:
@@ -76,7 +76,7 @@ print(ids)
 Once token IDs are produced, the embedding table converts them into vectors:
 
 $$
-E \in \mathbb{R}^{V \times d_{model}}
+E \in \mathbb{R}^{V \times d_{\text{model}}}
 $$
 
 where `V` is the vocabulary size. Looking up a token ID `i` returns row `E_i`.

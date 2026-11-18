@@ -5,123 +5,10 @@ tags: ["Deep Learning", "Mathematics", "LLM", "Transformer"]
 description: "A mathematical deep learning roadmap covering probability, optimization, neural networks, transformers, generative models, and multimodal AI."
 summary: "Build deep learning intuition from first principles, progressing from linear models and backpropagation to transformers, diffusion, and LLMs."
 math: true
-mermaid: true
 ShowToc: true
 TocOpen: true
 draft: false
 ---
-## Roadmap
-
-<div class="mermaid">
-mindmap
-  root((Deep Learning))
-    Probability and Stats
-      Gaussian Distribution
-      Expectation and Variance
-      Entropy
-      KL Divergence
-      Bayes Theorem
-    Fundamentals
-      Linear Regression
-      Loss Functions
-        SE MSE
-        Cross-Entropy
-      Derivatives
-        Gradient
-        Chain Rule
-        Gradient Descent
-    Linear Algebra
-      Vectors
-        Dot Product
-        Norm
-        Cosine Similarity
-      Matrices
-        Matrix Multiply
-        Transpose
-        Broadcast
-    Neural Networks
-      Single Neuron
-      MLP
-        Forward Pass
-        Backpropagation
-      Activations
-        ReLU Sigmoid Tanh
-        Softmax GELU
-      Normalisation
-        Batch Norm
-        Layer Norm
-      Pathologies
-        Vanishing Gradient
-        Exploding Gradient
-        Zigzag
-      ResNet Skip Connection
-      Training
-        Dropout
-        Adam
-        L2 Regularisation
-    Architectures
-      CNN
-        2D Convolution
-        Pooling
-        Feature Maps
-      RNN
-        Vanilla RNN
-        LSTM
-        GRU
-      Attention
-        Scaled Dot-Product
-        Multi-Head
-        Positional Encoding
-        Transformer Block
-      Encoder-Decoder
-        BERT MLM
-        GPT vs BERT
-      ViT
-    Transfer Learning
-      Pre-train to Fine-tune
-      LoRA
-    Generative AI
-      VAE
-        ELBO
-        Reparameterisation
-      GAN
-        Generator
-        Discriminator
-      Diffusion DDPM
-        Forward Noise
-        Reverse Denoise
-      Autoregressive
-        Temperature
-        Top-p Sampling
-      RLHF
-        Reward Model
-        PPO
-        DPO
-    LLM
-      Architecture
-        Tokenisation BPE
-        Causal Attention
-        Unembedding
-      KV Cache
-      MoE
-      Perplexity PPL
-      Scaling Laws
-      Prompting
-        k-shot
-        Chain-of-Thought
-        Self-Consistency
-      RAG
-    Multimodal AI
-      CLIP
-        InfoNCE Loss
-      VLM
-        Visual Encoder
-        Projection
-      Cross-Modal Attention
-      Text-to-Image
-        CFG
-        Latent Diffusion
-</div>
 
 ## Probability & Statistics Foundations
 
@@ -169,24 +56,25 @@ MLE (Maximum Likelihood Estimation) maximises $P(\mathcal{D}\mid\theta)$; MAP ad
 
 ---
 
-## Some ML essential concept in Methematical way
-### Linear Regression(LR)
+## Core ML Concepts, Mathematically
+
+### Linear Regression (LR)
 
 $$f(\mathbf{x}) = \mathbf{w}^\top \mathbf{x} + b = \sum_{j=1}^{d} w_j x_j + b$$
 
 In matrix form over $n$ samples: $\hat{\mathbf{y}} = X\mathbf{w} + b\mathbf{1},\quad X \in \mathbb{R}^{n \times d}$
 
-### Square Error(SE)
+### Squared Error (SE)
 
 $$\text{SE}(\hat{y}, y) = (\hat{y} - y)^2$$
 
-### Mean Square Error(MSE)
+### Mean Squared Error (MSE)
 
 $$\mathcal{L}_{\text{MSE}}(\theta) = \frac{1}{n} \sum_{i=1}^{n} \left( f_\theta(\mathbf{x}^{(i)}) - y^{(i)} \right)^2$$
 
 ### Cross-Entropy Loss (CE)
 
-Used for classification. For a true label $y \in \{1,\ldots,K\}$ and predicted probability vector $\hat{\mathbf{p}} = \text{softmax}(\mathbf{z})$:
+Used for classification. For a one-hot label $\mathbf{y} \in \{0,1\}^K$ over $K$ classes and predicted probability vector $\hat{\mathbf{p}} = \text{softmax}(\mathbf{z})$:
 
 $$\mathcal{L}_{\text{CE}} = -\sum_{k=1}^{K} y_k \log \hat{p}_k$$
 
@@ -220,13 +108,14 @@ $$\frac{\partial z}{\partial \mathbf{x}} = \frac{\partial z}{\partial g} \cdot \
 
 $$\theta_{t+1} = \theta_t - \eta \cdot \nabla_\theta \mathcal{L}(\theta_t)$$
 
-### Four Step Process For Machine Learning
+### The Four-Step Recipe of Machine Learning
+
 1. Collect the data
 2. Define the model's structure
 3. Define the loss function
-4. Minimize the loss
+4. Minimise the loss
 
-### Vector is all you need
+### Vectors Are All You Need
 
 A vector $\mathbf{x} \in \mathbb{R}^d$ encodes a data point with $d$ features.
 
@@ -236,7 +125,7 @@ Operations:
 - **$\ell_2$ Norm:** $\|\mathbf{x}\|_2 = \sqrt{\sum_i x_i^2}$
 - **Cosine similarity:** $\cos(\mathbf{u},\mathbf{v}) = \dfrac{\mathbf{u}^\top \mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|}$
 
-### Matrix
+### Matrices
 
 A matrix $W \in \mathbb{R}^{m \times n}$ represents a linear transformation $\mathbb{R}^n \to \mathbb{R}^m$.
 
@@ -244,10 +133,9 @@ Operations:
 - **Add:** $(A+B)_{ij} = A_{ij}+B_{ij}$
 - **Mul (matrix product):** $(AB)_{ij} = \sum_k A_{ik}B_{kj}$
 - **Broadcast:** scalar/vector ops extend across batch dimensions
-- **Dot product / inner product:** $\mathbf{u}^\top \mathbf{v} = \sum_i u_i v_i$
 - **Transpose:** $(A^\top)_{ij} = A_{ji}$
 
-### Neural Network
+### Neural Networks
 
 **Single neuron:**
 
@@ -263,7 +151,7 @@ $$\boldsymbol{\delta}^{(\ell)} = \left(W^{(\ell+1)\top}\boldsymbol{\delta}^{(\el
 
 $$\frac{\partial \mathcal{L}}{\partial W^{(\ell)}} = \boldsymbol{\delta}^{(\ell)}\mathbf{a}^{(\ell-1)\top}$$
 
-Activation:
+**Activation functions:**
 
 **ReLU:**
 $$\text{ReLU}(x) = \max(0,x), \qquad \text{ReLU}'(x) = \mathbf{1}[x>0]$$
@@ -277,7 +165,7 @@ $$\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}, \qquad \tanh'(x) = 1 - \tanh^2(x
 **Softmax:**
 $$\text{softmax}(\mathbf{z})_k = \frac{e^{z_k}}{\sum_j e^{z_j}}$$
 
-**GELU** (Gaussian Error Linear Unit) — used in BERT, GPT, and all modern Transformers:
+**GELU** (Gaussian Error Linear Unit) — used in BERT, GPT-2, and many modern Transformers:
 
 $$\text{GELU}(x) = x \cdot \Phi(x) = x \cdot \frac{1}{2}\left[1 + \text{erf}\!\left(\frac{x}{\sqrt{2}}\right)\right]$$
 
@@ -285,9 +173,9 @@ where $\Phi(x)$ is the standard Gaussian CDF. Practical approximation:
 
 $$\text{GELU}(x) \approx 0.5x\left(1 + \tanh\!\left(\sqrt{\frac{2}{\pi}}\,(x + 0.044715\,x^3)\right)\right)$$
 
-Unlike ReLU, GELU is smooth and non-zero for $x < 0$ with small probability, which helps gradient flow.
+Unlike ReLU, GELU is smooth everywhere and lets small negative values through for $x < 0$, which helps gradient flow.
 
-### Training detail
+### Training Details
 
 - **Parameters** $\theta = \{W^{(\ell)}, \mathbf{b}^{(\ell)}\}$: learned by gradient descent.
 - **Hyperparameters**: learning rate $\eta$, batch size $B$, layers $L$, hidden dim $d$ — set before training.
@@ -300,7 +188,7 @@ $$\mathcal{L}_{\text{reg}}(\theta) = \mathcal{L}(\theta) + \frac{\lambda}{2}\|\t
 
 $$\tilde{\mathbf{a}} = \mathbf{m} \odot \mathbf{a} \cdot \frac{1}{1-p}, \quad \mathbf{m}_i \sim \text{Bernoulli}(1-p)$$
 
-At inference, no dropout is applied (weights already scaled by $1/(1-p)$ at train time — **inverted dropout**).
+At inference, no dropout is applied: activations were already scaled by $1/(1-p)$ during training (**inverted dropout**), so the expected output matches.
 
 **Batch Normalisation (BN)** — normalise activations across the batch dimension, then scale and shift:
 
@@ -345,7 +233,7 @@ If $\eta$ is large enough to make progress along the flat direction, it overshoo
 
 $$\mathbf{v}_{t+1} = \gamma \mathbf{v}_t + \eta \nabla_\theta \mathcal{L}, \qquad \theta_{t+1} = \theta_t - \mathbf{v}_{t+1}$$
 
-The exponential moving average of gradients cancels out oscillating components while reinforcing consistent directions. Adam further applies **per-parameter** adaptive learning rates via $\hat{v}_t$ (second moment), which is why it almost always converges faster than SGD on non-convex landscapes.
+The exponential moving average of gradients cancels out oscillating components while reinforcing consistent directions. Adam further applies **per-parameter** adaptive learning rates via $\hat{v}_t$ (second moment), which is why it often converges faster than plain SGD on non-convex landscapes.
 
 ### ResNet — Residual Connections
 
@@ -386,7 +274,7 @@ $$\mathbf{f}_t = \sigma(W_f[\mathbf{h}_{t-1};\mathbf{x}_t]+\mathbf{b}_f), \quad 
 
 $$\mathbf{c}_t = \mathbf{f}_t \odot \mathbf{c}_{t-1} + \mathbf{i}_t \odot \tanh(W_c[\mathbf{h}_{t-1};\mathbf{x}_t]+\mathbf{b}_c)$$
 
-$$\mathbf{h}_t = \mathbf{o}_t \odot \tanh(\mathbf{c}_t)$$
+$$\mathbf{o}_t = \sigma(W_o[\mathbf{h}_{t-1};\mathbf{x}_t]+\mathbf{b}_o), \quad \mathbf{h}_t = \mathbf{o}_t \odot \tanh(\mathbf{c}_t)$$
 
 **GRU** — simplified gating (reset $\mathbf{r}_t$, update $\mathbf{z}_t$):
 
@@ -416,7 +304,7 @@ $$\mathbf{h}' = \text{LayerNorm}(\mathbf{h} + \text{MultiHead}(\mathbf{h},\mathb
 
 $$\mathbf{h}'' = \text{LayerNorm}(\mathbf{h}' + \text{FFN}(\mathbf{h}')), \quad \text{FFN}(\mathbf{x})=W_2\,\text{ReLU}(W_1\mathbf{x}+\mathbf{b}_1)+\mathbf{b}_2$$
 
-**Language Modelling Objective** — maximise log-likelihood over token sequence:
+**Language Modelling Objective** — minimise the negative log-likelihood of the token sequence:
 
 $$\mathcal{L} = -\frac{1}{T}\sum_{t=1}^T \log P_\theta(t_t \mid t_{\lt t})$$
 
@@ -443,7 +331,7 @@ $$\mathcal{L}_{\text{MLM}} = -\sum_{i \in \mathcal{M}} \log P_\theta(t_i \mid \m
 
 Because attention is **bidirectional** (no causal mask), every token can attend to every other token — unlike GPT which only sees past context.
 
-**2. Next Sentence Prediction (NSP)** — binary classification: are sentence B follows sentence A?
+**2. Next Sentence Prediction (NSP)** — binary classification: does sentence B follow sentence A?
 
 $$\mathcal{L}_{\text{NSP}} = -\log P_\theta(\text{IsNext} \mid [\text{CLS}])$$
 
@@ -618,7 +506,7 @@ $$\text{PPL}(T) = \exp\!\left(-\frac{1}{T}\sum_{t=1}^{T} \log P_\theta(t_t \mid 
 - Lower PPL = model assigns higher probability to real text = better.
 - PPL is simply the exponential of the cross-entropy loss $\mathcal{L}$.
 - PPL $= k$ means the model is as uncertain as choosing uniformly among $k$ tokens.
-- GPT-2 (117M): PPL ≈ 35 on WikiText-103; GPT-4 class models: PPL $\approx$ single digits.
+- GPT-2 zero-shot on WikiText-103: PPL ≈ 37.5 (117M) → ≈ 17.5 (1.5B) — scale alone cuts it in half.
 
 **Bits-per-character (BPC)** — alternative unit used for character-level models:
 
@@ -691,7 +579,7 @@ $$g_i(\mathbf{x}) = \text{softmax}\!\left(\text{TopK}\!\left(W_g\mathbf{x},\; k\
 - **Activated params** per token: $\sim k/E$ of total params → same inference cost as a smaller dense model.
 - **Load balancing loss** encourages uniform expert utilisation: $\mathcal{L}_{\text{bal}} = E \sum_i f_i \cdot p_i$ where $f_i$ is fraction of tokens routed to expert $i$ and $p_i$ is mean router probability.
 
-Used in **Mixtral**, **GPT-4**, **Switch Transformer**.
+Used in **Switch Transformer**, **Mixtral**, and **DeepSeek-V3**.
 
 ---
 
@@ -777,7 +665,7 @@ $$\mathbf{h}'_{\text{text}} = \text{Attention}(Q_{\text{text}},\; K_{\text{visio
 
 $$= \text{softmax}\!\left(\frac{Q_{\text{text}} K_{\text{vision}}^\top}{\sqrt{d_k}}\right) V_{\text{vision}}$$
 
-Used in **Flamingo**, **Perceiver Resampler**, etc.
+Used in **Flamingo**, whose gated cross-attention layers read visual tokens from a Perceiver Resampler.
 
 ---
 
@@ -808,4 +696,4 @@ $$\mathbf{z} = \mathcal{E}(\mathbf{x}), \quad \hat{\mathbf{x}} = \mathcal{D}(\ma
 | **Flamingo** | Image + Text | Cross-modal attention layers |
 | **Stable Diffusion** | Text → Image | Latent diffusion + CFG |
 | **Whisper** | Audio → Text | Spectrogram encoder + decoder |
-| **GPT-4o** | Image/Audio/Text | Unified multimodal autoregressive LLM |$
+| **GPT-4o** | Image/Audio/Text | Unified multimodal autoregressive LLM |
