@@ -8,7 +8,7 @@ Live at: **[https://brice6.pages.dev/](https://brice6.pages.dev/)**
 
 ## Focus Areas
 
-- Generative & Multimodal AI (video generation, diffusion models, cross-modal alignment)
+- Video generation and interactive world models (memory consistency, action control, long-horizon generation)
 - Probability theory and stochastic processes — mathematical foundations for AI
 - Systems programming: Rust / C / C++
 - Optimization, numerical methods, and algorithm design
@@ -20,10 +20,10 @@ Live at: **[https://brice6.pages.dev/](https://brice6.pages.dev/)**
 
 | Section | Purpose |
 |---------|---------|
-| **Notes** | Informal derivations, experiments, and learning logs. Clarity of thought over presentation. |
-| **Blog** | Polished articles distilling key insights from notes and research. |
-| **Projects** | Engineering and research projects — foundational AI systems and experimental implementations. |
-| **About** | Background, interests, and current research trajectory. |
+| **Blog** (`/posts/`) | Write-ups on AI, math, systems, and reflections. |
+| **Master of AI** (`/posts/mai/`) | UoA course notes (COMPSCI 713 / 714) and research-assistant guides. |
+| **Archive / Search / Tags** | Chronological index, full-text search, and topic index. |
+| **About** (`/about/`) | Background, research focus, experience, and projects. |
 
 ---
 
@@ -31,8 +31,20 @@ Live at: **[https://brice6.pages.dev/](https://brice6.pages.dev/)**
 
 - **Static site generator**: Hugo
 - **Theme**: PaperMod
-- **Content**: Markdown + KaTeX + custom shortcodes
+- **Content**: Markdown + KaTeX (`math: true` per post) + Mermaid (auto-loaded for ```` ```mermaid ```` blocks)
 - **Hosting**: Cloudflare Pages
+
+---
+
+## Local Development
+
+```bash
+git submodule update --init --recursive   # fetch PaperMod
+hugo server -D                            # preview at http://localhost:1313
+hugo --gc                                 # production build into public/
+```
+
+Requires Hugo extended **≥ 0.146** (PaperMod requirement). Prefer WebP for images under `static/images/`.
 
 ---
 

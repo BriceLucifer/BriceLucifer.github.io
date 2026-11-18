@@ -1,8 +1,7 @@
 ---
 title: "Deep Learning Explained with Mathematics: From Linear Regression to LLMs"
 date: 2026-03-08
-tags: ["MachineLearning", "DeepNeuralNetwork", "Mathematics", "LLM"]
-categories: ["posts"]
+tags: ["Deep Learning", "Mathematics", "LLM", "Transformer"]
 description: "A mathematical deep learning roadmap covering probability, optimization, neural networks, transformers, generative models, and multimodal AI."
 summary: "Build deep learning intuition from first principles, progressing from linear models and backpropagation to transformers, diffusion, and LLMs."
 math: true

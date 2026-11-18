@@ -1,13 +1,11 @@
 ---
 title: "AlphaFold Explained: Learning the Basics with PyTorch"
 date: 2026-03-05
-tags: ["MachineLearning", "DeepNeuralNetwork", "ProteinFolding", "PyTorch"]
-categories: ["posts"]
+tags: ["Deep Learning", "Protein Folding", "Attention", "PyTorch"]
 description: "A beginner-friendly AlphaFold introduction that uses PyTorch, tensors, and attention to build intuition from first principles."
 summary: "Learn the core ideas behind AlphaFold with a PyTorch-oriented walkthrough of tensors, attention, and protein structure modeling."
 draft: false
 math: true
-mermaid: true
 ShowToc: true
 TocOpen: true
 ---

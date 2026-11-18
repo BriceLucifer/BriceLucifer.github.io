@@ -9,6 +9,16 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
 
+# lastmod 取自 git 提交时间（sitemap / OpenGraph / schema 用）
+# Cloudflare Pages 构建命令需先 unshallow：git fetch --unshallow || true; hugo --gc
+enableGitInfo = true
+
+[frontmatter]
+  lastmod = ["lastmod", ":git", "date"]
+
+[minify]
+  minifyOutput = true          # don't depend on the deploy command passing --minify
+
 [pagination]
   pagerSize = 10
 
@@ -24,6 +34,7 @@ enableRobotsTXT = true
   images = ["images/avatar-320.webp"]
   defaultTheme = "auto"
   ShowPostNavLinks = true
+  ShowRssButtonInSectionTermList = true
 
   showReadingTime = true
   showWordCount = true
@@ -129,7 +140,6 @@ enableRobotsTXT = true
 # --------------------
 [taxonomies]
   tag = "tags"
-  category = "categories"
 
 # --------------------
 # 输出（搜索需要 JSON）
@@ -138,13 +148,10 @@ enableRobotsTXT = true
   home = ["HTML", "RSS", "JSON"]
 
 # --------------------
-# 文章默认能力
+# 文章能力：按页开启
 # --------------------
-[[cascade]]
-  math = true
-  mermaid = true
-  [cascade.target]
-    path = "/posts/**"
+# math: 在 front matter 写 `math: true` 才加载 KaTeX
+# mermaid: 页面里出现 ```mermaid / <div class="mermaid"> 时自动加载
 
 # --------------------
 # 菜单
@@ -165,11 +172,21 @@ enableRobotsTXT = true
       weight = 2
 
     [[languages.en.menu.main]]
+      name = "Archive"
+      url = "/archives/"
+      weight = 3
+
+    [[languages.en.menu.main]]
+      name = "Search"
+      url = "/search/"
+      weight = 4
+
+    [[languages.en.menu.main]]
       name = "Tags"
       url = "/tags/"
-      weight = 4
+      weight = 5
 
     [[languages.en.menu.main]]
       name = "About"
       url = "/about/"
-      weight = 5
+      weight = 6

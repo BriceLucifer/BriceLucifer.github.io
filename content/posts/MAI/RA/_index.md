@@ -1,7 +1,7 @@
 ---
 title: "Research Assistant"
-description: "How to train models and make use of UOA cloud compute resources"
+description: "How to train models and make use of UoA cloud compute resources."
 ---
-**Research**
+**Research Assistant · University of Auckland**
 
-This section focuses on doing research at UOA — what we need to do and how to implement new models.
+Practical notes for doing research at UoA — setting up environments, running and monitoring GPU jobs on the compute cluster, and implementing new models.

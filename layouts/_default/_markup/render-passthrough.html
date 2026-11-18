@@ -1,0 +1,47 @@
+{{- /* Server-side KaTeX: $…$ / \(…\) inline, $$…$$ / \[…\] block → static HTML at build time */ -}}
+{{- $macros := dict
+  "\\R"       "\\mathbb{R}"
+  "\\N"       "\\mathbb{N}"
+  "\\Z"       "\\mathbb{Z}"
+  "\\Q"       "\\mathbb{Q}"
+  "\\C"       "\\mathbb{C}"
+  "\\F"       "\\mathbb{F}"
+  "\\1"       "\\mathbf{1}"
+  "\\E"       "\\mathbb{E}"
+  "\\P"       "\\mathbb{P}"
+  "\\Var"     "\\operatorname{Var}"
+  "\\Cov"     "\\operatorname{Cov}"
+  "\\Corr"    "\\operatorname{Corr}"
+  "\\rank"    "\\operatorname{rank}"
+  "\\tr"      "\\operatorname{tr}"
+  "\\diag"    "\\operatorname{diag}"
+  "\\softmax" "\\operatorname{softmax}"
+  "\\ReLU"    "\\operatorname{ReLU}"
+  "\\KL"      "D_{\\mathrm{KL}}"
+  "\\norm"    "\\left\\lVert #1 \\right\\rVert"
+  "\\abs"     "\\left\\lvert #1 \\right\\rvert"
+  "\\ceil"    "\\left\\lceil #1 \\right\\rceil"
+  "\\floor"   "\\left\\lfloor #1 \\right\\rfloor"
+  "\\set"     "\\left\\{ #1 \\right\\}"
+  "\\inner"   "\\langle #1,\\, #2 \\rangle"
+  "\\Loss"    "\\mathcal{L}"
+  "\\Data"    "\\mathcal{D}"
+  "\\argmin"  "\\operatorname*{arg\\,min}"
+  "\\argmax"  "\\operatorname*{arg\\,max}"
+  "\\grad"    "\\nabla"
+  "\\dd"      "\\,\\mathrm{d}"
+  "\\given"   "\\,\\middle|\\,"
+  "\\T"       "^{\\top}"
+  "\\eps"     "\\varepsilon"
+-}}
+{{- $block := eq .Type "block" -}}
+{{- $opts := dict "output" "htmlAndMathml" "displayMode" $block "macros" $macros "throwOnError" true -}}
+{{- .Page.Store.Set "hasMath" true -}}
+{{- with try (transform.ToMath .Inner $opts) -}}
+  {{- with .Err -}}
+    {{- warnf "KaTeX failed in %s: %s" $.Page.File.Path . -}}
+    {{- if $block }}<pre class="math-error">{{ $.Inner }}</pre>{{ else }}<code class="math-error">{{ $.Inner }}</code>{{ end -}}
+  {{- else -}}
+    {{- .Value -}}
+  {{- end -}}
+{{- end -}}

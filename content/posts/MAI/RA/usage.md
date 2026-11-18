@@ -1,20 +1,15 @@
 ---
-title: "The Cloud Server Guide"
+title: "UoA Cloud Server: Setup and Usage Guide"
 date: 2026-03-28
-tags: ["MachineLearning", "DeepNeuralNetwork", "Research", "VideoGen"]
-categories: ["posts"]
-description: "A step-by-step guide for doing research on UOA cloud servers"
-summary: "A practical guide for setting up environments, training models, and managing GPU jobs on UOA's compute cluster"
-math: true
-mermaid: true
+tags: ["Research", "HPC", "SLURM", "GPU"]
+description: "A step-by-step guide for doing research on UoA cloud servers."
+summary: "A practical guide for setting up environments, training models, and managing GPU jobs on UoA's compute cluster."
 ShowToc: true
 TocOpen: true
 draft: false
 ---
 
-# UOA Cloud Server: Setup and Usage Guide
-
-This guide walks through everything you need to start running deep learning workloads on the UOA compute cluster — from initial login to submitting GPU jobs and monitoring training.
+This guide walks through everything you need to start running deep learning workloads on the UoA compute cluster — from initial login to submitting GPU jobs and monitoring training.
 
 ## 0. First-Time Setup
 

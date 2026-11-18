@@ -1,13 +1,10 @@
 ---
 title: "What Remains of Learning in the Age of AI"
 date: 2026-04-13
-tags: ["AI", "learning", "thinking", "education"]
-categories: ["posts"]
+tags: ["AI", "Learning", "Education", "Essay"]
 description: "A reflection on learning, memory, intelligence, and feeling in the age of large language models."
 summary: "As AI makes summarization and retrieval cheap, the value of learning shifts from memorization toward judgment, structure, attention, and the deeper feeling that gives direction to thought."
 ---
-
-# What Remains of Learning in the Age of AI
 
 Today I tried something simple but revealing: I used Claude to help me study for exams by extracting the key points from past papers and lecture materials. When I later went back and reread my professor’s slides, I realized that the summary was surprisingly good. It captured the important themes, recurring patterns, and likely exam focus very well. The only weakness was that image-heavy parts of the slides were extracted less effectively.
 

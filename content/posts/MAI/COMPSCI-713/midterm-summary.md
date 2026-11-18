@@ -1,8 +1,7 @@
 ---
 title: "COMPSCI 713 Midterm Review: Logic, Knowledge Representation, Soft Computing, and Learning Systems"
 date: 2026-04-28
-tags: ["ArtificialIntelligence", "KnowledgeRepresentation", "Logic", "SoftComputing", "DecisionTrees", "EnsembleLearning", "NEAT"]
-categories: ["posts"]
+tags: ["Logic", "Knowledge Representation", "Soft Computing", "Decision Trees", "Ensemble Learning", "NEAT", "Exam Review"]
 description: "A compact COMPSCI 713 midterm review covering knowledge representation, symbolic logic, expert systems, decision trees, ensembles, soft computing, LNNs, and NEAT."
 summary: "A midterm review map for COMPSCI 713: KR, logic, MYCIN, trees, ensembles, fuzzy reasoning, Bayesian methods, LNNs, and NEAT."
 draft: false
@@ -17,7 +16,7 @@ This midterm review is organized around one central question:
 
 The course moves from symbolic knowledge and rule-based reasoning to statistical and learning-based systems. The important part is not only remembering definitions, but understanding what each method represents, how it performs inference, when it works well, and where it fails.
 
-![COMPSCI 713 overview: MYCIN, decision trees, and ensembles](/images/compsci713-midterm/01-mycin-decision-trees-ensembles-overview.png)
+![COMPSCI 713 overview: MYCIN, decision trees, and ensembles](/images/compsci713-midterm/01-mycin-decision-trees-ensembles-overview.webp)
 
 ## 1. Knowledge Representation
 
@@ -33,7 +32,7 @@ A good representation should balance five requirements:
 
 The main KR methods include symbolic logic, semantic networks, frames, rule-based systems, expert systems, and knowledge graphs. Structured knowledge, such as tables, ontologies, and RDF triples, is easier to query and reason over. Unstructured knowledge, such as text and images, usually needs NLP, deep learning, or retrieval-augmented generation before it can support reliable reasoning.
 
-![Knowledge representation cheat sheet](/images/compsci713-midterm/16-knowledge-representation.png)
+![Knowledge representation cheat sheet](/images/compsci713-midterm/16-knowledge-representation.webp)
 
 ## 2. Symbolic Logic
 
@@ -53,7 +52,7 @@ Core valid inference rules:
 - **Modus Tollens**: from \(\neg Q\) and \(P \to Q\), infer \(\neg P\).
 - **Hypothetical Syllogism**: from \(P \to Q\) and \(Q \to R\), infer \(P \to R\).
 
-![Symbolic logic: propositional logic core](/images/compsci713-midterm/06-symbolic-logic-propositional-core.png)
+![Symbolic logic: propositional logic core](/images/compsci713-midterm/06-symbolic-logic-propositional-core.webp)
 
 First-Order Logic extends propositional logic with objects, predicates, functions, variables, and quantifiers. It is more expressive because it can describe relationships among objects rather than only isolated true-or-false statements.
 
@@ -65,7 +64,7 @@ Important exam traps:
 - Distinguish terms, formulas, and sentences.
 - Remember that predicates return truth values, while functions return objects.
 
-![First-order logic and semantics](/images/compsci713-midterm/09-symbolic-logic-fol-semantics.png)
+![First-order logic and semantics](/images/compsci713-midterm/09-symbolic-logic-fol-semantics.webp)
 
 ## 3. Wumpus World
 
@@ -81,7 +80,7 @@ For example, a breeze at a square means at least one neighboring square has a pi
 
 This distinction is a common exam target. "At least one", "none", and "exactly one" are logically different claims.
 
-![Wumpus World and logical reasoning](/images/compsci713-midterm/10-symbolic-logic-wumpus-world.png)
+![Wumpus World and logical reasoning](/images/compsci713-midterm/10-symbolic-logic-wumpus-world.webp)
 
 ## 4. MYCIN and Expert Systems
 
@@ -119,7 +118,7 @@ The WHY/HOW distinction matters:
 
 MYCIN mattered because it separated knowledge from inference and made explanations part of the system. Its limits were also clear: knowledge acquisition was expensive, rules were hard to maintain, medical knowledge changed quickly, and deployment raised legal and ethical concerns.
 
-![MYCIN and expert systems](/images/compsci713-midterm/14-mycin-expert-systems.png)
+![MYCIN and expert systems](/images/compsci713-midterm/14-mycin-expert-systems.webp)
 
 ## 5. Decision Trees
 
@@ -156,7 +155,7 @@ $$
 
 ID3 uses information gain, C4.5 extends ID3 to continuous features and uses gain ratio, and CART uses binary trees with Gini for classification or squared error for regression.
 
-![Decision tree foundations](/images/compsci713-midterm/12-decision-trees-foundations.png)
+![Decision tree foundations](/images/compsci713-midterm/12-decision-trees-foundations.webp)
 
 ## 6. Ensembles: Bagging, Random Forests, and Boosting
 
@@ -177,7 +176,7 @@ High-yield comparison:
 | AdaBoost | Sequential reweighting of errors | Reduces bias and focuses on hard cases |
 | Gradient boosting / XGBoost | Sequential fitting of residuals or gradients | Optimizes loss with regularization |
 
-![Ensembles, bagging, random forests, and boosting](/images/compsci713-midterm/18-ensembles-bagging-boosting.png)
+![Ensembles, bagging, random forests, and boosting](/images/compsci713-midterm/18-ensembles-bagging-boosting.webp)
 
 ## 7. Soft Computing
 
@@ -194,7 +193,7 @@ Probability asks: **How likely is it?**
 
 Fuzzy logic asks: **To what degree is it true?**
 
-![Soft computing foundations and fuzzy logic](/images/compsci713-midterm/15-soft-computing-foundations.png)
+![Soft computing foundations and fuzzy logic](/images/compsci713-midterm/15-soft-computing-foundations.webp)
 
 ## 8. Fuzzy Logic and Bayesian Reasoning
 
@@ -234,9 +233,9 @@ $$
 
 The assumption is often not perfectly true, but the method is simple, fast, scalable, and frequently strong as a baseline.
 
-![Fuzzy inference, Bayesian reasoning, and Naive Bayes](/images/compsci713-midterm/13-soft-computing-fuzzy-bayes.png)
+![Fuzzy inference, Bayesian reasoning, and Naive Bayes](/images/compsci713-midterm/13-soft-computing-fuzzy-bayes.webp)
 
-![Soft computing exam guide](/images/compsci713-midterm/11-soft-computing-exam-guide.png)
+![Soft computing exam guide](/images/compsci713-midterm/11-soft-computing-exam-guide.webp)
 
 ## 9. Logic Neural Networks
 
@@ -267,11 +266,11 @@ Common classifications:
 
 The most important exam warning is to classify bounds first, then reason. Do not treat fuzzy truth or LNN bounds as ordinary probability.
 
-![Logic Neural Networks core concepts](/images/compsci713-midterm/08-lnn-core-concepts.png)
+![Logic Neural Networks core concepts](/images/compsci713-midterm/08-lnn-core-concepts.webp)
 
-![Logic Neural Networks question forms](/images/compsci713-midterm/07-lnn-question-forms.png)
+![Logic Neural Networks question forms](/images/compsci713-midterm/07-lnn-question-forms.webp)
 
-![Logic Neural Networks answer strategy](/images/compsci713-midterm/05-lnn-answer-strategy.png)
+![Logic Neural Networks answer strategy](/images/compsci713-midterm/05-lnn-answer-strategy.webp)
 
 ## 10. NEAT
 
@@ -305,9 +304,9 @@ $$
 
 NEAT's strength comes from combining evolutionary search, topology growth, historical markings, and protected innovation.
 
-![NEAT cheat sheet](/images/compsci713-midterm/04-neat-cheatsheet.png)
+![NEAT cheat sheet](/images/compsci713-midterm/04-neat-cheatsheet.webp)
 
-![NEAT exam answers](/images/compsci713-midterm/03-neat-exam-answers.png)
+![NEAT exam answers](/images/compsci713-midterm/03-neat-exam-answers.webp)
 
 ## 11. How to Answer Midterm Questions
 
@@ -325,7 +324,7 @@ For calculation questions, write the formula first, substitute values carefully,
 
 For scenario questions, do not dump formulas. Name the method, explain why it fits the setting, state one caveat, and connect the answer back to the problem.
 
-![Scenario questions and answer templates](/images/compsci713-midterm/17-scenario-answer-templates.png)
+![Scenario questions and answer templates](/images/compsci713-midterm/17-scenario-answer-templates.webp)
 
 ## 12. Final Memory Map
 
@@ -341,5 +340,3 @@ The midterm topics connect naturally:
 - **NEAT** evolves both neural weights and neural structures.
 
 The safest exam mindset is: define precisely, reason step by step, interpret formulas in words, and always mention the assumptions behind the method.
-
-![Alternate one-page overview for MYCIN, decision trees, and ensembles](/images/compsci713-midterm/02-mycin-decision-trees-ensembles-overview-alt.png)
