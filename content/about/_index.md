@@ -33,7 +33,7 @@ By day I work on **generative video world models** at the University of Auckland
 
 ---
 
-## :research
+## Research
 
 **Research Assistant — University of Auckland**  
 *with [Xinyu Zhang](https://zhangxinyu-xyz.github.io/) · 21 Mar 2026 – present*
@@ -54,7 +54,7 @@ Underneath all of it is the math I keep coming back to: **measure-theoretic prob
 
 ---
 
-## :build
+## Projects
 
 > I don’t quite trust that I understand something until I’ve written a small version of it.
 
@@ -85,19 +85,14 @@ Underneath all of it is the math I keep coming back to: **measure-theoretic prob
 
 ---
 
-## :checkhealth
+## Tools & Setup
 
-```text
-brice ~
-- OK    editor     Neovim 0.12 · vim.pack · 17 plugins · 8 Lua files · ~30 ms startup
-- OK    ui         no statusline, no cmdline row, no tabline
-- OK    theme      Kanagawa — wave after dark, lotus by day, follows the OS
-- OK    terminal   Ghostty · Maple Mono NF CN · Starship
-- OK    shell      fish inside Neovim · tmux
-- OK    cli        fzf · ripgrep · zoxide · bat · btop · uv
-- OK    langs      Rust · C · C++ · Zig · Go · Python · TypeScript
-- WARN  sleep      no provider found
-```
+- **Editor** — Neovim 0.12, 17 plugins on the built-in `vim.pack`, ~30 ms startup
+- **Theme** — Kanagawa: Wave after dark, Lotus by day, following the system
+- **Terminal** — Ghostty · Maple Mono NF CN · Starship
+- **Shell** — fish · tmux
+- **CLI** — fzf · ripgrep · zoxide · bat · btop · uv
+- **Languages** — Rust · C · C++ · Zig · Go · Python · TypeScript
 
 The editor is the thing I’ve tuned the most. [**nvim.setting**](https://github.com/BriceLucifer/nvim.setting) is seventeen single-purpose plugins and eight Lua files on Neovim’s built-in `vim.pack` — no distro, no plugin bundles. The screen has no chin: status lives in a small capsule at each window’s top-right, `:` opens the command line in the middle of the screen, and notifications arrive as little cards and fade away. The start screen (a slowly turning galaxy), the notification cards, the number column, and the input boxes are hand-written Lua rather than plugins. The terminal half lives in [**ghostty_setup**](https://github.com/BriceLucifer/ghostty_setup), and my CV is typeset in Typst with [**coral-cv**](https://github.com/BriceLucifer/coral-cv).
 
@@ -105,31 +100,30 @@ Languages are tools. What I actually care about is **abstraction, correctness, a
 
 ---
 
-## :log
+## Experience
 
-```text
-2026-03  research   Research Assistant @ University of Auckland — video world models
-2026-02  study      Master of AI @ University of Auckland — until Dec 2027
-2025-07  degree     B.Eng. Electronic Information Engineering, HRBUST — GPA top 1%
-2024-07  industry   System Technology Intern @ Tencent Cloud — CSIG, Xingxinghai Lab
-2021-08  init       B.Eng. @ Harbin University of Science and Technology
-```
+**Research Assistant — University of Auckland** · *Mar 2026 – present*  
+Video generation and generative video world models, with Xinyu Zhang (see [Research](#research)).
 
-**Tencent Cloud — System Technology Intern** · *Jul – Sep 2024*  
+**System Technology Intern — Tencent Cloud** · *CSIG, Xingxinghai Lab · Jul – Sep 2024*  
 Production cloud infrastructure: I automated server deployment pipelines, tightened internal workflows, collected and analysed operational metrics, wrote technical analysis reports, and sat in on distributed-reliability and kernel-adjacent performance work. It’s where *automate it, make it reproducible, debug it carefully* turned into habit.
-
-**Harbin University of Science and Technology — B.Eng.** · *2021 – 2025*  
-Systems and mathematics in equal measure: embedded architectures, mathematical modelling and numerical optimization, parallel computing, and compilers down to low-level optimization.
-
-**University of Auckland — Master of AI** · *2026 – 2027*  
-Course notes on this site: [COMPSCI 713 — AI Fundamentals](/posts/mai/compsci-713/) · [COMPSCI 714 — AI Architecture](/posts/mai/compsci-714/)
 
 ---
 
-## :contact
+## Education
+
+**Master of Artificial Intelligence — University of Auckland** · *Feb 2026 – Dec 2027 (expected)*  
+Course notes on this site: [COMPSCI 713 — AI Fundamentals](/posts/mai/compsci-713/) · [COMPSCI 714 — AI Architecture](/posts/mai/compsci-714/)
+
+**B.Eng. in Electronic Information Engineering — Harbin University of Science and Technology** · *Aug 2021 – Jul 2025 · GPA top 1% of cohort*  
+Systems and mathematics in equal measure: embedded architectures, mathematical modelling and numerical optimization, parallel computing, and compilers down to low-level optimization.
+
+---
+
+## Contact
 
 - **GitHub** → [github.com/BriceLucifer](https://github.com/BriceLucifer)
 - **X** → [@Bricelucifer](https://x.com/Bricelucifer)
 - **Email** → [2376671337@qq.com](mailto:2376671337@qq.com)
 
-<sub>Built with **Hugo + PaperMod**. `:wq`</sub>
+<sub>Built with **Hugo + PaperMod**.</sub>
