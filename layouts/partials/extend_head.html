@@ -1,55 +1,10 @@
-{{- /* 先渲染正文：render hook 会在 Store 里标记 hasMath；mermaid 按正文内容自动检测 */ -}}
+{{- /* 先渲染正文：render-passthrough hook 会在 Store 里标记 hasMath */ -}}
 {{- $content := .Content -}}
 {{- $hasMath := or .Params.math .Site.Params.math (.Store.Get "hasMath") -}}
-{{- $hasMermaid := or .Params.mermaid .Site.Params.mermaid (strings.Contains $content `class="mermaid"`) -}}
-{{- $needsJsdelivr := or $hasMath $hasMermaid -}}
-{{- if $needsJsdelivr }}
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-{{- end }}
 
 {{- /* ── Math (KaTeX) ──────────────────────────────────────────── */ -}}
 {{- if $hasMath }}
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 {{ partial "math.html" . }}
-{{- end }}
-
-{{- /* ── Mermaid diagrams ────────────────────────────────────── */ -}}
-{{- if $hasMermaid }}
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.12.0/dist/mermaid.esm.min.mjs';
-
-  const getTheme = () =>
-    document.documentElement.dataset.theme === 'dark' ? 'dark' : 'default';
-
-  const render = async () => {
-    document.querySelectorAll('.mermaid').forEach(el => {
-      // 首次：保存原始 source；重渲：从 data-src 还原
-      if (!el.dataset.src) {
-        el.dataset.src = el.innerHTML.trim();
-      } else {
-        el.innerHTML = el.dataset.src;
-      }
-    });
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: getTheme(),
-      securityLevel: 'loose',
-      flowchart: { curve: 'basis', htmlLabels: true },
-      sequence: { mirrorActors: false }
-    });
-    await mermaid.run({ querySelector: '.mermaid' });
-  };
-
-  // 首次渲染：DOMContentLoaded 比 load 更早
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', render);
-  } else {
-    render();
-  }
-
-  // 监听 PaperMod 切换主题（<html data-theme="..."> 变化）
-  new MutationObserver(render).observe(
-    document.documentElement, { attributeFilter: ['data-theme'] }
-  );
-</script>
 {{- end }}

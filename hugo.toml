@@ -28,9 +28,9 @@ enableGitInfo = true
 [params]
   env = "production"
   author = "Brice"
-  homeTitle = "Brice | AI Systems, Mathematics, Computer Science and Quant Blog"
-  description = "Notes on AI research, systems, Rust, C/C++, Python and quantitative research."
-  keywords = ["AI", "Research", "Systems", "Rust", "C++", "Python", "Quant", "Algorithms", "Mathematics"]
+  homeTitle = "Brice | AI Research, Mathematics and Systems Notes"
+  description = "Notes on AI research, generative video world models, deep learning from first principles, and systems programming in Rust, Zig and C++."
+  keywords = ["AI", "Research", "Video Generation", "World Models", "Deep Learning", "Mathematics", "Rust", "Zig", "C++", "Python"]
   images = ["images/avatar-320.webp"]
   defaultTheme = "auto"
   ShowPostNavLinks = true
@@ -51,7 +51,7 @@ enableGitInfo = true
   [params.profileMode]
   enabled = true
   title = "Brice"
-  subtitle = "AI Research · Systems · Quant · Rust · C/C++ · Python"
+  subtitle = "AI Research · Video World Models · Systems · Rust · Zig"
   imageUrl = "images/avatar-320.webp"
   imageWidth = 160
   imageHeight = 160
@@ -148,10 +148,9 @@ enableGitInfo = true
   home = ["HTML", "RSS", "JSON"]
 
 # --------------------
-# 文章能力：按页开启
+# 文章能力：数学公式
 # --------------------
-# math: 在 front matter 写 `math: true` 才加载 KaTeX
-# mermaid: 页面里出现 ```mermaid / <div class="mermaid"> 时自动加载
+# 正文里有 $…$ / $$…$$ 时构建期渲染，并自动加载 KaTeX CSS；也可写 `math: true` 强制开启
 
 # --------------------
 # 菜单

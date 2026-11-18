@@ -31,7 +31,8 @@ Live at: **[https://brice6.pages.dev/](https://brice6.pages.dev/)**
 
 - **Static site generator**: Hugo
 - **Theme**: PaperMod
-- **Content**: Markdown + KaTeX (`math: true` per post) + Mermaid (auto-loaded for ```` ```mermaid ```` blocks)
+- **Content**: Markdown + KaTeX (rendered at build time)
+- **Fonts**: system font stack for text, self-hosted JetBrains Mono for code (`static/fonts/`)
 - **Hosting**: Cloudflare Pages
 
 ---

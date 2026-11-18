@@ -39,7 +39,6 @@
 .post-content > table,
 .post-content > .highlight,
 .post-content > .katex-display,
-.post-content > .mermaid,
 .post-content > figure {
   max-width: 100%;
 }
@@ -266,19 +265,6 @@
 
 .katex-error {
   color: var(--math-warm);
-}
-
-.mermaid {
-  display: flex;
-  justify-content: center;
-  overflow-x: auto;
-  margin: 1.5rem auto;
-  padding: 0.75rem 0;
-}
-
-.mermaid svg {
-  max-width: 100%;
-  height: auto;
 }
 
 .toc {

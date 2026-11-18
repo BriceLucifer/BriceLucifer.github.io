@@ -102,13 +102,13 @@ THEN conclusion
 It also used confidence factors to handle uncertain evidence:
 
 $$
-CF(\text{conclusion}) = CF(\text{premise}) \times CF(\text{rule})
+\text{CF}(\text{conclusion}) = \text{CF}(\text{premise}) \times \text{CF}(\text{rule})
 $$
 
 For AND premises:
 
 $$
-CF(A \land B \land C) = \min(CF(A), CF(B), CF(C))
+\text{CF}(A \land B \land C) = \min(\text{CF}(A), \text{CF}(B), \text{CF}(C))
 $$
 
 The WHY/HOW distinction matters:
@@ -144,13 +144,13 @@ $$
 Information gain:
 
 $$
-IG(Y|X) = H(Y) - H(Y|X)
+\text{IG}(Y \mid X) = H(Y) - H(Y \mid X)
 $$
 
 Gini impurity:
 
 $$
-Gini(D) = 1 - \sum_i p_i^2
+\text{Gini}(D) = 1 - \sum_i p_i^2
 $$
 
 ID3 uses information gain, C4.5 extends ID3 to continuous features and uses gain ratio, and CART uses binary trees with Gini for classification or squared error for regression.
@@ -203,7 +203,7 @@ $$
 \mu_A(x) \in [0,1]
 $$
 
-For example, \(\mu_{\text{Tall}}(183cm) = 0.6\) does not mean a 60 percent chance of being tall. It means degree 0.6 membership in the concept Tall.
+For example, \(\mu_{\text{Tall}}(183\,\text{cm}) = 0.6\) does not mean a 60 percent chance of being tall. It means degree 0.6 membership in the concept Tall.
 
 Common fuzzy operators:
 
