@@ -3,155 +3,133 @@ title = "About"
 date = 2025-10-08T15:13:34+08:00
 draft = false
 url = "/about/"
-description = "About Brice — Research Assistant at the University of Auckland working on generative video world models, plus math and systems."
-keywords = ["AI", "Research", "Video Generation", "World Model", "Rust", "C/C++","Quant", "Systems", "University of Auckland", "Tencent Cloud", "Brice"]
+description = "About Brice — Research Assistant at the University of Auckland on generative video world models; Neovim, Rust, Zig, and rebuilding things from scratch."
+keywords = ["AI", "Research", "Video Generation", "World Model", "Rust", "Zig", "C/C++", "Neovim", "Systems", "University of Auckland", "Tencent Cloud", "Brice"]
 
 # 👇 PaperMod 专用
 showToc = false
 hideMeta = true
-mermaid = true
 +++
 
 <img class="about-avatar" src="/images/avatar-320.webp" alt="Brice" width="140" decoding="async" />
 
-Hi, I’m **Brice** — a Research Assistant at the **University of Auckland**, working on **generative video world models**: video models that don’t stop at a plausible clip, but keep a persistent, controllable world running over time.
+Hi, I’m **Brice** — an engineer who wandered into AI research and decided to stay.
 
-I’m also studying for a **Master of Artificial Intelligence** at UoA, with the goal of continuing to a PhD in this direction.
+```lua
+-- ~/.config/brice/init.lua
+local brice = {
+  role     = "Research Assistant @ University of Auckland",
+  study    = "Master of AI, UoA (2026 – 2027)",
+  research = "generative video world models",
+  editor   = "neovim 0.12 · 17 plugins · ~30 ms startup",
+  langs    = { "rust", "c++", "zig", "python", "go", "typescript" },
+  motto    = "rebuild it until it makes sense",
+}
 
-The questions I keep coming back to:
+return brice
+```
 
-- How can a generative model keep objects, scenes, and events consistent over long horizons?
-- How should memory work when important state moves out of view?
-- How can action and interaction turn video generation into world simulation?
-
-Underneath them sit two habits: going down to the **mathematics** (probability, stochastic processes, optimization), and **building things from scratch** until I understand why they work.
+By day I work on **generative video world models** at the University of Auckland, where I’m also doing a **Master of Artificial Intelligence** on the way to a PhD. The rest of the time it looks much the same: I take something I use every day — autograd, a tokenizer, an inference engine, a coding agent, my own editor — and rebuild a version small enough to fit in my head.
 
 ---
 
-## 🔬 Research
+## :research
 
 **Research Assistant — University of Auckland**  
-*Supervisor: [Xinyu Zhang](https://zhangxinyu-xyz.github.io/) · 21 Mar 2026 – Present*
+*with [Xinyu Zhang](https://zhangxinyu-xyz.github.io/) · 21 Mar 2026 – present*
 
-Video generation and generative video world models, including directions related to **LiveWorld**. The aim is to move video models from short-form generation toward long-horizon simulation. I break that into five problems:
+Most video models are good at a few convincing seconds. I’m interested in what it takes for one to hold a *world* together — to keep a room the same room when the camera comes back, let things keep happening off-screen, and respond when someone acts inside it. That’s the direction behind work like **LiveWorld**, and I break it into five problems:
 
-- **Long-horizon generation** — temporal consistency well beyond short clips
-- **Static memory consistency** — scene layout, object identity, spatial structure
-- **Dynamic memory consistency** — out-of-view events, state changes, hidden dynamics
-- **Action control** — conditioning generation on actions, motion, or latent behaviour
-- **Interactivity** — letting users or agents change the generated world
+| Problem | The question it asks |
+|---------|----------------------|
+| **Long-horizon generation** | Does it stay coherent long after the first few seconds? |
+| **Static memory** | When we look again, are the layout, objects, and geometry still right? |
+| **Dynamic memory** | Did what moved out of view keep changing the way it should? |
+| **Action control** | Can generation be steered by actions, motion, or latent controls? |
+| **Interactivity** | Can a user or agent change the world — and see the consequences? |
 
-I read the field problem-first rather than model-first: for each paper, which of these problems does it actually solve? [**Awesome Interactive World Model**](https://github.com/EasonTuT/Awesome-Interactive-World-Model) organizes the literature along the same axes — plus post-training, physics, and evaluation — and is a good entry point. Contributions and pull requests are welcome.
+I read papers problem-first: for each one, *which of these does it actually move forward?* [**Awesome Interactive World Model**](https://github.com/EasonTuT/Awesome-Interactive-World-Model) organizes the literature the same way — plus post-training, physics, and evaluation — and it’s where I’d point anyone starting out. Contributions and pull requests are welcome.
+
+Underneath all of it is the math I keep coming back to: **measure-theoretic probability, stochastic processes, and SDEs** — the ground diffusion models stand on.
 
 ---
 
-## 🎓 Education
+## :build
 
-**Master of Artificial Intelligence (180 points)**  
-*University of Auckland · Feb 2026 – Dec 2027 (expected)*
+> I don’t quite trust that I understand something until I’ve written a small version of it.
 
+### Learning machines, from first principles
+
+- [**MiniTorch**](https://github.com/BriceLucifer/MiniTorch/tree/main/MiniTorch) · `Python` — a PyTorch-shaped framework in plain NumPy: reverse-mode autodiff, NN modules, SGD/Adam, MNIST training, computation-graph visualization, and tests. My answer to *“what does `.backward()` actually do?”*
+- [**micro_grad**](https://github.com/BriceLucifer/micro_grad) · `Rust` — Karpathy’s micrograd rebuilt in Rust, where a computation graph has to make peace with the borrow checker.
+- [**uma**](https://github.com/BriceLucifer/uma) · `Python` — the same idea again, this time on top of Apple’s MLX.
+- [**tensor-in-zig**](https://github.com/BriceLucifer/tensor-in-zig) · `Zig` — a tensor library in Zig, with an MLP that learns to read MNIST digits.
+- [**min_bpe**](https://github.com/BriceLucifer/min_bpe) · `C++` — a byte-pair-encoding tokenizer, my C++ take on minbpe.
+- [**MiniVLLM**](https://github.com/BriceLucifer/MiniVLLM) · `Python` — a small vLLM-style inference engine on PyTorch and Apple’s MPS backend.
+- [**GPT2-back2front**](https://github.com/BriceLucifer/GPT2-back2front) · `Python` — a GPT-2 trained, fine-tuned, and served to a web frontend, end to end. The walkthrough is [Build GPT-2 from Scratch](/posts/mai/compsci-714/build_gpt2/).
+
+### Systems & tools
+
+- [**minikv**](https://github.com/BriceLucifer/minikv) · `C++` — a lightweight distributed object store for artifacts, datasets, and data-heavy workflows.
+- [**minicoder**](https://github.com/BriceLucifer/minicoder) · `TypeScript` — a small but complete coding agent.
+- [**codecrafters-claude-code-rust**](https://github.com/BriceLucifer/codecrafters-claude-code-rust) · `Rust` — a Claude Code-style command-line agent, built through CodeCrafters.
+- [**zreal**](https://github.com/BriceLucifer/zreal) · `Zig` — a game engine, because Zig makes you want to own every byte.
+- [**shader**](https://github.com/BriceLucifer/shader) · `Rust` — shader-style procedural graphics on the CPU, no GPU allowed; written up in [A CPU-based Whirl Shader](/posts/cowhirl-shader-cpu/).
+
+### Making it visible
+
+- [**atlas**](https://github.com/BriceLucifer/atlas) · `TypeScript` — my knowledge base, an Obsidian-inspired wiki.
+- [**alphafold2-visualization**](https://github.com/BriceLucifer/alphafold2-visualization) · `TypeScript` — AlphaFold 2, made interactive.
+- [**rnn-transformer-viz**](https://github.com/BriceLucifer/rnn-transformer-viz) · `TypeScript` — RNNs and Transformers you can watch think.
+- [**SO-100 / LeRobot reproduction**](https://bricelucifer.github.io/Robot-Docs/so100.html) — a robotics workflow reproduced and documented from zero, as practice in learning something unfamiliar fast.
+
+---
+
+## :checkhealth
+
+```text
+brice ~
+- OK    editor     Neovim 0.12 · vim.pack · 17 plugins · 8 Lua files · ~30 ms startup
+- OK    ui         no statusline, no cmdline row, no tabline
+- OK    theme      Kanagawa — wave after dark, lotus by day, follows the OS
+- OK    terminal   Ghostty · Maple Mono NF CN · Starship
+- OK    shell      fish inside Neovim · tmux
+- OK    cli        fzf · ripgrep · zoxide · bat · btop · uv
+- OK    langs      Rust · C · C++ · Zig · Go · Python · TypeScript
+- WARN  sleep      no provider found
+```
+
+The editor is the thing I’ve tuned the most. [**nvim.setting**](https://github.com/BriceLucifer/nvim.setting) is seventeen single-purpose plugins and eight Lua files on Neovim’s built-in `vim.pack` — no distro, no plugin bundles. The screen has no chin: status lives in a small capsule at each window’s top-right, `:` opens the command line in the middle of the screen, and notifications arrive as little cards and fade away. The start screen (a slowly turning galaxy), the notification cards, the number column, and the input boxes are hand-written Lua rather than plugins. The terminal half lives in [**ghostty_setup**](https://github.com/BriceLucifer/ghostty_setup), and my CV is typeset in Typst with [**coral-cv**](https://github.com/BriceLucifer/coral-cv).
+
+Languages are tools. What I actually care about is **abstraction, correctness, and performance trade-offs**.
+
+---
+
+## :log
+
+```text
+2026-03  research   Research Assistant @ University of Auckland — video world models
+2026-02  study      Master of AI @ University of Auckland — until Dec 2027
+2025-07  degree     B.Eng. Electronic Information Engineering, HRBUST — GPA top 1%
+2024-07  industry   System Technology Intern @ Tencent Cloud — CSIG, Xingxinghai Lab
+2021-08  init       B.Eng. @ Harbin University of Science and Technology
+```
+
+**Tencent Cloud — System Technology Intern** · *Jul – Sep 2024*  
+Production cloud infrastructure: I automated server deployment pipelines, tightened internal workflows, collected and analysed operational metrics, wrote technical analysis reports, and sat in on distributed-reliability and kernel-adjacent performance work. It’s where *automate it, make it reproducible, debug it carefully* turned into habit.
+
+**Harbin University of Science and Technology — B.Eng.** · *2021 – 2025*  
+Systems and mathematics in equal measure: embedded architectures, mathematical modelling and numerical optimization, parallel computing, and compilers down to low-level optimization.
+
+**University of Auckland — Master of AI** · *2026 – 2027*  
 Course notes on this site: [COMPSCI 713 — AI Fundamentals](/posts/mai/compsci-713/) · [COMPSCI 714 — AI Architecture](/posts/mai/compsci-714/)
 
-**B.Eng. in Electronic Information Engineering**  
-*Harbin University of Science and Technology · Aug 2021 – Jul 2025 · GPA top 1% of cohort*
-
-Systems and mathematics in equal measure: computer systems and embedded architectures, mathematical modelling and numerical optimization, high-performance and parallel computing, compiler theory and low-level optimization.
-
 ---
 
-## 💼 Industry
-
-**System Technology Intern — Tencent Cloud**  
-*CSIG · Xingxinghai Lab · Jul 2024 – Sep 2024*
-
-- Automated **cloud server deployment pipelines** for production environments
-- Improved internal **system workflows** for efficiency and reliability
-- Collected and analysed **operational metrics** to drive optimization
-- Wrote **technical analysis reports**, and took part in discussions on **distributed-system reliability** and **kernel-adjacent performance tuning**
-
-This is where I picked up the habits I now bring to research: automate it, make it reproducible, debug it carefully.
-
----
-
-## 🧩 Projects
-
-| Project | What | Keywords |
-|---------|------|----------|
-| [**MiniTorch**](https://github.com/BriceLucifer/MiniTorch/tree/main/MiniTorch) | A PyTorch-style deep learning framework built from scratch in NumPy: reverse-mode autodiff, differentiable tensor ops, NN modules, SGD/Adam, MNIST training, computation-graph visualization, and unit tests. | Autograd · DL Systems · NumPy |
-| [**GPT-2 from Scratch**](/posts/mai/compsci-714/build_gpt2/) | BPE tokenization, masked self-attention, transformer blocks, and training — implemented and explained step by step. | LLM · Transformer · PyTorch |
-| [**SO-100 / LeRobot Reproduction**](https://bricelucifer.github.io/Robot-Docs/so100.html) | Independently reproduced and documented an unfamiliar robotics workflow — practice in fast self-learning, setup, debugging, and documentation. | Robotics · Reproduction · Docs |
-| [**CPU Whirl Shader**](/posts/cowhirl-shader-cpu/) | Shader-style procedural graphics recreated on the CPU in Rust, with raymarching-inspired math and video output. | Rust · Graphics |
-
-Alongside these, I’m working through **measure-theoretic probability and stochastic processes** (Markov chains, SDEs, probabilistic graphical models) as the foundation under diffusion-based generative models.
-
----
-
-## 🌲 Skill Tree
-
-<div class="mermaid">
-mindmap
-  root((Brice))
-    AI & Generative
-      Video Generation
-        Diffusion Models
-        Temporal Modeling
-        Long-Horizon Generation
-      World Models
-        Static Memory Consistency
-        Dynamic Memory Consistency
-        Action Control
-        Interactive Ability
-      LLM & Transformers
-        Attention Mechanisms
-        Generative Architectures
-      Deep Learning Systems
-        Autograd
-        Backpropagation
-        Optimizers
-        Training Visualization
-    Mathematics
-      Probability Theory
-        Measure Theory
-        Stochastic Processes
-        SDEs & Diffusion
-      Optimization
-        Gradient Methods
-        Convex Analysis
-        Numerical Methods
-      Linear Algebra
-        Matrix Decompositions
-        Spectral Methods
-    Systems
-      Rust
-        Async Runtimes
-        Memory Safety
-        Concurrency
-      C / C++
-        Low-level Perf
-        Embedded
-      Cloud & Infra
-        Distributed Systems
-        Pipeline Automation
-    Algorithms
-      Graph Theory
-      Data Structures
-      Compiler Theory
-      Complexity Analysis
-</div>
-
-**Languages:** `C` · `C++` · `Rust` · `Zig` · `Go` · `Python` · `Java` · `JavaScript` · `Swift`
-
-> Languages are **tools** — what matters is abstraction, correctness, and performance trade-offs.
-
----
-
-## 🌐 Contact
+## :contact
 
 - **GitHub** → [github.com/BriceLucifer](https://github.com/BriceLucifer)
-- **X (Twitter)** → [@Bricelucifer](https://x.com/Bricelucifer)
+- **X** → [@Bricelucifer](https://x.com/Bricelucifer)
 - **Email** → [2376671337@qq.com](mailto:2376671337@qq.com)
-- **Knowledge Base** → [atlas-32q.pages.dev](https://atlas-32q.pages.dev/)
 
----
-
-<sub>This site is built with **Hugo + PaperMod** and documents an evolving research trajectory in **video generation and interactive world models**.</sub>
+<sub>Built with **Hugo + PaperMod**. `:wq`</sub>
