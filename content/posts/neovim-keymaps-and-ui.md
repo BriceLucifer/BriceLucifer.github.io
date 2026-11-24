@@ -273,7 +273,9 @@ FloatTitle  = { fg = C.blue, bg = "NONE", bold = true },
 
 ![fzf-lua file picker with preview](/images/neovim/picker.webp)
 
-*`<leader>ff` 在配置目录里找文件。文件名在前、目录在后变暗（`path.filename_first`）；右侧预览里中英混排的注释靠 Maple Mono NF CN 严格对齐。*
+*`<leader>ff` 在配置目录里找文件。文件名在前、目录在后变暗（`path.filename_first`）；右侧预览里中英混排的注释靠 [Maple Mono NF CN](https://github.com/subframe7536/maple-font) 严格对齐。*
+
+> 字体是 [Maple Mono NF CN](https://font.subf.dev)：等宽、内置 Nerd Font 图标、中英文 2:1 对齐，这份配置里所有的图标（文件类型、Git 分支、诊断）都依赖它。安装：`brew install --cask font-maple-mono-nf-cn`，或者从 [Releases](https://github.com/subframe7536/maple-font/releases) 下载。终端字体不是 Nerd Font 的话，图标会显示成方块。
 
 文件管理用 [oil.nvim](https://github.com/stevearc/oil.nvim)：目录就是一个可以编辑的 buffer，改名直接改字、删除直接 `dd`、`:w` 才真正生效，删除的文件进废纸篓。`-` 原地打开，`<leader>e` 浮窗打开：
 

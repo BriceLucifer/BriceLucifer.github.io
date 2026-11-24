@@ -39,7 +39,19 @@ font-thicken = false
 adjust-cell-height = 2
 ```
 
-[Maple Mono](https://github.com/subframe7536/maple-font) 的 **NF CN** 版本一次解决三件事：英文是等宽编程字体，内置 Nerd Font 图标（Neovim 里的文件图标、Git 分支符号都靠它），中文字形和英文严格 2:1 对齐。中英混排的注释不会歪。
+[Maple Mono](https://github.com/subframe7536/maple-font) 的 **NF CN** 版本一次解决三件事：英文是等宽编程字体，内置 [Nerd Font](https://www.nerdfonts.com) 图标（Neovim 里的文件图标、Git 分支符号都靠它），中文字形和英文严格 2:1 对齐。中英混排的注释不会歪。
+
+- **官网 & 在线预览**：[font.subf.dev](https://font.subf.dev)，可以直接在网页上试各种连字和字重
+- **GitHub**：[subframe7536/maple-font](https://github.com/subframe7536/maple-font)
+- **下载**：[Releases](https://github.com/subframe7536/maple-font/releases) 页面里找 `MapleMono-NF-CN` 开头的压缩包
+
+macOS 上用 Homebrew 一行装好：
+
+```bash
+brew install --cask font-maple-mono-nf-cn
+```
+
+装完在 Ghostty 里用 `ghostty +list-fonts | grep -i maple` 确认字体名，`font-family` 要和这里列出来的名字完全一致。
 
 - `+calt` 打开 contextual alternates，`->`、`!=` 这类连字会生效。
 - `adjust-cell-height = 2` 把行高稍微拉开一点，代码不那么挤。Neovide 里我用 `linespace = 2` 对应同一个值，两边看起来一致。
@@ -50,7 +62,7 @@ adjust-cell-height = 2
 theme = Catppuccin Mocha
 ```
 
-我的 Neovim 用的也是 Catppuccin Mocha，而且开了 `transparent_background`。所以 **Neovim 里看到的底色其实就是 Ghostty 的底色**。终端和编辑器不会出现两种接近但不一样的深蓝，切进切出没有色差。
+[Catppuccin](https://catppuccin.com) Mocha 是 Ghostty 内置的主题，不用额外下载。我的 Neovim 用的也是 Catppuccin Mocha（[catppuccin/nvim](https://github.com/catppuccin/nvim)），而且开了 `transparent_background`。所以 **Neovim 里看到的底色其实就是 Ghostty 的底色**。终端和编辑器不会出现两种接近但不一样的深蓝，切进切出没有色差。
 
 ## 窗口
 
