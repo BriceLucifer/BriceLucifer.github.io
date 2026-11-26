@@ -1,0 +1,50 @@
+/*
+  Site-wide background.
+  Dark: a deep night sky with a few faint nebulae (also the fallback when WebGL
+  is unavailable). The animated layer is a fixed <canvas class="starfield">
+  added by assets/js/starfield.js on every page: a rotating galaxy at night,
+  a flowing aurora with drifting motes by day.
+*/
+
+:root[data-theme="dark"] body {
+  background:
+    radial-gradient(ellipse 38% 32% at 22% 28%, rgba(203, 166, 247, 0.13), transparent 70%),
+    radial-gradient(ellipse 34% 30% at 80% 72%, rgba(137, 180, 250, 0.11), transparent 70%),
+    radial-gradient(ellipse 26% 22% at 68% 18%, rgba(245, 194, 231, 0.07), transparent 70%),
+    radial-gradient(ellipse 30% 26% at 30% 82%, rgba(148, 226, 213, 0.05), transparent 70%),
+    radial-gradient(ellipse 85% 75% at 50% 42%, #1e1e2e 0%, #161622 60%, #11111b 100%);
+  background-attachment: fixed;
+}
+
+/* ── WebGL sky (assets/js/starfield.js) ──────────────────── */
+.starfield {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+/* Set by the script once a WebGL context is running. */
+html.has-starfield .starfield {
+  opacity: 1;
+}
+
+/*
+  PaperMod forces an always-visible 19px page scrollbar (html { overflow-y:
+  scroll } plus custom ::-webkit-scrollbar styles). Browsers never paint a
+  fixed canvas under a classic scrollbar, so it shows as a flat strip beside
+  the sky. Hide the page-level bar only: wheel, trackpad and keyboard scrolling
+  are unchanged, and scrollbars inside code blocks and tables keep their style.
+*/
+html {
+  scrollbar-width: none;   /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}

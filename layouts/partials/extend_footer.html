@@ -9,8 +9,6 @@
 </aside>
 {{- end }}
 
-{{- /* Home only: WebGL night sky behind the profile (assets/js/starfield.js) */}}
-{{- if .IsHome }}
+{{- /* Animated site background on every page (assets/js/starfield.js, assets/css/extended/sky.css) */}}
 {{- $starfield := resources.Get "js/starfield.js" | js.Build (dict "minify" true) | fingerprint }}
 <script defer src="{{ $starfield.RelPermalink }}" integrity="{{ $starfield.Data.Integrity }}"></script>
-{{- end }}
