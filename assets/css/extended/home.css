@@ -68,82 +68,219 @@
 }
 
 /*
-  Starfield behind the profile: three fixed layers of tiny radial-gradient dots.
-  Tile sizes are mutually non-multiples so the repeat isn't visible, and the
-  twinkle periods (5.3s / 7.9s / 11.7s) never line up, so the field shimmers
-  unevenly instead of pulsing in sync. Pure CSS, ignores pointer events.
+  Night sky behind the profile (home only, pure CSS, ignores pointer events)
+
+  - body:has(.profile): a deeper sky than the rest of the site, plus a few
+    faint nebula clouds that breathe very slowly.
+  - Four fixed star layers built from radial-gradient dots. Tile sizes and
+    offsets are mutually non-multiples so no grid shows, and the twinkle
+    periods (4.3 / 6.1 / 8.7 / 13.1 s) never line up.
+  - Light mode keeps only pastel nebulae and a few faint stars.
+  - prefers-reduced-motion: everything static.
 */
+
+/* ── Sky + nebulae ───────────────────────────────────────── */
+:root[data-theme="dark"] body:has(.profile) {
+  background:
+    radial-gradient(ellipse 38% 32% at 22% 28%, rgba(203, 166, 247, 0.13), transparent 70%),
+    radial-gradient(ellipse 34% 30% at 80% 72%, rgba(137, 180, 250, 0.11), transparent 70%),
+    radial-gradient(ellipse 26% 22% at 68% 18%, rgba(245, 194, 231, 0.07), transparent 70%),
+    radial-gradient(ellipse 30% 26% at 30% 82%, rgba(148, 226, 213, 0.05), transparent 70%),
+    radial-gradient(ellipse 85% 75% at 50% 42%, #1e1e2e 0%, #161622 60%, #11111b 100%);
+  background-attachment: fixed;
+}
+
+:root[data-theme="light"] body:has(.profile) {
+  background:
+    radial-gradient(ellipse 38% 32% at 22% 28%, rgba(136, 57, 239, 0.07), transparent 70%),
+    radial-gradient(ellipse 34% 30% at 80% 72%, rgba(30, 102, 245, 0.06), transparent 70%),
+    radial-gradient(ellipse 26% 22% at 68% 18%, rgba(234, 118, 203, 0.05), transparent 70%),
+    var(--theme);
+  background-attachment: fixed;
+}
+
+/* ── Avatar: a lit planet ────────────────────────────────── */
+:root[data-theme="dark"] .profile img {
+  box-shadow:
+    0 0 0 4px var(--theme),
+    0 0 0 5px var(--math-accent),
+    0 0 48px 2px rgba(203, 166, 247, 0.28);
+}
+
+:root[data-theme="dark"] .profile img:hover {
+  box-shadow:
+    0 0 0 4px var(--theme),
+    0 0 0 6px var(--math-accent),
+    0 0 64px 6px rgba(203, 166, 247, 0.36);
+}
+
+/* ── Stars ───────────────────────────────────────────────── */
 .profile {
-  --star: color-mix(in srgb, var(--primary) 75%, transparent);
-  --star-accent: color-mix(in srgb, var(--math-accent) 80%, transparent);
-  --star-strength: 1;
+  --s-white: #f5f7ff;
+  --s-blue: #b4befe;   /* lavender */
+  --s-warm: #f9e2af;   /* yellow */
+  --s-pink: #f5c2e7;
+  --s-halo: rgba(180, 190, 254, 0.22);
+  --s-strength: 1;
 }
 
 :root[data-theme="light"] .profile {
-  --star: color-mix(in srgb, var(--secondary) 55%, transparent);
-  --star-accent: color-mix(in srgb, var(--math-accent) 45%, transparent);
-  --star-strength: 0.7;
+  --s-white: rgba(108, 111, 133, 0.55);
+  --s-blue: rgba(114, 135, 253, 0.55);
+  --s-warm: rgba(223, 142, 29, 0.5);
+  --s-pink: rgba(234, 118, 203, 0.45);
+  --s-halo: rgba(114, 135, 253, 0.12);
+  --s-strength: 0.55;
 }
 
 .profile::before,
 .profile::after,
-.profile_inner::before {
+.profile_inner::before,
+.profile_inner::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   background-repeat: repeat;
-  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 48%, #000 25%, transparent 100%);
-  mask-image: radial-gradient(ellipse 75% 70% at 50% 48%, #000 25%, transparent 100%);
-  animation: profile-twinkle ease-in-out infinite alternate;
+  -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 45%, #000 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 90% at 50% 45%, #000 45%, transparent 100%);
+  animation: star-twinkle ease-in-out infinite alternate;
 }
 
-/* Layer 1: dense, faint dust */
+/* Layer 1: dense dust — 16 sparse lattices with prime tile sizes and seeded
+   random offsets (generated), so the overlap reads as random, not as a grid */
 .profile::before {
   background-image:
-    radial-gradient(circle at 23px 41px, var(--star) 0 0.5px, transparent 1.1px),
-    radial-gradient(circle at 137px 89px, var(--star) 0 0.5px, transparent 1px),
-    radial-gradient(circle at 71px 163px, var(--star) 0 0.6px, transparent 1.2px),
-    radial-gradient(circle at 181px 17px, var(--star) 0 0.5px, transparent 1px);
-  background-size: 211px 197px, 263px 229px, 307px 281px, 359px 331px;
-  background-position: 0 0, 97px 53px, 181px 127px, 43px 211px;  /* break up row alignment */
-  animation-duration: 5.3s;
+    radial-gradient(circle at 620px 99px, var(--s-white) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 405px 305px, var(--s-white) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 580px 296px, var(--s-blue) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 211px 460px, var(--s-white) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 141px 201px, var(--s-white) 0 0.5px, transparent 1.0px),
+    radial-gradient(circle at 234px 296px, var(--s-white) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 146px 662px, var(--s-white) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 475px 225px, var(--s-blue) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 124px 59px, var(--s-white) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 189px 431px, var(--s-white) 0 0.55px, transparent 1.1px),
+    radial-gradient(circle at 729px 572px, var(--s-white) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 455px 264px, var(--s-white) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 269px 437px, var(--s-blue) 0 0.5px, transparent 1.0px),
+    radial-gradient(circle at 287px 291px, var(--s-white) 0 0.5px, transparent 1.0px),
+    radial-gradient(circle at 296px 32px, var(--s-white) 0 0.55px, transparent 1.1px),
+    radial-gradient(circle at 481px 280px, var(--s-white) 0 0.55px, transparent 1.1px);
+  background-size:
+    659px 761px,
+    419px 571px,
+    607px 593px,
+    461px 661px,
+    421px 463px,
+    509px 613px,
+    557px 733px,
+    479px 457px,
+    619px 601px,
+    401px 647px,
+    797px 719px,
+    569px 547px,
+    773px 643px,
+    683px 487px,
+    751px 743px,
+    769px 641px;
+  background-position:
+    622px 583px,
+    408px 5px,
+    601px 491px,
+    118px 6px,
+    108px 88px,
+    54px 448px,
+    280px 528px,
+    111px 167px,
+    49px 290px,
+    297px 163px,
+    462px 179px,
+    522px 121px,
+    68px 486px,
+    648px 137px,
+    624px 646px,
+    194px 91px;
+  --s-min: 0.35;
+  animation-duration: 4.3s;
 }
 
-/* Layer 2: sparser, a little brighter, a few mauve */
+/* Layer 2: small coloured stars */
 .profile::after {
   background-image:
-    radial-gradient(circle at 53px 97px, var(--star) 0 0.8px, transparent 1.6px),
-    radial-gradient(circle at 211px 251px, var(--star-accent) 0 0.9px, transparent 1.8px),
-    radial-gradient(circle at 337px 41px, var(--star) 0 0.7px, transparent 1.5px);
-  background-size: 419px 389px, 523px 467px, 601px 557px;
-  background-position: 0 0, 151px 263px, 311px 97px;
-  animation-duration: 7.9s;
-  animation-delay: -3s;
+    radial-gradient(circle at 53px 97px, var(--s-blue) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 211px 251px, var(--s-white) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 337px 41px, var(--s-warm) 0 0.8px, transparent 1.7px),
+    radial-gradient(circle at 149px 389px, var(--s-pink) 0 0.8px, transparent 1.7px);
+  background-size: 409px 373px, 467px 419px, 541px 487px, 613px 571px;
+  background-position: 0 0, 151px 263px, 311px 97px, 67px 181px;
+  --s-min: 0.3;
+  animation-duration: 6.1s;
+  animation-delay: -2s;
 }
 
-/* Layer 3: rare bright points with a soft halo */
+/* Layer 3: bright stars with a halo */
 .profile_inner::before {
   background-image:
-    radial-gradient(circle at 389px 211px, var(--star) 0 1px, color-mix(in srgb, var(--star) 25%, transparent) 1.6px, transparent 4px),
-    radial-gradient(circle at 97px 503px, var(--star-accent) 0 1px, color-mix(in srgb, var(--star-accent) 25%, transparent) 1.6px, transparent 4px);
-  background-size: 733px 659px, 857px 787px;
-  background-position: 0 0, 401px 317px;
-  animation-duration: 11.7s;
-  animation-delay: -6s;
+    radial-gradient(circle at 389px 211px, var(--s-white) 0 1.2px, var(--s-halo) 2px, transparent 5px),
+    radial-gradient(circle at 97px 503px, var(--s-blue) 0 1.2px, var(--s-halo) 2px, transparent 5px),
+    radial-gradient(circle at 571px 83px, var(--s-warm) 0 1.1px, var(--s-halo) 1.9px, transparent 4.5px);
+  background-size: 691px 619px, 797px 733px, 887px 811px;
+  background-position: 0 0, 401px 317px, 233px 449px;
+  --s-min: 0.45;
+  animation-duration: 8.7s;
+  animation-delay: -5s;
 }
 
-@keyframes profile-twinkle {
-  from { opacity: calc(0.2 * var(--star-strength)); }
-  to   { opacity: calc(0.85 * var(--star-strength)); }
+/* Layer 4: a handful of the brightest, with a wide glow */
+.profile_inner::after {
+  background-image:
+    radial-gradient(circle at 613px 271px, var(--s-white) 0 1.6px, var(--s-halo) 2.6px, transparent 9px),
+    radial-gradient(circle at 211px 677px, var(--s-pink) 0 1.4px, var(--s-halo) 2.4px, transparent 8px);
+  background-size: 1031px 947px, 1201px 1087px;
+  background-position: 0 0, 523px 389px;
+  --s-min: 0.55;
+  animation-duration: 13.1s;
+  animation-delay: -7s;
+}
+
+@keyframes star-twinkle {
+  from { opacity: calc(var(--s-min) * var(--s-strength)); }
+  to   { opacity: var(--s-strength); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .profile::before,
   .profile::after,
-  .profile_inner::before {
+  .profile_inner::before,
+  .profile_inner::after {
     animation: none;
-    opacity: calc(0.55 * var(--star-strength));
+    opacity: calc(0.8 * var(--s-strength));
   }
+}
+
+/* ── WebGL sky (assets/js/starfield.js) ──────────────────── */
+.starfield {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+/* The script sets .has-starfield only in dark mode with a working context;
+   it then replaces the CSS stars (the nebula background stays). */
+html.has-starfield .starfield {
+  opacity: 1;
+}
+
+html.has-starfield .profile::before,
+html.has-starfield .profile::after,
+html.has-starfield .profile_inner::before,
+html.has-starfield .profile_inner::after {
+  display: none;
 }

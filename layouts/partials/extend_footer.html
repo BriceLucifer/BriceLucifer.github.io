@@ -8,3 +8,9 @@
   <a class="rss-cta-button" href="/index.xml" target="_blank" rel="noopener">Subscribe</a>
 </aside>
 {{- end }}
+
+{{- /* Home only: WebGL night sky behind the profile (assets/js/starfield.js) */}}
+{{- if .IsHome }}
+{{- $starfield := resources.Get "js/starfield.js" | js.Build (dict "minify" true) | fingerprint }}
+<script defer src="{{ $starfield.RelPermalink }}" integrity="{{ $starfield.Data.Integrity }}"></script>
+{{- end }}
