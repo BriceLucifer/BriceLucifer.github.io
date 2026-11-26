@@ -14,7 +14,7 @@ summary: "上一篇在 CPU 上跑的 whirl shader，1280×720 一帧要 0.69 秒
 
 这篇的目标很简单：**画面不变，让它变快，并且说清楚为什么快**。中间我猜错了两次，错的部分也一起记下来。
 
-代码在 [BriceLucifer/shader](https://github.com/BriceLucifer/shader) 的 `perf` 分支。
+代码在 [BriceLucifer/shader](https://github.com/BriceLucifer/shader)，README 里有每个版本的测量数据。
 
 ## 先搭测量台
 
