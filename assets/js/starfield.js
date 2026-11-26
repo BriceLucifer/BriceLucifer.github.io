@@ -93,14 +93,17 @@
         gl_PointSize = max(a_c.w * u_dpr * (CAM_DIST / -v.z) * mix(1., u_galScale, 0.5), 1.5);
         v_alpha = tw * u_gain.y;
       } else {
-        // Motes: rise slowly with a sideways sway, wrapping top to bottom.
-        float y = fract(a_p.y + u_time * a_p.z);
-        float x = a_p.x + 0.012 * sin(u_time * 0.25 + a_t.y) + u_tilt.x * 0.01 * a_c.w / 6.;
+        // Motes: ride the same wind as the aurora (rightwards, rising a little),
+        // with a gentle sway; wrap around the edges.
+        float y = fract(a_p.y + u_time * a_p.z * 0.5);
+        float x = fract(a_p.x + u_time * a_p.z * 1.2) + 0.012 * sin(u_time * 0.25 + a_t.y)
+                + u_tilt.x * 0.01 * a_c.w / 6.;
         gl_Position = vec4(x * 2. - 1., y * 2.2 - 1.1, 0., 1.);
         gl_PointSize = max(a_c.w * u_dpr, 1.5);
         // Glints: mostly dim, with short bright flashes.
         float flash = 0.25 + 0.75 * pow(0.5 + 0.5 * sin(u_time * a_t.x + a_t.y), 4.);
-        v_alpha = flash * u_gain.z * smoothstep(0., 0.12, y) * smoothstep(1., 0.85, y);
+        v_alpha = flash * u_gain.z * smoothstep(0., 0.1, y) * smoothstep(1., 0.9, y)
+                * smoothstep(0., 0.06, x) * smoothstep(1., 0.94, x);
         v_spike = step(4.5, a_c.w);
       }
     }`;
@@ -135,8 +138,13 @@
     attribute vec2 a_xy;
     void main() { gl_Position = vec4(a_xy, 0., 1.); }`;
 
-  const AURORA_FRAG = `
-    precision mediump float;
+  // fwidth() keeps the streamlines ~1px wide at any zoom; without the
+  // extension they fall back to a fixed width in field units.
+  const hasDerivs = !!gl.getExtension('OES_standard_derivatives');
+  const AURORA_FRAG = (hasDerivs
+    ? '#extension GL_OES_standard_derivatives : enable\n#define HAS_DERIVS 1\n'
+    : '') + `
+    precision highp float;
     uniform vec2  u_res;
     uniform float u_time;
     uniform float u_gain;
@@ -163,31 +171,62 @@
     const vec3 MAUVE = vec3(0.533, 0.224, 0.937);
     const vec3 BLUE  = vec3(0.118, 0.400, 0.961);
     const vec3 PINK  = vec3(0.918, 0.463, 0.796);
-    const vec3 TEAL  = vec3(0.090, 0.573, 0.600);
     const vec3 SAPPH = vec3(0.125, 0.624, 0.710);
+
+    // Iridescent cycle: blue -> mauve -> pink -> sapphire -> blue.
+    vec3 palette(float x) {
+      x = fract(x) * 4.;
+      float f = smoothstep(0., 1., fract(x));
+      if (x < 1.) return mix(BLUE, MAUVE, f);
+      if (x < 2.) return mix(MAUVE, PINK, f);
+      if (x < 3.) return mix(PINK, SAPPH, f);
+      return mix(SAPPH, BLUE, f);
+    }
+
+    // 1 on the integer levels of v, about px pixels wide; fades out where the
+    // levels crowd together so dense regions never turn into moire.
+    float isolines(float v, float px) {
+    #ifdef HAS_DERIVS
+      float fw = fwidth(v);
+    #else
+      float fw = 0.05;
+    #endif
+      float d = abs(fract(v - 0.5) - 0.5);
+      return (1. - smoothstep(0., fw * px, d)) * (1. - smoothstep(0.12, 0.3, fw));
+    }
 
     void main() {
       vec2 uv = gl_FragCoord.xy / u_res.y + u_tilt * 0.02;
-      float t = u_time * 0.02;
-      // Domain warping: noise displaced by noise gives slow, folding ribbons.
+      float t = u_time * 0.045;
+      uv += vec2(-0.5, 0.22) * t;   // the whole field drifts: wind, not wobble
+
+      // Domain warping: noise displaced by noise gives folding ribbons.
       vec2 q = vec2(fbm(uv * 1.2 + vec2(0., t)), fbm(uv * 1.2 + vec2(5.2, -t)));
       vec2 r = vec2(fbm(uv * 1.0 + 2.2 * q + vec2(1.7, 9.2) + t * 0.6),
                     fbm(uv * 1.0 + 2.2 * q + vec2(8.3, 2.8) - t * 0.4));
       float n = fbm(uv * 0.9 + 2.0 * r);
 
-      vec3 col = mix(BLUE, MAUVE, smoothstep(0.15, 0.6, q.x));
-      col = mix(col, PINK, smoothstep(0.4, 0.75, r.y) * 0.8);
-      col = mix(col, TEAL, smoothstep(0.55, 0.9, r.x) * 0.45);
-      col = mix(col, SAPPH, smoothstep(0.6, 0.95, n) * 0.3);
+      float hue = n * 1.6 + q.x * 0.8 + u_time * 0.015;
+      vec3 col = palette(hue);
+      float body = smoothstep(0.22, 0.68, n);
 
-      // A light wash plus a few thin ribbons along iso-lines of the warped
-      // field: crisp silk-like bands instead of a uniform fog.
-      float fill = smoothstep(0.35, 0.8, n) * 0.35;
-      float ribbons = exp(-pow((n - 0.52) / 0.012, 2.))
-                    + 0.75 * exp(-pow((n - 0.62) / 0.01, 2.))
-                    + 0.55 * exp(-pow((n - 0.43) / 0.011, 2.));
-      float a = (fill + 0.7 * ribbons) * u_gain;
-      gl_FragColor = vec4(col * a, a);
+      // Layer 1: a light wash plus silk ribbons on repeating iso-levels of the
+      // field (n = 1/8, 3/8, 5/8, 7/8), so there are always a few on screen
+      // wherever the drift has carried the field.
+      float band = fract(n * 4.) - 0.5;
+      float ribbons = exp(-pow(band / 0.055, 2.)) * (0.35 + 0.65 * body);
+      float a1 = (0.25 * body + 0.6 * ribbons) * u_gain;
+
+      // Layer 2: hairline streamlines, sliding along the field so it reads as
+      // flowing data; densest inside the aurora body.
+      float lines = isolines(n * 14. - u_time * 0.12, 1.2) * (0.25 + 0.75 * body);
+      float a2 = lines * 0.9 * u_gain;
+      vec3 lineCol = palette(hue + 0.12);
+
+      // Premultiplied "over" of layer 2 onto layer 1.
+      vec3 rgb = lineCol * a2 + col * a1 * (1. - a2);
+      float a = a2 + a1 * (1. - a2);
+      gl_FragColor = vec4(rgb, a);
     }`;
 
   function program(vs, fs) {
