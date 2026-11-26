@@ -1,26 +1,26 @@
 ---
-title: "COMPSCI 713 Midterm Review: Logic, Knowledge Representation, Soft Computing, and Learning Systems"
+title: "Classical AI, Systematically: Logic, Knowledge Representation, Soft Computing, and Learning Systems"
 date: 2026-04-28
-tags: ["Logic", "Knowledge Representation", "Soft Computing", "Decision Trees", "Ensemble Learning", "NEAT", "Exam Review"]
-description: "A compact COMPSCI 713 midterm review covering knowledge representation, symbolic logic, expert systems, decision trees, ensembles, soft computing, LNNs, and NEAT."
-summary: "A midterm review map for COMPSCI 713: KR, logic, MYCIN, trees, ensembles, fuzzy reasoning, Bayesian methods, LNNs, and NEAT."
+tags: ["Logic", "Knowledge Representation", "Soft Computing", "Decision Trees", "Ensemble Learning", "NEAT", "Overview"]
+description: "A systematic overview of classical AI: knowledge representation, symbolic logic, expert systems, decision trees, ensembles, soft computing, LNNs, and NEAT — and how they connect."
+summary: "One map of classical AI: KR, logic, MYCIN, trees, ensembles, fuzzy reasoning, Bayesian methods, LNNs, and NEAT — what each represents, how it infers, and where it fails."
 draft: false
 math: true
 ShowToc: true
 TocOpen: true
 ---
 
-This midterm review is organized around one central question:
+This overview is organized around one central question:
 
 > How do AI systems represent knowledge, reason with it, and still make useful decisions when the world is uncertain, vague, noisy, or too complex for hand-written rules?
 
-The course moves from symbolic knowledge and rule-based reasoning to statistical and learning-based systems. The important part is not only remembering definitions, but understanding what each method represents, how it performs inference, when it works well, and where it fails.
+The material moves from symbolic knowledge and rule-based reasoning to statistical and learning-based systems. The important part is not remembering definitions, but understanding what each method represents, how it performs inference, when it works well, and where it fails.
 
-![COMPSCI 713 overview: MYCIN, decision trees, and ensembles](/images/compsci713-midterm/01-mycin-decision-trees-ensembles-overview.webp)
+![Overview: MYCIN, decision trees, and ensembles](/images/compsci713-midterm/01-mycin-decision-trees-ensembles-overview.webp)
 
 ## 1. Knowledge Representation
 
-Knowledge Representation, or KR, is the foundation of the course. Its purpose is to turn raw information into a structure that an AI system can store, query, update, and reason over.
+Knowledge Representation, or KR, is the foundation of everything that follows. Its purpose is to turn raw information into a structure that an AI system can store, query, update, and reason over.
 
 A good representation should balance five requirements:
 
@@ -56,7 +56,7 @@ Core valid inference rules:
 
 First-Order Logic extends propositional logic with objects, predicates, functions, variables, and quantifiers. It is more expressive because it can describe relationships among objects rather than only isolated true-or-false statements.
 
-Important exam traps:
+Common pitfalls:
 
 - Do not reverse implications.
 - Check whether variables are free or bound.
@@ -78,7 +78,7 @@ $$
 
 For example, a breeze at a square means at least one neighboring square has a pit. It does not identify exactly which one. No breeze is stronger evidence: it means none of the neighboring squares has a pit.
 
-This distinction is a common exam target. "At least one", "none", and "exactly one" are logically different claims.
+This distinction is easy to get wrong. "At least one", "none", and "exactly one" are logically different claims.
 
 ![Wumpus World and logical reasoning](/images/compsci713-midterm/10-symbolic-logic-wumpus-world.webp)
 
@@ -133,7 +133,7 @@ The learning process is usually greedy:
 3. Repeat recursively on each subset.
 4. Stop when the data is pure, no features remain, or a stopping rule is met.
 
-The key exam point is that accuracy alone is not a good split criterion. A split may not improve immediate accuracy but may reduce uncertainty and make later splits better. That is why impurity measures are used.
+The key point is that accuracy alone is not a good split criterion. A split may not improve immediate accuracy but may reduce uncertainty and make later splits better. That is why impurity measures are used.
 
 Entropy:
 
@@ -235,7 +235,7 @@ The assumption is often not perfectly true, but the method is simple, fast, scal
 
 ![Fuzzy inference, Bayesian reasoning, and Naive Bayes](/images/compsci713-midterm/13-soft-computing-fuzzy-bayes.webp)
 
-![Soft computing exam guide](/images/compsci713-midterm/11-soft-computing-exam-guide.webp)
+![Soft computing: a reasoning guide](/images/compsci713-midterm/11-soft-computing-exam-guide.webp)
 
 ## 9. Logic Neural Networks
 
@@ -264,7 +264,7 @@ Common classifications:
 | \(L < \alpha < U\) | Uncertain |
 | \(L > U\) | Contradiction |
 
-The most important exam warning is to classify bounds first, then reason. Do not treat fuzzy truth or LNN bounds as ordinary probability.
+The most important caution is to classify bounds first, then reason. Do not treat fuzzy truth or LNN bounds as ordinary probability.
 
 ![Logic Neural Networks core concepts](/images/compsci713-midterm/08-lnn-core-concepts.webp)
 
@@ -306,11 +306,11 @@ NEAT's strength comes from combining evolutionary search, topology growth, histo
 
 ![NEAT cheat sheet](/images/compsci713-midterm/04-neat-cheatsheet.webp)
 
-![NEAT exam answers](/images/compsci713-midterm/03-neat-exam-answers.webp)
+![NEAT: key questions and answers](/images/compsci713-midterm/03-neat-exam-answers.webp)
 
-## 11. How to Answer Midterm Questions
+## 11. A Reasoning Checklist
 
-Most strong answers follow a simple structure:
+Most clear explanations follow a simple structure:
 
 1. Define the term clearly.
 2. State the mechanism or formula.
@@ -318,17 +318,17 @@ Most strong answers follow a simple structure:
 4. Interpret the result in plain English.
 5. Mention one strength, limitation, or assumption if relevant.
 
-For compare-and-contrast questions, compare along stable dimensions: representation, inference method, strengths, weaknesses, and use cases.
+When comparing methods, compare along stable dimensions: representation, inference method, strengths, weaknesses, and use cases.
 
-For calculation questions, write the formula first, substitute values carefully, compute step by step, and finish with a sentence explaining what the number means.
+When working through a calculation, write the formula first, substitute values carefully, compute step by step, and finish with a sentence explaining what the number means.
 
-For scenario questions, do not dump formulas. Name the method, explain why it fits the setting, state one caveat, and connect the answer back to the problem.
+When applying a method to a real scenario, do not dump formulas. Name the method, explain why it fits the setting, state one caveat, and connect the answer back to the problem.
 
-![Scenario questions and answer templates](/images/compsci713-midterm/17-scenario-answer-templates.webp)
+![Scenarios and reasoning templates](/images/compsci713-midterm/17-scenario-answer-templates.webp)
 
-## 12. Final Memory Map
+## 12. How It All Connects
 
-The midterm topics connect naturally:
+The topics connect naturally:
 
 - **KR** explains how knowledge is represented.
 - **Logic** explains how conclusions follow from rules.
@@ -339,4 +339,4 @@ The midterm topics connect naturally:
 - **LNNs** combine neural learning with logical consistency.
 - **NEAT** evolves both neural weights and neural structures.
 
-The safest exam mindset is: define precisely, reason step by step, interpret formulas in words, and always mention the assumptions behind the method.
+The habit that ties it together: define precisely, reason step by step, interpret formulas in words, and always state the assumptions behind a method.

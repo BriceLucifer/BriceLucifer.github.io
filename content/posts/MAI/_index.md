@@ -1,13 +1,15 @@
 ---
-title: "Master of AI"
-description: "Notes and articles from the Master of Artificial Intelligence program at the University of Auckland."
+title: "AI Foundations"
+description: "Systematic overviews of AI and the mathematics behind it — from symbolic logic to transformers."
 ---
-Course notes, derivations, and personal analysis from the **MAI program at the University of Auckland**.
+**Systematic overviews** of AI and the mathematics behind it.
 
-Writing here aims to go beyond lecture summaries — each post tries to extract the **core insight**, expose the underlying math, and connect ideas across courses.
+Each one tries to organize a whole area into a single map: the **core insight** behind every method, the math it rests on, and how the pieces connect — rather than a list of topics.
 
-| Course | Focus |
-|--------|-------|
-| [COMPSCI 713](/posts/mai/compsci-713/) | AI Fundamentals — probabilistic models, soft computing, bio-inspired AI |
-| [COMPSCI 714](/posts/mai/compsci-714/) | AI Architecture — transformers, LLMs, deep learning systems |
-| [Research Assistant](/posts/mai/ra/) | Practical guides for research work on UoA compute resources |
+| Topic | Focus |
+|-------|-------|
+| [Classical AI](/posts/mai/compsci-713/) | Logic, knowledge representation, soft computing, bio-inspired methods |
+| [Deep Learning & LLMs](/posts/mai/compsci-714/) | Transformers, LLMs, and building models from scratch |
+| [Research Compute](/posts/mai/ra/) | Running deep learning workloads on a university GPU cluster |
+
+<sub>Much of this started during my Master of AI at the University of Auckland.</sub>

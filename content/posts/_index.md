@@ -4,7 +4,7 @@ description: "Write-ups on hardware, performance, and the software closest to th
 ---
 This section collects **write-ups** on hardware and performance — CPU and GPU
 architecture, memory hierarchies, and ML compilers — plus systems programming,
-setup notes, and earlier Master of AI course notes on AI and mathematics.
+setup notes, and systematic overviews of AI and the mathematics behind it.
 
 Posts here are written to:
 - explain key insights clearly

@@ -1,7 +1,7 @@
 ---
-title: "Research Assistant"
-description: "How to train models and make use of UoA cloud compute resources."
+title: "Research Compute"
+description: "Running deep learning workloads on a university GPU cluster."
 ---
-**Research Assistant · University of Auckland**
+**Research compute · University of Auckland cluster**
 
 Practical notes for doing research at UoA — setting up environments, running and monitoring GPU jobs on the compute cluster, and implementing new models.

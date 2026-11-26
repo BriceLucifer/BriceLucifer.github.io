@@ -20,8 +20,8 @@ Live at: **[https://brice6.pages.dev/](https://brice6.pages.dev/)**
 
 | Section | Purpose |
 |---------|---------|
-| **Blog** (`/posts/`) | Write-ups on AI, math, systems, and reflections. |
-| **Master of AI** (`/posts/mai/`) | UoA course notes (COMPSCI 713 / 714) and research-assistant guides. |
+| **Blog** (`/posts/`) | Write-ups on hardware, performance, compilers, and systems. |
+| **AI Foundations** (`/posts/mai/`) | Systematic overviews: classical AI, deep learning & LLMs, plus a GPU-cluster guide. |
 | **Archive / Search / Tags** | Chronological index, full-text search, and topic index. |
 | **About** (`/about/`) | Background, research focus, experience, and projects. |
 

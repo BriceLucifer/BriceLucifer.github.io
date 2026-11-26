@@ -124,7 +124,7 @@ Production cloud infrastructure: I automated server deployment pipelines, tighte
 ## Education
 
 **Master of Artificial Intelligence — University of Auckland** · *Feb 2026 – Dec 2027 (expected)*  
-Course notes on this site: [COMPSCI 713 — AI Fundamentals](/posts/mai/compsci-713/) · [COMPSCI 714 — AI Architecture](/posts/mai/compsci-714/)
+Systematic overviews on this site: [Classical AI](/posts/mai/compsci-713/) · [Deep Learning & LLMs](/posts/mai/compsci-714/)
 
 **B.Eng. in Electronic Information Engineering — Harbin University of Science and Technology** · *Aug 2021 – Jul 2025 · GPA top 1% of cohort*  
 Systems and mathematics in equal measure: embedded architectures, mathematical modelling and numerical optimization, parallel computing, and compilers down to low-level optimization.
