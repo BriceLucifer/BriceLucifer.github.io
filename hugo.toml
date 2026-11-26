@@ -28,9 +28,9 @@ enableGitInfo = true
 [params]
   env = "production"
   author = "Brice"
-  homeTitle = "Brice | AI Research, Mathematics and Systems Notes"
-  description = "Notes on AI research, generative video world models, deep learning from first principles, and systems programming in Rust, Zig and C++."
-  keywords = ["AI", "Research", "Video Generation", "World Models", "Deep Learning", "Mathematics", "Rust", "Zig", "C++", "Python"]
+  homeTitle = "Brice | Performance, Compilers and the Hardware–Software Boundary"
+  description = "Notes on performance engineering, ML compilers, and where software meets hardware — memory hierarchies, kernels, and systems programming in C/C++, Rust and Zig — plus course notes on AI and mathematics."
+  keywords = ["Performance Engineering", "Compilers", "ML Compilers", "Hardware-Software Co-design", "Computer Architecture", "Systems Programming", "C", "C++", "Rust", "Zig", "Deep Learning"]
   images = ["images/avatar-320.webp"]
   defaultTheme = "auto"
   DateFormat = "2006-01-02"    # ISO dates in post meta / lists
@@ -52,7 +52,7 @@ enableGitInfo = true
   [params.profileMode]
   enabled = true
   title = "Brice"
-  subtitle = "AI Research · Video World Models · Systems · Rust · Zig"
+  subtitle = "Performance · ML Compilers · HW ↔ SW · Systems · C/C++ · Rust · Zig"
   imageUrl = "images/avatar-320.webp"
   imageWidth = 160
   imageHeight = 160
