@@ -8,10 +8,9 @@
 
 :root[data-theme="dark"] body {
   background:
-    radial-gradient(ellipse 38% 32% at 22% 28%, rgba(203, 166, 247, 0.13), transparent 70%),
-    radial-gradient(ellipse 34% 30% at 80% 72%, rgba(137, 180, 250, 0.11), transparent 70%),
-    radial-gradient(ellipse 26% 22% at 68% 18%, rgba(245, 194, 231, 0.07), transparent 70%),
-    radial-gradient(ellipse 30% 26% at 30% 82%, rgba(148, 226, 213, 0.05), transparent 70%),
+    radial-gradient(ellipse 38% 32% at 22% 28%, rgba(203, 166, 247, 0.07), transparent 70%),
+    radial-gradient(ellipse 34% 30% at 80% 72%, rgba(137, 180, 250, 0.06), transparent 70%),
+    radial-gradient(ellipse 26% 22% at 68% 18%, rgba(245, 194, 231, 0.035), transparent 70%),
     radial-gradient(ellipse 85% 75% at 50% 42%, #1e1e2e 0%, #161622 60%, #11111b 100%);
   background-attachment: fixed;
 }

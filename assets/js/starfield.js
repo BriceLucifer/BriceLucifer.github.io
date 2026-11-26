@@ -78,8 +78,9 @@
         vec2 s = d.xy / -d.z * 0.9;
         gl_Position = vec4(s.x / u_aspect, s.y, 0., 1.);
         gl_PointSize = max(a_c.w * u_dpr, 1.5);
-        v_alpha = tw * u_gain.x;
-        v_spike = step(6., a_c.w);
+        float flash = 0.45 + 0.55 * pow(0.5 + 0.5 * sin(u_time * a_t.x + a_t.y), 2.5);
+        v_alpha = flash * u_gain.x;
+        v_spike = step(4.8, a_c.w);
       } else if (a_p.w < 1.5) {
         // Galaxy: Keplerian-ish differential rotation, then tilt and perspective.
         float r = a_p.x;
@@ -114,10 +115,12 @@
     void main() {
       vec2 q = gl_PointCoord - 0.5;
       float d = length(q) * 2.;
-      float core = 1. - smoothstep(0., 0.35, d);
-      float halo = pow(max(1. - d, 0.), 3.) * 0.8;
+      // Night: a small hard core and a tight halo (crisp stars, no fog).
+      // Day: a slightly wider halo so pastel glints read on a light page.
+      float core = 1. - smoothstep(0., mix(0.26, 0.35, u_light), d);
+      float halo = pow(max(1. - d, 0.), mix(4.5, 3., u_light)) * mix(0.35, 0.8, u_light);
       float soft = pow(max(1. - d, 0.), 2.);
-      float spike = (exp(-abs(q.x) * 60.) + exp(-abs(q.y) * 60.)) * pow(max(1. - d, 0.), 1.5) * 0.7;
+      float spike = (exp(-abs(q.x) * 80.) + exp(-abs(q.y) * 80.)) * pow(max(1. - d, 0.), 1.2) * 0.85;
       float a = (mix(core + halo, soft, v_soft) + spike * v_spike) * v_alpha;
       // Premultiplied output with alpha = coverage x brightness, so every
       // component stays <= alpha. At night (additive) faint particles only add
@@ -254,8 +257,8 @@
     const z = 2 * rand() - 1, phi = 2 * Math.PI * rand(), s = Math.sqrt(1 - z * z);
     const m = magnitude(7);
     push([s * Math.cos(phi), s * Math.sin(phi), z, 0], pick(skyColors),
-      0.55 + 1.7 * m,     // brightness
-      0.9 + 6.5 * m,      // size (CSS px); m > ~0.78 (about 3%) gets diffraction spikes
+      0.75 + 2.1 * m,     // brightness
+      0.9 + 6.5 * m,      // size (CSS px); > 4.8 (about 6%) gets diffraction spikes
       0.6 + 2.4 * rand(), 2 * Math.PI * rand());
   }
 
@@ -270,11 +273,11 @@
     const color = r < 0.12 ? pick([[M.rosewater, 0.6], [M.yellow, 0.4]])
       : r < 0.55 ? pick([[M.mauve, 0.45], [M.lavender, 0.35], [M.white, 0.1], [M.pink, 0.1]])
       : pick([[M.blue, 0.5], [M.lavender, 0.3], [M.white, 0.1], [M.pink, 0.1]]);
-    const dust = rand() < 0.06;   // a few large, very faint particles: a smooth glow under the grain
+    const dust = rand() < 0.02;   // a hint of glow under the grain, not a fog
     const m = magnitude(5);
     push([Math.max(rr, 0.005), theta, y, 1], color,
-      dust ? 0.05 + 0.04 * rand() : (r < 0.12 ? 1.3 : 0.7) + 1.1 * m,
-      dust ? 22 + 22 * rand() : 0.9 + 2.4 * m,
+      dust ? 0.025 + 0.02 * rand() : (r < 0.12 ? 2.1 : 1.25) + 1.8 * m,
+      dust ? 22 + 22 * rand() : 1 + 2.6 * m,
       0.4 + 1.8 * rand(), 2 * Math.PI * rand());
   }
 
