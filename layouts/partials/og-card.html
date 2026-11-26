@@ -1,0 +1,84 @@
+{{- /*
+  Social card (1200x630 JPEG) for a regular page: assets/og/og-base.png (stars,
+  avatar, site name; source: og-base.html) with the title, a label and the date
+  drawn on top using a GB2312 subset of Noto Sans SC Bold.
+
+  images.Text only wraps at spaces, so a CJK title would run off the card. The
+  title is pre-wrapped here by estimated advance widths (em), measured against
+  Noto Sans SC Bold: CJK and fullwidth 1.0, capitals/digits 0.62, narrow
+  glyphs 0.26, other ASCII 0.48. Closing punctuation never starts a line and
+  opening brackets never end one. Max 3 lines, then an ellipsis. Returns the resource, or false if the assets are missing.
+*/ -}}
+{{- $out := false -}}
+{{- $base := resources.Get "og/og-base.png" -}}
+{{- $font := resources.Get "og/NotoSansSC-Bold-og.ttf" -}}
+{{- if and $base $font -}}
+  {{- /* Long titles get a smaller size. The wrap width (~610px) leaves room for
+       closing punctuation that hangs past the line end, and still clears the avatar. */ -}}
+  {{- $size := cond (gt (len (split .Title "")) 40) 48 56 -}}
+  {{- $maxEm := div 610.0 $size -}}
+  {{- $noStart := "，。、：；！？）」』》】,.:;!?)" -}}
+  {{- $noEnd := "（「『《【" -}}
+  {{- $lines := slice -}}
+  {{- $line := "" -}}{{- $lw := 0.0 -}}
+  {{- $word := "" -}}{{- $ww := 0.0 -}}
+  {{- range split (printf "%s " .Title) "" -}}
+    {{- $c := . -}}
+    {{- $ascii := findRE `^[\x21-\x7E]$` $c -}}
+    {{- if $ascii -}}
+      {{- $word = printf "%s%s" $word $c -}}
+      {{- $ww = add $ww (cond (findRE `^[A-Z0-9#@&%MW]$` $c) 0.62 (cond (findRE `^[ijlI.,:;'!|()\[\]]$` $c) 0.26 0.48)) -}}
+    {{- else -}}
+      {{- /* end of an ASCII word (space or CJK follows): place it */ -}}
+      {{- if $word -}}
+        {{- if and $line (gt (add $lw $ww) $maxEm) -}}
+          {{- $lines = $lines | append (trim $line " ") -}}{{- $line = $word -}}{{- $lw = $ww -}}
+        {{- else -}}
+          {{- $line = printf "%s%s" $line $word -}}{{- $lw = add $lw $ww -}}
+        {{- end -}}
+        {{- $word = "" -}}{{- $ww = 0.0 -}}
+      {{- end -}}
+      {{- if eq $c " " -}}
+        {{- if $line -}}{{- $line = printf "%s " $line -}}{{- $lw = add $lw 0.22 -}}{{- end -}}
+      {{- else -}}
+        {{- /* a CJK / fullwidth character is its own unit; closing punctuation never starts a line */ -}}
+        {{- if and $line (gt (add $lw 1.0) $maxEm) (not (strings.Contains $noStart $c)) -}}
+          {{- /* an opening bracket at the end of the line moves down with the next character */ -}}
+          {{- $chars := split $line "" -}}
+          {{- $tail := index $chars (sub (len $chars) 1) -}}
+          {{- $carry := "" -}}{{- $carryW := 0.0 -}}
+          {{- if strings.Contains $noEnd $tail -}}
+            {{- $carry = $tail -}}{{- $carryW = 1.0 -}}
+            {{- $line = delimit (first (sub (len $chars) 1) $chars) "" -}}
+          {{- end -}}
+          {{- $lines = $lines | append (trim $line " ") -}}{{- $line = printf "%s%s" $carry $c -}}{{- $lw = add 1.0 $carryW -}}
+        {{- else -}}
+          {{- $line = printf "%s%s" $line $c -}}{{- $lw = add $lw 1.0 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with trim $line " " }}{{ $lines = $lines | append . }}{{ end -}}
+  {{- if gt (len $lines) 3 -}}
+    {{- $lines = first 3 $lines -}}
+    {{- $last := index $lines 2 -}}
+    {{- $lines = (first 2 $lines) | append (printf "%s…" (trim $last " ,，:：")) -}}
+  {{- end -}}
+
+  {{- $label := "" -}}
+  {{- range first 1 (.GetTerms "series") }}{{ $label = printf "SERIES · %s" .LinkTitle }}{{ end -}}
+  {{- if not $label -}}
+    {{- $tags := slice -}}
+    {{- range first 3 (.GetTerms "tags") }}{{ $tags = $tags | append .LinkTitle }}{{ end -}}
+    {{- $label = upper (delimit $tags " · ") -}}
+  {{- end -}}
+  {{- $meta := printf "%s  ·  %d min read" (.Date.Format "2006-01-02") .ReadingTime -}}
+
+  {{- $img := $base | images.Filter
+      (images.Text $label (dict "font" $font "size" 22 "color" "#cba6f7" "x" 80 "y" 64))
+      (images.Text (delimit $lines "\n") (dict "font" $font "size" $size "color" "#cdd6f4" "x" 80 "y" 290 "aligny" "center" "linespacing" 18))
+      (images.Text $meta (dict "font" $font "size" 22 "color" "#a6adc8" "x" 80 "y" 448))
+  -}}
+  {{- $out = $img.Process "jpg q85" -}}
+{{- end -}}
+{{- return $out -}}

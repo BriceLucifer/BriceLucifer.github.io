@@ -1,0 +1,59 @@
+<!doctype html>
+<!--
+  Source of og-base.png, the background of the per-post social cards
+  (layouts/partials/og-card.html draws the title and meta on top).
+  Regenerate:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+      --hide-scrollbars --window-size=1200,630 --screenshot=assets/og/og-base.png \
+      "file://$PWD/assets/og/og-base.html"
+  Keep x 80–800, y 60–560 free: that is where Hugo draws the text.
+-->
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "JetBrains Mono"; font-weight: 100 800;
+    src: url("../../static/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2"); }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    background:
+      radial-gradient(ellipse 45% 55% at 78% 48%, rgba(203,166,247,.16), transparent 70%),
+      radial-gradient(ellipse 40% 45% at 12% 85%, rgba(137,180,250,.10), transparent 70%),
+      radial-gradient(ellipse 35% 35% at 30% 10%, rgba(245,194,231,.06), transparent 70%),
+      radial-gradient(ellipse 90% 90% at 60% 45%, #1e1e2e 0%, #161622 60%, #11111b 100%);
+    font-family: -apple-system, "Helvetica Neue", sans-serif;
+  }
+  canvas { position: absolute; inset: 0; }
+  .avatar {
+    position: absolute; left: 820px; top: 165px; width: 250px; height: 250px;
+    border-radius: 50%; object-fit: cover;
+    box-shadow: 0 0 0 6px #1e1e2e, 0 0 0 8px #cba6f7, 0 0 80px 12px rgba(203,166,247,.35);
+  }
+  .brand { position: absolute; left: 80px; bottom: 44px; display: flex; align-items: center; gap: 16px; }
+  .bar { width: 6px; height: 40px; border-radius: 3px; background: linear-gradient(#cba6f7, #89b4fa); }
+  .name { color: #cdd6f4; font-weight: 700; font-size: 26px; letter-spacing: -.01em; }
+  .url { color: #a6adc8; font-family: "JetBrains Mono", monospace; font-size: 18px; margin-top: 2px; }
+</style>
+<canvas id="sky" width="1200" height="630"></canvas>
+<img class="avatar" src="../../static/images/avatar-320.webp" alt="">
+<div class="brand"><div class="bar"></div><div><div class="name">Brice's Blog</div><div class="url">brice6.pages.dev</div></div></div>
+<script>
+  // Seeded star field with a power-law brightness, matching the site background.
+  let s = 7;
+  const r = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+  const c = document.getElementById('sky').getContext('2d');
+  const cols = ['#f5f7ff', '#f5f7ff', '#f5f7ff', '#b4befe', '#f9e2af', '#f5c2e7'];
+  for (let i = 0; i < 520; i++) {
+    const x = r() * 1200, y = r() * 630, m = Math.pow(r(), 6);
+    const rad = 0.5 + 2.2 * m, a = 0.35 + 0.65 * m;
+    c.globalAlpha = a;
+    c.fillStyle = cols[Math.floor(r() * cols.length)];
+    c.beginPath(); c.arc(x, y, rad, 0, Math.PI * 2); c.fill();
+    if (m > 0.8) {                       // the brightest (~4%) get a soft glow and a thin cross
+      const g = c.createRadialGradient(x, y, 0, x, y, rad * 5);
+      g.addColorStop(0, 'rgba(205,214,244,.35)'); g.addColorStop(1, 'rgba(205,214,244,0)');
+      c.fillStyle = g; c.beginPath(); c.arc(x, y, rad * 5, 0, Math.PI * 2); c.fill();
+      c.globalAlpha = a * 0.6; c.fillStyle = '#f5f7ff';
+      c.fillRect(x - rad * 4, y - 0.4, rad * 8, 0.8); c.fillRect(x - 0.4, y - rad * 4, 0.8, rad * 8);
+    }
+  }
+</script>
