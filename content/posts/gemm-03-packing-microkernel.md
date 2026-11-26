@@ -1,6 +1,6 @@
 ---
 title: "从零写 GEMM（三）：打包、8×12 微内核和多线程"
-date: 2026-11-26
+date: 2026-11-26T12:00:00+13:00
 tags: ["Performance", "Hardware", "Memory"]
 series: ["GEMM from Scratch"]
 keywords: ["GEMM", "SGEMM", "BLIS", "GotoBLAS", "Packing", "Micro-kernel", "NEON", "SME", "Apple Silicon", "M4 Pro", "Grand Central Dispatch", "Multithreading"]

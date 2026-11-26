@@ -1,6 +1,6 @@
 ---
 title: "从零写 GEMM（一）：循环顺序和存储顺序，为什么能差 70 倍"
-date: 2026-11-26
+date: 2026-11-26T10:00:00+13:00
 tags: ["Performance", "Hardware", "Memory"]
 series: ["GEMM from Scratch"]
 keywords: ["Matrix Multiplication", "GEMM", "Row-major", "Column-major", "Cache Line", "Loop Order", "SIMD", "NEON", "Apple Silicon", "M4 Pro", "C"]

@@ -1,6 +1,6 @@
 ---
 title: "从零写 GEMM（二）：分块为什么一开始没用"
-date: 2026-11-26
+date: 2026-11-26T11:00:00+13:00
 tags: ["Performance", "Hardware", "Memory"]
 series: ["GEMM from Scratch"]
 keywords: ["GEMM", "Cache Blocking", "Tiling", "Register Blocking", "Roofline", "Arithmetic Intensity", "NEON", "Apple Silicon", "M4 Pro", "TLB"]

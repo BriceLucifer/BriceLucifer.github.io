@@ -135,6 +135,5 @@ Systems and mathematics in equal measure: embedded architectures, mathematical m
 
 - **GitHub** → [github.com/BriceLucifer](https://github.com/BriceLucifer)
 - **X** → [@Bricelucifer](https://x.com/Bricelucifer)
-- **Email** → [2376671337@qq.com](mailto:2376671337@qq.com)
 
 <sub>Built with **Hugo + PaperMod**.</sub>

@@ -91,10 +91,6 @@ enableGitInfo = true
   url  = "https://x.com/Bricelucifer"
 
 [[params.socialIcons]]
-  name = "email"
-  url  = "mailto:2376671337@qq.com"
-
-[[params.socialIcons]]
   name = "rss"
   url  = "/index.xml"
 
