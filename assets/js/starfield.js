@@ -97,8 +97,10 @@
         float x = a_p.x + 0.012 * sin(u_time * 0.25 + a_t.y) + u_tilt.x * 0.01 * a_c.w / 6.;
         gl_Position = vec4(x * 2. - 1., y * 2.2 - 1.1, 0., 1.);
         gl_PointSize = max(a_c.w * u_dpr, 1.5);
-        v_alpha = tw * u_gain.z * smoothstep(0., 0.12, y) * smoothstep(1., 0.85, y);
-        v_spike = step(5.5, a_c.w);
+        // Glints: mostly dim, with short bright flashes.
+        float flash = 0.25 + 0.75 * pow(0.5 + 0.5 * sin(u_time * a_t.x + a_t.y), 4.);
+        v_alpha = flash * u_gain.z * smoothstep(0., 0.12, y) * smoothstep(1., 0.85, y);
+        v_spike = step(4.5, a_c.w);
       }
     }`;
 
@@ -170,12 +172,18 @@
                     fbm(uv * 1.0 + 2.2 * q + vec2(8.3, 2.8) - t * 0.4));
       float n = fbm(uv * 0.9 + 2.0 * r);
 
-      vec3 col = mix(BLUE, MAUVE, smoothstep(0.25, 0.75, q.x));
-      col = mix(col, PINK, smoothstep(0.45, 0.85, r.y) * 0.7);
+      vec3 col = mix(BLUE, MAUVE, smoothstep(0.15, 0.6, q.x));
+      col = mix(col, PINK, smoothstep(0.4, 0.75, r.y) * 0.8);
       col = mix(col, TEAL, smoothstep(0.55, 0.9, r.x) * 0.45);
       col = mix(col, SAPPH, smoothstep(0.6, 0.95, n) * 0.3);
 
-      float a = smoothstep(0.25, 0.75, n) * u_gain;
+      // A light wash plus a few thin ribbons along iso-lines of the warped
+      // field: crisp silk-like bands instead of a uniform fog.
+      float fill = smoothstep(0.35, 0.8, n) * 0.35;
+      float ribbons = exp(-pow((n - 0.52) / 0.012, 2.))
+                    + 0.75 * exp(-pow((n - 0.62) / 0.01, 2.))
+                    + 0.55 * exp(-pow((n - 0.43) / 0.011, 2.));
+      float a = (fill + 0.7 * ribbons) * u_gain;
       gl_FragColor = vec4(col * a, a);
     }`;
 
@@ -275,8 +283,8 @@
   for (let i = 0; i < MOTES; i++) {
     const m = magnitude(4);
     push([rand(), rand(), 0.004 + 0.008 * rand(), 2], pick(moteColors),
-      0.35 + 0.55 * m,    // opacity on the light page
-      1.8 + 6.5 * m,      // size; the largest (> 5.5) glint
+      0.5 + 0.5 * m,      // opacity on the light page
+      3 + 9 * m,          // size; the larger third (> 4.5) get a four-point glint
       0.5 + 1.5 * rand(), 2 * Math.PI * rand());
   }
 
@@ -325,11 +333,11 @@
     center = [((b.left + b.width / 2) / window.innerWidth) * 2 - 1,
               1 - ((b.top + b.height / 2) / window.innerHeight) * 2];
   }
-  // The daylight aurora is soft and slow: render it at 1x and 30 fps, which cuts
-  // the per-pixel noise work by ~8x. The night sky needs crisp points: up to 2x.
+  // The daylight aurora is slow: render it at up to 1.5x and 30 fps, which cuts
+  // the per-pixel noise work by ~3.5x. The night sky needs crisp points: up to 2x.
   const isLight = () => root.dataset.theme !== 'dark';
   function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, isLight() ? 1 : 2);
+    dpr = Math.min(window.devicePixelRatio || 1, isLight() ? 1.5 : 2);
     canvas.width = Math.round(window.innerWidth * dpr);
     canvas.height = Math.round(window.innerHeight * dpr);
     gl.viewport(0, 0, canvas.width, canvas.height);
