@@ -66,3 +66,84 @@
   border-color: var(--math-accent);
   color: var(--math-accent);
 }
+
+/*
+  Starfield behind the profile: three fixed layers of tiny radial-gradient dots.
+  Tile sizes are mutually non-multiples so the repeat isn't visible, and the
+  twinkle periods (5.3s / 7.9s / 11.7s) never line up, so the field shimmers
+  unevenly instead of pulsing in sync. Pure CSS, ignores pointer events.
+*/
+.profile {
+  --star: color-mix(in srgb, var(--primary) 75%, transparent);
+  --star-accent: color-mix(in srgb, var(--math-accent) 80%, transparent);
+  --star-strength: 1;
+}
+
+:root[data-theme="light"] .profile {
+  --star: color-mix(in srgb, var(--secondary) 55%, transparent);
+  --star-accent: color-mix(in srgb, var(--math-accent) 45%, transparent);
+  --star-strength: 0.7;
+}
+
+.profile::before,
+.profile::after,
+.profile_inner::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: repeat;
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 48%, #000 25%, transparent 100%);
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 48%, #000 25%, transparent 100%);
+  animation: profile-twinkle ease-in-out infinite alternate;
+}
+
+/* Layer 1: dense, faint dust */
+.profile::before {
+  background-image:
+    radial-gradient(circle at 23px 41px, var(--star) 0 0.5px, transparent 1.1px),
+    radial-gradient(circle at 137px 89px, var(--star) 0 0.5px, transparent 1px),
+    radial-gradient(circle at 71px 163px, var(--star) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 181px 17px, var(--star) 0 0.5px, transparent 1px);
+  background-size: 211px 197px, 263px 229px, 307px 281px, 359px 331px;
+  background-position: 0 0, 97px 53px, 181px 127px, 43px 211px;  /* break up row alignment */
+  animation-duration: 5.3s;
+}
+
+/* Layer 2: sparser, a little brighter, a few mauve */
+.profile::after {
+  background-image:
+    radial-gradient(circle at 53px 97px, var(--star) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 211px 251px, var(--star-accent) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle at 337px 41px, var(--star) 0 0.7px, transparent 1.5px);
+  background-size: 419px 389px, 523px 467px, 601px 557px;
+  background-position: 0 0, 151px 263px, 311px 97px;
+  animation-duration: 7.9s;
+  animation-delay: -3s;
+}
+
+/* Layer 3: rare bright points with a soft halo */
+.profile_inner::before {
+  background-image:
+    radial-gradient(circle at 389px 211px, var(--star) 0 1px, color-mix(in srgb, var(--star) 25%, transparent) 1.6px, transparent 4px),
+    radial-gradient(circle at 97px 503px, var(--star-accent) 0 1px, color-mix(in srgb, var(--star-accent) 25%, transparent) 1.6px, transparent 4px);
+  background-size: 733px 659px, 857px 787px;
+  background-position: 0 0, 401px 317px;
+  animation-duration: 11.7s;
+  animation-delay: -6s;
+}
+
+@keyframes profile-twinkle {
+  from { opacity: calc(0.2 * var(--star-strength)); }
+  to   { opacity: calc(0.85 * var(--star-strength)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile::before,
+  .profile::after,
+  .profile_inner::before {
+    animation: none;
+    opacity: calc(0.55 * var(--star-strength));
+  }
+}
