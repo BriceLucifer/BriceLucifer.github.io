@@ -10,6 +10,7 @@
   --math-accent-soft: rgba(37, 99, 235, 0.1);
   --math-warm: #b45309;
   --math-rule: rgba(125, 125, 125, 0.22);
+  --math-shadow: rgba(0, 0, 0, 0.18);
 }
 
 [data-theme="dark"] {
@@ -17,6 +18,7 @@
   --math-accent-soft: rgba(125, 211, 252, 0.12);
   --math-warm: #fbbf24;
   --math-rule: rgba(229, 231, 235, 0.18);
+  --math-shadow: rgba(205, 214, 244, 0.25);
 }
 
 .post-single {
@@ -100,128 +102,35 @@
 .post-content pre code {
   border: 0;
   border-radius: 0;
-  padding: 0;
 }
 
+/*
+  Code blocks: PaperMod already scrolls long lines inside <code> and anchors the
+  copy button to div.highlight; we only add a hairline frame.
+  Line numbers are opt-in per block ({linenos=true}).
+*/
 .post-content .highlight,
-.post-content pre {
-  max-width: 100%;
+.post-content > pre {
   border: 1px solid var(--math-rule);
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-}
-
-.post-content .highlight {
-  position: relative;
+  border-radius: var(--radius);
   overflow: hidden;
-}
-
-.post-content pre {
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-[data-theme="dark"] .post-content .highlight,
-[data-theme="dark"] .post-content pre {
-  box-shadow: none;
 }
 
 .post-content .highlight pre {
-  width: max-content;
-  min-width: auto;
-  overflow-x: auto;
-  overflow-y: hidden;
   border: 0;
-  box-shadow: none;
 }
 
-.post-content .highlight table {
-  width: auto;
-  min-width: 100%;
-  margin: 0;
-}
-
-.post-content .highlight pre code,
-.post-content pre code {
-  box-sizing: border-box;
-  width: max-content;
-  min-width: auto;
-  padding-right: 4.75rem;
-  overflow-x: visible;
-  word-break: normal;
-  overflow-wrap: normal;
-}
-
-.post-content .highlight .line {
-  width: auto;
-  min-width: 0;
+/* With {linenos=true} the block is a table; scroll the table as a whole */
+.post-content .highlight > div.chroma {
+  overflow-x: auto;
 }
 
 .post-content .highlight .lntable {
-  display: block;
-  width: 100%;
-  min-width: 100%;
-  table-layout: auto;
+  margin: 0;
 }
 
-.post-content .highlight .lntable tbody,
-.post-content .highlight .lntable tr {
-  display: block;
-  width: 100%;
-}
-
-.post-content .highlight .lntable tr {
-  display: flex;
-}
-
-.post-content .highlight .lntd:first-child {
-  flex: 0 0 2.35rem;
-  width: 2.35rem;
-}
-
-.post-content .highlight .lntd:first-child pre {
-  width: 100%;
-  min-width: 0;
-  overflow: hidden;
-}
-
-.post-content .highlight .lntd:first-child code {
-  width: 100%;
-  min-width: 0;
-  padding-right: 0;
-}
-
-.post-content .highlight .lntd:last-child {
-  flex: 1 1 auto;
-  width: calc(100% - 2.35rem);
-  min-width: 0;
-}
-
-.post-content .highlight .lntd:last-child pre {
-  width: 100%;
-  min-width: 0;
-}
-
-.post-content .highlight .lntd:last-child code {
-  display: block;
-  width: max-content;
-  min-width: 100%;
-}
-
-.post-content .highlight .copy-code,
-.post-content pre .copy-code {
-  position: absolute;
-  top: 0.45rem;
-  right: 0.45rem;
-  z-index: 2;
-}
-
-.post-content .highlight td:first-child pre,
-.post-content .highlight .lnt {
-  user-select: none;
-}
-
-.post-content table {
+/* Prose tables only — code line-number tables (.lntable) keep Chroma's layout */
+.post-content table:not(.lntable) {
   display: table;
   width: 100%;
   margin-top: 1.25rem;
@@ -236,7 +145,7 @@
 }
 
 .post-content th,
-.post-content td {
+.post-content td:not(.lntd) {
   border-color: var(--math-rule);
   padding: 0.65rem 0.8rem;
   vertical-align: top;
@@ -246,11 +155,21 @@
   font-size: 1.06em;
 }
 
+/*
+  Wide display math scrolls horizontally. Scroll shadows show that more of the
+  formula is hidden: the `local` covers move with the content and hide the
+  `scroll` shadows once an edge is reached (no JS needed).
+*/
 .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
   margin: 1.35rem auto;
   padding: 0.45rem 0.25rem;
+  background:
+    linear-gradient(to right, var(--theme) 40%, transparent) left / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--theme) 40%, transparent) right / 2.5rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, var(--math-shadow), transparent) left / 0.9rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, var(--math-shadow), transparent) right / 0.9rem 100% no-repeat scroll;
 }
 
 .katex-display > .katex {
@@ -289,7 +208,7 @@
     max-width: 100%;
   }
 
-  .post-content table {
+  .post-content table:not(.lntable) {
     display: block;
   }
 }

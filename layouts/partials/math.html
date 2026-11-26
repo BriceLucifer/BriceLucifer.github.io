@@ -1,9 +1,10 @@
-{{- /* KaTeX — formulas are rendered at build time (render-passthrough.html); only CSS + copy-tex are needed */ -}}
-{{- $katexVersion := "0.16.22" -}}
-<link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@{{ $katexVersion }}/dist/katex.min.css"
-  crossorigin="anonymous">
-
-<script defer
-  src="https://cdn.jsdelivr.net/npm/katex@{{ $katexVersion }}/dist/contrib/copy-tex.min.js"
-  crossorigin="anonymous"></script>
+{{- /*
+  KaTeX — formulas are rendered at build time (render-passthrough.html); only CSS + copy-tex are needed.
+  Self-hosted: assets/katex/ (CSS, copy-tex) + static/katex/fonts/ (woff2).
+  Must match the KaTeX version bundled in Hugo (hugo v0.170.1 → katex 0.18.4,
+  see internal/warpc/js/package.json). Re-vendor both when upgrading Hugo.
+*/ -}}
+{{- $css := resources.Get "katex/katex.min.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- $copytex := resources.Get "katex/copy-tex.min.js" | fingerprint }}
+<script defer src="{{ $copytex.RelPermalink }}" integrity="{{ $copytex.Data.Integrity }}"></script>

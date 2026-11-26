@@ -126,9 +126,10 @@ enableGitInfo = true
   [markup.highlight]
     noClasses = false
     guessSyntax = true
-    lineNos = true
-    lineNumbersInTable = true
-    style = "dracula"          # higher contrast, easier to read alongside white math
+    lineNos = false            # opt in per block: ```rust {linenos=true}
+    lineNumbersInTable = true  # keeps line numbers out of the copy button's text
+    # No `style` here: with noClasses = false the colors come from
+    # assets/css/includes/chroma-styles.css (Catppuccin Latte / Mocha)
 
   [markup.tableOfContents]
     startLevel = 2
