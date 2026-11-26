@@ -2,10 +2,13 @@
 title: "A Simple CPU-based Whirl Shader Experiment"
 date: 2026-01-01
 tags: ["Rust", "Graphics"]
+series: ["CPU Whirl Shader"]
 keywords: ["Rust", "Graphics", "Shader", "Raymarching"]
 description: "A Rust experiment that recreates shader-style procedural graphics on the CPU with raymarching-inspired math and video output."
 summary: "A CPU-based shader experiment in Rust that explores procedural graphics without relying on GLSL or GPU APIs."
 ---
+
+{{< series >}}
 
 ## Context
 
