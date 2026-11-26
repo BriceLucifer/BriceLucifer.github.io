@@ -1,6 +1,6 @@
 # BriceLucifer.github.io
 
-Personal website and technical notebook of **Brice** — engineer and AI researcher in training.
+Personal website and technical notebook of **Brice** — an engineer working on performance, compilers, and the hardware–software boundary.
 
 Live at: **[https://brice6.pages.dev/](https://brice6.pages.dev/)**
 
@@ -8,11 +8,11 @@ Live at: **[https://brice6.pages.dev/](https://brice6.pages.dev/)**
 
 ## Focus Areas
 
-- Video generation and interactive world models (memory consistency, action control, long-horizon generation)
-- Probability theory and stochastic processes — mathematical foundations for AI
-- Systems programming: Rust / C / C++
-- Optimization, numerical methods, and algorithm design
-- AI systems: training efficiency, inference pipelines, system-model co-design
+- Performance engineering: profiling, memory hierarchies, and making programs fast
+- ML compilers: IR design, kernel fusion, code generation (see mlcc)
+- The hardware–software boundary: CPU/GPU architecture and system-model co-design
+- Systems programming: C / C++ / Rust / Zig
+- Previously: video generation and interactive world models (research assistant, 2026)
 
 ---
 

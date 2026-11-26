@@ -3,8 +3,8 @@ title = "About"
 date = 2025-10-08T15:13:34+08:00
 draft = false
 url = "/about/"
-description = "About Brice — Research Assistant at the University of Auckland on generative video world models; Neovim, Rust, Zig, and rebuilding things from scratch."
-keywords = ["AI", "Research", "Video Generation", "World Model", "Rust", "Zig", "C/C++", "Neovim", "Systems", "University of Auckland", "Tencent Cloud", "Brice"]
+description = "About Brice — performance engineering, ML compilers, and the hardware–software boundary; previously a research assistant on generative video world models at the University of Auckland. C/C++, Rust, Zig, Neovim, and rebuilding things from scratch."
+keywords = ["Performance Engineering", "ML Compilers", "Hardware-Software Co-design", "Systems", "C/C++", "Rust", "Zig", "Neovim", "World Models", "University of Auckland", "Tencent Cloud", "Brice"]
 
 # 👇 PaperMod 专用
 showToc = false
@@ -13,32 +13,41 @@ hideMeta = true
 
 <img class="about-avatar" src="/images/avatar-320.webp" alt="Brice" width="140" decoding="async" />
 
-Hi, I’m **Brice** — an engineer who wandered into AI research and decided to stay.
+Hi, I’m **Brice** — an engineer who spent a while in AI research and came back to where software meets hardware.
 
 ```lua
 -- ~/.config/brice/init.lua
 local brice = {
-  role     = "Research Assistant @ University of Auckland",
+  focus    = "performance · ML compilers · hardware <-> software",
+  building = "mlcc, an ML compiler from scratch (C++23)",
   study    = "Master of AI, UoA (2026 – 2027)",
-  research = "generative video world models",
+  previous = "research assistant · generative video world models",
   editor   = "neovim 0.12 · 17 plugins · ~30 ms startup",
-  langs    = { "rust", "c++", "zig", "python", "go", "typescript" },
+  langs    = { "c", "c++", "rust", "zig", "python", "go", "typescript" },
   motto    = "rebuild it until it makes sense",
 }
 
 return brice
 ```
 
-By day I work on **generative video world models** at the University of Auckland, where I’m also doing a **Master of Artificial Intelligence** on the way to a PhD. The rest of the time it looks much the same: I take something I use every day — autograd, a tokenizer, an inference engine, a coding agent, my own editor — and rebuild a version small enough to fit in my head.
+These days I work on **performance** and the layer where **software meets hardware**: why a program is fast or slow, what the memory hierarchy is doing to it, and how a compiler turns a model into code a CPU or GPU can actually run well. I’m doing a **Master of Artificial Intelligence** at the University of Auckland alongside it. The rest of the time it looks much the same: I take something I use every day — autograd, a tokenizer, an inference engine, a coding agent, my own editor — and rebuild a version small enough to fit in my head.
 
 ---
 
-## Research
+## Now
+
+**Performance, compilers, and the hardware–software boundary.** The questions I care about now sit between the model and the machine: how a tensor program becomes kernels, which ones to fuse, how data moves through caches and memory, and what a piece of hardware is actually good at.
+
+The main project is **mlcc**, an ML compiler written from scratch in C++23 that follows a semester-long syllabus from elementwise programs to training an LLM on GPUs. Week one is a hash-consed UOp IR with strict dtype checking; the progress log starts at [From-scratch ML Compiler, Part 1](/posts/mlcc-01-uop-and-hash-consing/).
+
+---
+
+## Previously: Video World Models
 
 **Research Assistant — University of Auckland**  
-*with [Xinyu Zhang](https://zhangxinyu-xyz.github.io/) · 21 Mar 2026 – present*
+*with [Xinyu Zhang](https://zhangxinyu-xyz.github.io/) · Mar – Nov 2026*
 
-Most video models are good at a few convincing seconds. I’m interested in what it takes for one to hold a *world* together — to keep a room the same room when the camera comes back, let things keep happening off-screen, and respond when someone acts inside it. That’s the direction behind work like **LiveWorld**, and I break it into five problems:
+Most video models are good at a few convincing seconds. I worked on what it takes for one to hold a *world* together — to keep a room the same room when the camera comes back, let things keep happening off-screen, and respond when someone acts inside it. That’s the direction behind work like **LiveWorld**, and I broke it into five problems:
 
 | Problem | The question it asks |
 |---------|----------------------|
@@ -50,7 +59,7 @@ Most video models are good at a few convincing seconds. I’m interested in what
 
 I read papers problem-first: for each one, *which of these does it actually move forward?* [**Awesome Interactive World Model**](https://github.com/EasonTuT/Awesome-Interactive-World-Model) organizes the literature the same way — plus post-training, physics, and evaluation — and it’s where I’d point anyone starting out. Contributions and pull requests are welcome.
 
-Underneath all of it is the math I keep coming back to: **measure-theoretic probability, stochastic processes, and SDEs** — the ground diffusion models stand on.
+Underneath it was the math I still come back to: **measure-theoretic probability, stochastic processes, and SDEs** — the ground diffusion models stand on.
 
 ---
 
@@ -102,8 +111,8 @@ Languages are tools. What I actually care about is **abstraction, correctness, a
 
 ## Experience
 
-**Research Assistant — University of Auckland** · *Mar 2026 – present*  
-Video generation and generative video world models, with Xinyu Zhang (see [Research](#research)).
+**Research Assistant — University of Auckland** · *Mar – Nov 2026*  
+Video generation and generative video world models, with Xinyu Zhang (see [Previously](#previously-video-world-models)).
 
 **System Technology Intern — Tencent Cloud** · *CSIG, Xingxinghai Lab · Jul – Sep 2024*  
 Production cloud infrastructure: I automated server deployment pipelines, tightened internal workflows, collected and analysed operational metrics, wrote technical analysis reports, and sat in on distributed-reliability and kernel-adjacent performance work. It’s where *automate it, make it reproducible, debug it carefully* turned into habit.
