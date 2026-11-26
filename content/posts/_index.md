@@ -1,10 +1,10 @@
 ---
 title: "Blog"
-description: "Structured write-ups distilled from problem solving and research."
+description: "Write-ups on hardware, performance, and the software closest to the metal."
 ---
-This section collects **write-ups** on AI, mathematics, systems programming,
-and the occasional reflection — from Master of AI course notes and research
-guides to graphics experiments in Rust.
+This section collects **write-ups** on hardware and performance — CPU and GPU
+architecture, memory hierarchies, and ML compilers — plus systems programming,
+setup notes, and earlier Master of AI course notes on AI and mathematics.
 
 Posts here are written to:
 - explain key insights clearly

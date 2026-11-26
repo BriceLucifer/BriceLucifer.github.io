@@ -38,6 +38,8 @@ These days I work on **performance** and the layer where **software meets hardwa
 
 **Performance, compilers, and the hardware–software boundary.** The questions I care about now sit between the model and the machine: how a tensor program becomes kernels, which ones to fuse, how data moves through caches and memory, and what a piece of hardware is actually good at.
 
+Most of what I write here from now on is about **hardware and the software closest to it**: CPU and GPU architecture, memory hierarchies, and the compilers and runtimes that target them.
+
 The main project is **mlcc**, an ML compiler written from scratch in C++23 that follows a semester-long syllabus from elementwise programs to training an LLM on GPUs. Week one is a hash-consed UOp IR with strict dtype checking; the progress log starts at [From-scratch ML Compiler, Part 1](/posts/mlcc-01-uop-and-hash-consing/).
 
 ---
