@@ -32,7 +32,9 @@ Live at: **[https://brice6.pages.dev/](https://brice6.pages.dev/)**
 - **Static site generator**: Hugo
 - **Theme**: PaperMod
 - **Content**: Markdown + KaTeX (rendered at build time)
-- **Fonts**: system font stack for text, self-hosted JetBrains Mono for code (`static/fonts/`)
+- **Fonts** (self-hosted, `static/fonts/`): Source Serif 4 for article text, Noto Serif SC for Chinese (loaded only on pages with Chinese), JetBrains Mono for code and metadata, system sans for UI
+- **Colors**: Catppuccin Latte / Mocha for the site and code highlighting (`assets/css/extended/theme-catppuccin.css`)
+- **Math**: KaTeX 0.18.4 CSS + fonts self-hosted (`assets/katex/`, `static/katex/`) — must match the KaTeX bundled in Hugo; re-vendor when upgrading Hugo
 - **Hosting**: Cloudflare Pages
 
 ---

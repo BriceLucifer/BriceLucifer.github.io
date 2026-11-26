@@ -3,22 +3,9 @@
   This file is loaded by PaperMod after the theme CSS.
 */
 
+/* Colors (--math-*, --theme, …) are defined in theme-catppuccin.css */
 :root {
   --article-max-width: 860px;
-  --article-measure: 72ch;
-  --math-accent: #2563eb;
-  --math-accent-soft: rgba(37, 99, 235, 0.1);
-  --math-warm: #b45309;
-  --math-rule: rgba(125, 125, 125, 0.22);
-  --math-shadow: rgba(0, 0, 0, 0.18);
-}
-
-[data-theme="dark"] {
-  --math-accent: #7dd3fc;
-  --math-accent-soft: rgba(125, 211, 252, 0.12);
-  --math-warm: #fbbf24;
-  --math-rule: rgba(229, 231, 235, 0.18);
-  --math-shadow: rgba(205, 214, 244, 0.25);
 }
 
 .post-single {
@@ -29,20 +16,6 @@
   font-size: 1.03rem;
   line-height: 1.78;
   letter-spacing: 0;
-}
-
-.post-content > * {
-  max-width: var(--article-measure);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.post-content > pre,
-.post-content > table,
-.post-content > .highlight,
-.post-content > .katex-display,
-.post-content > figure {
-  max-width: 100%;
 }
 
 .post-content h2,
@@ -202,10 +175,6 @@
 @media (max-width: 768px) {
   .post-content {
     font-size: 1rem;
-  }
-
-  .post-content > * {
-    max-width: 100%;
   }
 
   .post-content table:not(.lntable) {

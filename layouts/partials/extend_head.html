@@ -6,3 +6,9 @@
 {{- if $hasMath }}
 {{ partial "math.html" . }}
 {{- end }}
+
+{{- /* ── Chinese body font (Noto Serif SC) — only on pages with Han characters ── */ -}}
+{{- if findRE `\p{Han}` $content 1 }}
+{{- $cjk := resources.Get "css/noto-serif-sc.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $cjk.RelPermalink }}" integrity="{{ $cjk.Data.Integrity }}">
+{{- end }}

@@ -33,6 +33,7 @@ enableGitInfo = true
   keywords = ["AI", "Research", "Video Generation", "World Models", "Deep Learning", "Mathematics", "Rust", "Zig", "C++", "Python"]
   images = ["images/avatar-320.webp"]
   defaultTheme = "auto"
+  DateFormat = "2006-01-02"    # ISO dates in post meta / lists
   ShowPostNavLinks = true
   ShowRssButtonInSectionTermList = true
 
