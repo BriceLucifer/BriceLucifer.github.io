@@ -20,10 +20,10 @@ The goal was **not performance**, but to understand:
 
 The final result is a short rendered video:
 
-<video controls autoplay loop muted playsinline width="100%">
-  <source
-    src="https://raw.githubusercontent.com/BriceLucifer/shader/main/out.mp4"
-    type="video/mp4">
+<video controls autoplay loop muted playsinline preload="metadata"
+       width="1280" height="720" style="width:100%;height:auto"
+       poster="/images/shader/whirl-poster.webp">
+  <source src="/videos/whirl-shader.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
