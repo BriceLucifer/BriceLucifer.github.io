@@ -1,0 +1,2 @@
+{{- /* RSS: feed readers don't load KaTeX's CSS, so emit MathML only (rendered natively). */ -}}
+{{- partial "katex.html" (dict "inner" .Inner "block" (eq .Type "block") "output" "mathml" "page" .Page) | safeHTML -}}

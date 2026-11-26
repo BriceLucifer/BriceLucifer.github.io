@@ -1,10 +1,14 @@
 ---
 title: "从零写一个 ML 编译器（一）：UOp、类型检查与 Hash Consing"
 date: 2026-11-26
-tags: ["Compiler", "C++", "ML Systems", "IR", "MLCC"]
+tags: ["Compilers", "C++", "Performance"]
+keywords: ["Compiler", "C++", "ML Systems", "IR", "MLCC"]
+series: ["MLCC"]
 description: "Progress log for MLCC, an ML compiler written from scratch in C++23: the UOp IR, strict dtype checking, a hash-consed graph, and fixing an exponential-time dtype check with memoization."
 summary: "MLCC 是我用 C++23 从零写的 ML 编译器，目标是从 elementwise 程序一路走到在 GPU 上训练 LLM。这篇记录第一阶段：UOp 这个唯一的 IR 节点、严格的 dtype 推导、hash consing 的图，以及一个测试全绿却藏着 2ⁿ 复杂度的坑是怎么用记忆化修掉的。"
 ---
+
+{{< series >}}
 
 我在跟着一份 *Compilers for Machine Learning* 的课程大纲，从零写一个机器学习编译器，叫 **MLCC**。大纲只给规格不给实现：没有 starter code，语言自选，每周在上一周的基础上继续加功能，最终要能训练一个真正的 LLM。
 

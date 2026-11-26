@@ -128,3 +128,36 @@
   background: var(--math-accent);
   color: var(--theme);
 }
+
+/* Series box ({{< series >}} shortcode) */
+.post-content .series-box {
+  margin: 1.5rem 0 2rem;
+  padding: 0.9rem 1.2rem 0.8rem;
+  border: 1px solid var(--math-rule);
+  border-left: 3px solid var(--math-accent);
+  border-radius: var(--radius);
+  background: var(--math-accent-soft);
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+}
+
+.post-content .series-box-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--secondary);
+  margin-bottom: 0.35rem;
+}
+
+.post-content .series-box ol {
+  margin: 0;
+  padding-inline-start: 1.4rem;
+}
+
+.post-content .series-box li {
+  margin: 0.15rem 0;
+}
+
+.post-content .series-box [aria-current="page"] {
+  color: var(--math-accent);
+  font-weight: 600;
+}

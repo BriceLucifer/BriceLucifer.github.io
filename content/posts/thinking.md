@@ -1,7 +1,8 @@
 ---
 title: "What Remains of Learning in the Age of AI"
 date: 2026-04-13
-tags: ["AI", "Learning", "Education", "Essay"]
+tags: ["Essay"]
+keywords: ["AI", "Learning", "Education", "Essay"]
 description: "A reflection on learning, memory, intelligence, and feeling in the age of large language models."
 summary: "As AI makes summarization and retrieval cheap, the value of learning shifts from memorization toward judgment, structure, attention, and the deeper feeling that gives direction to thought."
 ---

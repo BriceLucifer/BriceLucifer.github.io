@@ -8,6 +8,7 @@ theme = "PaperMod"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
+titleCaseStyle = "none"        # keep term titles as written (macOS, not MacOS)
 
 # lastmod 取自 git 提交时间（sitemap / OpenGraph / schema 用）
 # Cloudflare Pages 构建命令需先 unshallow：git fetch --unshallow || true; hugo --gc
@@ -36,6 +37,7 @@ enableGitInfo = true
   DateFormat = "2006-01-02"    # ISO dates in post meta / lists
   ShowPostNavLinks = true
   ShowRssButtonInSectionTermList = true
+  ShowFullTextinRSS = true     # full posts in feeds; math is MathML-only there (render-passthrough.rss.xml)
 
   showReadingTime = true
   showWordCount = true
@@ -142,6 +144,7 @@ enableGitInfo = true
 # --------------------
 [taxonomies]
   tag = "tags"
+  series = "series"            # multi-part posts; list them with {{< series >}}
 
 # --------------------
 # 输出（搜索需要 JSON）

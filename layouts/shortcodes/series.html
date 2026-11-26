@@ -1,0 +1,15 @@
+{{- /*
+  {{< series >}} — lists every post in this page's series (front matter: series: ["Name"]),
+  oldest first, with the current post marked. PaperMod has no series UI of its own.
+*/ -}}
+{{- $page := .Page -}}
+{{- range .Page.GetTerms "series" }}
+<nav class="series-box" aria-label="Series: {{ .LinkTitle }}">
+  <div class="series-box-title">series · <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></div>
+  <ol>
+    {{- range .Pages.ByDate }}
+    <li>{{ if eq .RelPermalink $page.RelPermalink }}<span aria-current="page">{{ .Title }}</span>{{ else }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}</li>
+    {{- end }}
+  </ol>
+</nav>
+{{- end }}

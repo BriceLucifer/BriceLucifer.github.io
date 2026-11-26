@@ -1,7 +1,8 @@
 ---
 title: "Classical AI, Systematically: Logic, Knowledge Representation, Soft Computing, and Learning Systems"
 date: 2026-04-28
-tags: ["Logic", "Knowledge Representation", "Soft Computing", "Decision Trees", "Ensemble Learning", "NEAT", "Overview"]
+tags: ["AI Foundations"]
+keywords: ["Logic", "Knowledge Representation", "Soft Computing", "Decision Trees", "Ensemble Learning", "NEAT", "Overview"]
 description: "A systematic overview of classical AI: knowledge representation, symbolic logic, expert systems, decision trees, ensembles, soft computing, LNNs, and NEAT — and how they connect."
 summary: "One map of classical AI: KR, logic, MYCIN, trees, ensembles, fuzzy reasoning, Bayesian methods, LNNs, and NEAT — what each represents, how it infers, and where it fails."
 draft: false

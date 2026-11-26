@@ -1,7 +1,8 @@
 ---
 title: "My Neovim Setup：从 Keymap 到一个「没有下巴」的 UI"
 date: 2026-11-24
-tags: ["Neovim", "Lua", "Editor", "UI Design", "Setup"]
+tags: ["Tooling"]
+keywords: ["Neovim", "Lua", "Editor", "UI Design", "Setup"]
 description: "A tour of my Neovim 0.12 config — 17 single-purpose plugins in 8 Lua files — covering keymap design, native LSP, and a chin-less floating UI with a hand-written dashboard."
 summary: "我的 Neovim 0.12 配置：17 个插件、8 个 Lua 文件、约 30 ms 启动。从 leader 键怎么分组、Ctrl 和 Alt 怎么分工，到去掉状态栏和命令行之后，状态胶囊、浮动命令行、通知卡片和会转的星系启动页是怎么设计的。"
 ---

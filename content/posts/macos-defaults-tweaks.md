@@ -1,7 +1,8 @@
 ---
 title: "My macOS Defaults: Dock, Finder 和 Keyboard 调教笔记"
 date: 2026-11-24
-tags: ["macOS", "Productivity", "Terminal", "Setup"]
+tags: ["Tooling"]
+keywords: ["macOS", "Productivity", "Terminal", "Setup"]
 description: "A handful of `defaults write` commands I run on every new Mac to make the Dock instant, Finder honest, and key repeat fast — with one-line rollbacks for each."
 summary: "每次拿到新 Mac 我都会先跑这几行 defaults write：让 Dock 瞬间弹出、Finder 显示隐藏文件和完整路径、键盘重复速度拉满。每一项都附带 back to default 的命令。"
 ---

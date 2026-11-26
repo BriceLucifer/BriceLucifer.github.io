@@ -1,7 +1,8 @@
 ---
 title: "UoA Cloud Server: Setup and Usage Guide"
 date: 2026-03-28
-tags: ["Research", "HPC", "SLURM", "GPU"]
+tags: ["GPU", "Tooling"]
+keywords: ["Research", "HPC", "SLURM", "GPU"]
 description: "A step-by-step guide for doing research on UoA cloud servers."
 summary: "A practical guide for setting up environments, training models, and managing GPU jobs on UoA's compute cluster."
 ShowToc: true

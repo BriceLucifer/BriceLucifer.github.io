@@ -1,0 +1,52 @@
+{{- /*
+  Server-side KaTeX shared by the passthrough render hooks.
+  Input: dict "inner" (TeX source), "block" (bool), "output" ("htmlAndMathml" | "mathml"), "page".
+  Returns the rendered HTML; on a TeX error it warns and returns the source in a <pre>/<code>.
+*/ -}}
+{{- $macros := dict
+  "\\R"       "\\mathbb{R}"
+  "\\N"       "\\mathbb{N}"
+  "\\Z"       "\\mathbb{Z}"
+  "\\Q"       "\\mathbb{Q}"
+  "\\C"       "\\mathbb{C}"
+  "\\F"       "\\mathbb{F}"
+  "\\1"       "\\mathbf{1}"
+  "\\E"       "\\mathbb{E}"
+  "\\P"       "\\mathbb{P}"
+  "\\Var"     "\\operatorname{Var}"
+  "\\Cov"     "\\operatorname{Cov}"
+  "\\Corr"    "\\operatorname{Corr}"
+  "\\rank"    "\\operatorname{rank}"
+  "\\tr"      "\\operatorname{tr}"
+  "\\diag"    "\\operatorname{diag}"
+  "\\softmax" "\\operatorname{softmax}"
+  "\\ReLU"    "\\operatorname{ReLU}"
+  "\\KL"      "D_{\\mathrm{KL}}"
+  "\\norm"    "\\left\\lVert #1 \\right\\rVert"
+  "\\abs"     "\\left\\lvert #1 \\right\\rvert"
+  "\\ceil"    "\\left\\lceil #1 \\right\\rceil"
+  "\\floor"   "\\left\\lfloor #1 \\right\\rfloor"
+  "\\set"     "\\left\\{ #1 \\right\\}"
+  "\\inner"   "\\langle #1,\\, #2 \\rangle"
+  "\\Loss"    "\\mathcal{L}"
+  "\\Data"    "\\mathcal{D}"
+  "\\argmin"  "\\operatorname*{arg\\,min}"
+  "\\argmax"  "\\operatorname*{arg\\,max}"
+  "\\grad"    "\\nabla"
+  "\\dd"      "\\,\\mathrm{d}"
+  "\\given"   "\\,\\middle|\\,"
+  "\\T"       "^{\\top}"
+  "\\eps"     "\\varepsilon"
+-}}
+{{- $opts := dict "output" .output "displayMode" .block "macros" $macros "throwOnError" true -}}
+{{- $out := "" -}}
+{{- with try (transform.ToMath .inner $opts) -}}
+  {{- with .Err -}}
+    {{- warnf "KaTeX failed in %s: %s" $.page.File.Path . -}}
+    {{- $src := $.inner | htmlEscape -}}
+    {{- $out = cond $.block (printf "<pre class=\"math-error\">%s</pre>" $src) (printf "<code class=\"math-error\">%s</code>" $src) -}}
+  {{- else -}}
+    {{- $out = .Value -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

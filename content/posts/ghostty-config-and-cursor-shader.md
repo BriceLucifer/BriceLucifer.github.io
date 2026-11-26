@@ -1,7 +1,8 @@
 ---
 title: "Ghostty 配置笔记：从字体到一个 Neovide 风格的 Cursor Shader"
 date: 2026-11-24
-tags: ["Ghostty", "Terminal", "Shader", "GLSL", "macOS", "Setup"]
+tags: ["Tooling", "Graphics"]
+keywords: ["Ghostty", "Terminal", "Shader", "GLSL", "macOS", "Setup"]
 math: true
 description: "My Ghostty config, section by section, plus a custom GLSL cursor shader that reproduces Neovide's spring-animated cursor inside the terminal."
 summary: "我的 Ghostty 配置逐段拆解：字体、主题、窗口、Quick Terminal、快捷键，以及一个自己写的 cursor shader，在终端里还原 Neovide 那种四个角各自弹簧跟随的光标动画。"

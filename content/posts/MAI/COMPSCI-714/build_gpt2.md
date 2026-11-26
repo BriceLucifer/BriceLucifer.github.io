@@ -1,7 +1,8 @@
 ---
 title: "Build GPT-2 from Scratch: Architecture, Tokenization, and Training"
 date: 2026-03-28
-tags: ["Deep Learning", "LLM", "Transformer", "PyTorch"]
+tags: ["AI Foundations"]
+keywords: ["Deep Learning", "LLM", "Transformer", "PyTorch"]
 description: "A step-by-step GPT-2 walkthrough covering BPE tokenization, transformer blocks, masked self-attention, and training."
 summary: "A first-principles guide to building GPT-2, from tokenization and embeddings to transformer training."
 math: true
