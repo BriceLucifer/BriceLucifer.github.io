@@ -1,0 +1,68 @@
+/*
+  Home (PaperMod profile mode) — CSS only, markup is PaperMod's index_profile.html.
+*/
+
+.profile img {
+  box-shadow:
+    0 0 0 4px var(--theme),
+    0 0 0 5px var(--math-accent);
+  transition: box-shadow 0.2s ease;
+}
+
+.profile img:hover {
+  box-shadow:
+    0 0 0 4px var(--theme),
+    0 0 0 6px var(--math-accent);
+}
+
+/* Subtitle reads like a terminal line, with a blinking block cursor */
+.profile_inner > span {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+  color: var(--secondary);
+}
+
+.profile_inner > span::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  margin-left: 0.25em;
+  vertical-align: -0.2em;
+  background: var(--math-accent);
+  animation: profile-cursor 1.1s steps(1) infinite;
+}
+
+@keyframes profile-cursor {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile_inner > span::after {
+    animation: none;
+  }
+}
+
+.profile .social-icons a {
+  color: var(--secondary);
+  transition: color 0.15s ease;
+}
+
+.profile .social-icons a:hover {
+  color: var(--math-accent);
+}
+
+/* Buttons: hairline outline + mono, same language as the RSS box */
+.profile .button {
+  background: transparent;
+  border: 1px solid var(--math-rule);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.profile .button:hover {
+  border-color: var(--math-accent);
+  color: var(--math-accent);
+}
